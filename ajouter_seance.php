@@ -1,3 +1,12 @@
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
 <?php
 
 $dbhost = 'localhost:3307';
@@ -46,3 +55,6 @@ $response2=mysqli_fetch_array($result2);
 
 
 ?>
+
+</body>
+</html>
