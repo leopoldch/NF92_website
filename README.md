@@ -21,4 +21,4 @@ to complete :
 
 -valider séance.php
 
--supprimer séance à modifier
+-supprimer :: affichage à compléter // traitement de la suppression : OK
