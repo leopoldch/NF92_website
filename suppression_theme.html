@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suppression d'un thème</title>
+</head>
+<body>
+    <h1 class="title">Suppression d'un thème</h1>
+    <!--Création d'un formulaire en HTML avec le nom du thème à supprimer   -->
+    <FORM class='Form' METHOD='POST' ACTION="suppression_theme.php">
+      <label for="theme_name_supp">Nom du thème que vous voulez supprimer :</label>
+      <INPUT id="theme_name_supp" type="text" NAME="theme_name_supp" REQUIRED > <BR><BR>
+
+      <INPUT VALUE="Valider" TYPE="SUBMIT">
+      <!--Bouton pour envoyer les données à la page php qui traite les informations -->
+      <INPUT VALUE="Réinitialiser" TYPE="RESET"><BR>
+    </FORM>
+</body>
+</html>

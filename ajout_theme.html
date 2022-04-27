@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajout d'un thème</title>
+</head>
+<body>
+    <h1 class="title">ajouter d'un thème</h1>
+<!-- ajout d'un formulaire à destination de l'utilisateur avec une balise input (text) et une balise textarea libre non obligatoire
+alors que le nom est en effet obligatoire d'où le "required"-->
+    <form class='form' method='post' action="ajout_theme.php">
+      <fieldset>
+      <label for="theme_name">nom du thème :</label>
+      <input id="theme_name" type="text" name="theme_name" required > <br><br>
+
+      <label for "description"> description : </label> <br>
+      <textarea id="description" name="description" rows="12" cols="50"></textarea><br>
+      </fieldset>
+      <fieldset>
+      <input value="ajouter le thème" type="submit">
+      <!-- Ici on a  deux boutons un qui permet d'envoyer les données à la page php pour qu'elles soient exploités et l'autre
+    permet la réinitialisation des champs du formulaire -->
+      <input value="réinitialiser" type="reset"><br>
+    </fieldset>
+    </form>
+
+
+</body>
+</html>
