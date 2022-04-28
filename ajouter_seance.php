@@ -20,7 +20,7 @@ mysqli_set_charset($connect, 'utf8'); //les données envoyées vers mysql sont e
 
 // récupération de la date du jour mise dans $aujourdhui
 date_default_timezone_set('europe/paris');
-$aujourdhui = date("y-m-d");
+$aujourdhui = date("Y-m-d");
 
 //vérification que les champs soient bien remplis par l'utilisateur
 if(empty($_POST['date_inscription']) or empty($_POST['menuchoixtheme']) or empty($_POST['effectif'])){

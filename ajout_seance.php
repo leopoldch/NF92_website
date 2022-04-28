@@ -19,7 +19,7 @@ $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('error conn
 
 // récupération de la date du jour mise dans $aujourdhui
 date_default_timezone_set('europe/paris');
-$aujourdhui = date("y-m-d");
+$aujourdhui = date("Y-m-d");
 
 //la ligne suivante permet d'éviter les problèmes d'accent entre la page web et le serveur mysql
 mysqli_set_charset($connect, 'utf8'); //les données envoyées vers mysql sont encodées en utf-8
