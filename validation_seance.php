@@ -21,6 +21,32 @@ mysqli_set_charset($connect, 'utf8');
 date_default_timezone_set('europe/paris');
 $aujourdhui = date("Y-m-d");
 
+if(empty($_POST['menuchoixseance'])){
+  echo"<p>Veuillez à bien selectionner une séance </p>";
+  echo"<a href='valider_seance.php'>Retour à la selection</a>";
+}
+else{
+  $idseance = $_POST['menuchoixseance'];
+  $request1 = mysqli_query($connect,"SELECT * FROM seances WHERE idseance=$idseance");
+  $nombre_participants = mysqli_fetch_array($request1);
+  $nombre_participants= $nombre_participants['nb_inscrits'];
+
+
+  $request2 = mysqli_query($connect,"SELECT * FROM inscription WHERE idseance=$idseance");
+
+  while($response = mysqli_fetch_array($request2)) {
+
+          $ideleve = $response['ideleve'];
+          $result_nom = mysqli_query($connect,"SELECT * FROM eleves WHERE ideleve=$ideleve");
+          $tab = mysqli_fetch_array($result_nom);
+          $nom= $tab['nom'];
+          $prenom = $tab['prenom'];
+
+          echo $prenom.$nom;
+  }
+
+}
+
 
 
 ?>

@@ -19,7 +19,7 @@ $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('error conn
 
 // récupération de la date du jour mise dans $aujourdhui
 date_default_timezone_set('europe/paris');
-$aujourdhui = date("y-m-d");
+$aujourdhui = date("Y-m-d");
 
 //la ligne suivante permet d'éviter les problèmes d'accent entre la page web et le serveur mysql
 mysqli_set_charset($connect, 'utf8'); //les données envoyées vers mysql sont encodées en utf-8
@@ -43,11 +43,11 @@ else{
   echo "<select name='menuchoixseance' id='menuchoixseance' size='4' style='width:35%; text-align: center'>";
   /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
   while($response = mysqli_fetch_array($result)) {
-          $num = $response['Idtheme'];
+          $num = $response['idtheme'];
           $result_nom = mysqli_query($connect,"SELECT nom FROM theme WHERE idtheme=$num");
           $nom = mysqli_fetch_array($result_nom);
           $nom= $nom['nom'];
-    echo "<option value=".$response['idseance'].">".$response['DateSeance'].' / '.$nom."</option>";
+    echo "<option value=".$response['idseance'].">".$response['Date Seance'].' / '.$nom."</option>";
   }
   echo "</select><br><br>";
   echo "<br><br>";
