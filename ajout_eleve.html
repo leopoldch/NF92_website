@@ -1,38 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajout d'élève</title>
+    <title>ajout d'élève</title>
 </head>
 <body>
-    <h1 class="title">Ajouter un élève</h1>
-<!--Création d'un formulaire à destination de l'utilisateur  -->
-    <FORM class='Form' METHOD='POST' ACTION="ajout_eleve.php">
-      <fieldset class='ajout_eleve'> <!-- Les balises fieldset permettent de faire apparaitre les contours du formulaire-->
-      <label for="fname">Prénom :</label>
-      <INPUT id="fname" placeholder="Prénom" type="text" NAME="fname" REQUIRED > <BR><BR>
+    <h1 class="title">ajouter un élève</h1>
+<!--création d'un formulaire à destination de l'utilisateur  -->
+    <form class='form' method='post' action="ajout_eleve.php">
+      <fieldset class='ajout_eleve'> <!-- les balises fieldset permettent de faire apparaitre les contours du formulaire-->
 
-      <label for="lname">Nom :</label>
-      <INPUT id="lname" type="text" NAME="lname" REQUIRED><BR><br>
+      <input id="fname" placeholder="Prénom" type="text" name="fname" required > <br><br>
+
+      <input id="lname" placeholder="nom" type="text" name="lname" required><br><br>
+
       </fieldset>
       <fieldset class='ajout_eleve'>
-      <INPUT NAME="genre" TYPE="RADIO" VALUE="Male">Homme <BR><br>
-      <INPUT NAME="genre" TYPE="RADIO"VALUE="Female">Femme<BR><br>
+      <input name="genre" type="radio" value="male">homme <br><br>
+      <input name="genre" type="radio"value="female">femme<br><br>
       </fieldset>
       <fieldset class='ajout_eleve'>
-      <label for="bdate">Date de naissance </label>
-      <input type="date" id="bdate" name="bdate" data-date="" data-date-format="DD MMMM YYYY" min="1932-01-01" max="2007-01-01" >
+      <label for="bdate">date de naissance</label>
+      <input type="date" id="bdate" name="bdate" data-date="" data-date-format="dd mmmm yyyy" min="1932-01-01" max="2007-01-01" >
       <br><br>
       </fieldset>
       <fieldset class='ajout_eleve'>
-      <INPUT VALUE="Ajouter l'élève" TYPE="SUBMIT">
-        <!--Bouton qui envoie les données de la page HTML à la page php qui va traiter les données-->
-      <INPUT VALUE="Réinitialiser" TYPE="RESET"><BR>
+      <input value="ajouter l'élève" type="submit">
+        <!--bouton qui envoie les données de la page html à la page php qui va traiter les données-->
+      <input value="réinitialiser" type="reset"><br>
       </fieldset>
-    </FORM>
+    </form>
 
 
 </body>
