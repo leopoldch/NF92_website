@@ -21,6 +21,8 @@ mysqli_set_charset($connect, 'utf8');
 date_default_timezone_set('europe/paris');
 $aujourdhui = date("Y-m-d");
 
+
+
 if(empty($_POST['menuchoixseance'])){
   echo"<p>Veuillez à bien selectionner une séance </p>";
   echo"<a href='valider_seance.php'>Retour à la selection</a>";
@@ -34,6 +36,10 @@ else{
 
   $request2 = mysqli_query($connect,"SELECT * FROM inscription WHERE idseance=$idseance");
 
+  echo "<form method='POST' action='noter_eleve.php'>";
+
+  $val=0;
+  
   while($response = mysqli_fetch_array($request2)) {
 
           $ideleve = $response['ideleve'];
@@ -42,23 +48,31 @@ else{
           $nom= $tab['nom'];
           $prenom = $tab['prenom'];
 
-          echo "<form method='POST' action='verification_seance.php'>";
-          echo "<p>".$nom." ".$prenom;
-          $note = mysqli_query($connect,"SELECT note FROM inscription WHERE idseance=$idseance");
-          $tab2 = mysqli_fetch_array($note);
-          $note= $tab2['note'];
+          echo "<div><p>".$nom." ".$prenom;
+
+          $note= $response['note'];
+
+
 
           if($note == -1){
-            echo " note à saisir : </p>";
-            echo "<input type='number' min='0' max='40' name=''>";
+            $val++;
+            echo " pas encore de note : ";
+            echo "<input type='number' min='0' max='40' name='".$val."'></p>";
+            echo "<input type='hidden' name='ideleve".$val."' value='".$ideleve."'>";
           }
           else{
-            echo " note actuelle : ".$note."</p>";
+            $val++;
+            echo " note actuelle : ";
+            echo "<input type='number' placeholder='".$note."' min='0' max='40' name='".$val."'></p></div>";
+            echo "<input type='hidden' name='ideleve".$val."' value='".$ideleve."'>";
 
           }
 
   }
-
+  echo "<input type='hidden' name='idseance' value='".$idseance."'>";
+  echo "<input type='submit' value='Evaluer'>";
+  echo "<input type='reset' value='Réinitialiser'>";
+  echo "</form>";
 }
 
 

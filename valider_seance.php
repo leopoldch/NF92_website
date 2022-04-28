@@ -43,11 +43,11 @@ else{
   echo "<select name='menuchoixseance' id='menuchoixseance' size='4' style='width:35%; text-align: center'>";
   /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
   while($response = mysqli_fetch_array($result)) {
-          $num = $response['idtheme'];
+          $num = $response['Idtheme'];
           $result_nom = mysqli_query($connect,"SELECT nom FROM theme WHERE idtheme=$num");
           $nom = mysqli_fetch_array($result_nom);
           $nom= $nom['nom'];
-    echo "<option value=".$response['idseance'].">".$response['Date Seance'].' / '.$nom."</option>";
+    echo "<option value=".$response['idseance'].">".$response['DateSeance'].' / '.$nom."</option>";
   }
   echo "</select><br><br>";
   echo "<br><br>";
