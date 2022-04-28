@@ -45,13 +45,14 @@
 
           echo "</select><br><br>";
 
+          $compt = 0
+
           echo "<label for='menuchoixeleve'> Veuillez selectionner des élèves pour les inscrire </label><br>";
-          echo "<select name='menuchoixeleve' id='menuchoixeleve' multiple size='4' style='width:auto; text-align: center'>";
           /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
           while($response  = mysqli_fetch_array($result2))
 
-            echo "<option value=".$response['ideleve'].">".$response['nom'].' '.$response['prenom']."<br><br>";
-            echo "</select><br><br>";
+            echo "<input type='checkbox' name='val".$compt." value=".$response['ideleve'].">".$response['nom'].' '.$response['prenom']."<br><br>";
+            echo "<input type='hidden' name='compt' value='".$compt."'>"
             echo "<br><br>";
             echo "<input type='submit' value='Inscrire ces élèves'>";
             echo "</form>";
