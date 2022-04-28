@@ -34,7 +34,7 @@ else{
   echo "<form method='post' action='supprimer_seance.php'>";
   echo "<fieldset style='width: 50%; height: 15%'>";
   echo "<label for='menuchoixseance_supp'> Veuillez selectionner la séance à supprimer </label>";
-  echo "<select name='menuchoixseance_supp' id='menuchoixseance_supp' size='4' style='width:35%; text-align: center'>";
+  echo "<select name='menuchoixseance_supp' id='menuchoixseance_supp' size='4' style='width:45%; text-align: center'>";
 
   /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
   while($response = mysqli_fetch_array($result)) {
@@ -44,7 +44,7 @@ else{
     $nom = mysqli_fetch_array($result_nom);
     $nom= $nom['nom'];
 
-    echo "<option value=".$response['idseance'].">".$response['DateSeance'].' / '.$nom."</option>";
+    echo "<option value=".$response['idseance'].">".$nom." / ".$response['DateSeance'].' / Effectif :'.$response['EffMax']."</option>";
   }
 
 
