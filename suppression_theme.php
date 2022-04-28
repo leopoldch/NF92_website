@@ -1,52 +1,54 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suppression d'un thème</title>
 </head>
 <body>
+    <h1 class="title">Suppression d'un thème</h1>
+    <!--Création d'un formulaire en HTML avec le nom du thème à supprimer   -->
+    <?php
+      $dbhost = 'localhost:3307';
+      $dbuser = 'root';
+      $dbpass = '';
+      $dbname = 'nf92p018';
+      $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('error connecting to mysql');
+      mysqli_set_charset($connect, 'utf8');
 
-        <?php
-          $theme_name_supp = $_POST["theme_name_supp"];
+      date_default_timezone_set('europe/paris');
+      $aujourdhui = date("Y-m-d");
 
-          $dbhost = 'localhost:3307';
-          $dbuser = 'root';
-          $dbpass = '';
-          $dbname = 'nf92p018';
-          //Connexion à la BDD
-          $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die ('Error connecting to mysql');
-          //la ligne suivante permet d'éviter les problèmes d'accent entre la page web et le serveur mysql
-          mysqli_set_charset($connect, 'utf8'); //les données envoyées vers mysql sont encodées en UTF-8
+      $result = mysqli_query($connect,"SELECT * FROM theme WHERE supprime = 0");
 
-            $name = $connect->query("SELECT * FROM theme WHERE nom='$theme_name_supp'")->fetch_object();
+      $resultCount=mysqli_num_rows($result);
 
-            if(empty($name)){
-              //on vérifie d'abord si le theme qu'on souhaite supprimé est déjà dans la BDD
-              //Si effectivement il ne si trouve pas, on ne peut pas le supprimer
-              echo "<p>Aucun thème porte ce nom </p>";
-              echo "<a href='suppression_theme.html' target='contenu'> Retour <a>";
-            }
-              else{
-                //si il existe, alors on trouve la valeur de supprime dans name qui peut être soit 1 soit 0
-                //si c'est 1, php retournera que le thèeme est déjà enregistré comme supprimé
-                if($name->supprime){
-                  echo"<p>Ce thème a déjà été supprimé</p>";
-                  echo "<a href='suppression_theme.html' target='contenu'> Retour <a>";
-                }
-                else{
-                  //sinon on envoie une requete pour modifier le 0 en 1 pour montrer que changer l'état de supprime
-                  $query = "UPDATE theme SET supprime='1' WHERE nom='$theme_name_supp';";
-                  // La ligne du dessus change la valeur du booléen supprime de 0 à 1 pour signifier que le thème est supprimé
-                  $result = mysqli_query($connect, $query);
-                  echo "<p> Le thème a bien était supprimée</p>";
-                  echo "<a href='suppression_theme.html' target='contenu'> Retour <a>";
-                }
-              }
-          mysqli_close($connect);
+      if($resultCount == 0){
+        echo"<p>il faut ajouter un thème pour pouvoir en supprimer</p>";
+        echo "<a href='ajout_theme.html' target='contenu'> Ajouter un thème <a>";
+      }
+      else{
+        echo "<form method='post' action='supprimer_theme.php'>";
+        echo "<fieldset style='width: 50%; height: 15%'>";
+        echo "<label for='theme_supp'> Veuillez selectionner la séance à supprimer </label>";
+        echo "<select name='theme_supp' id='theme_supp' size='4' style='width:20%; text-align: center'>";
+
+        /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
+        while($response = mysqli_fetch_array($result)) {
+          echo "<option value=".$response['idtheme'].">".$response['nom']."</option>";
+        }
+
+        echo "</select><br><br>";
+        echo "<input type='submit' value='Valider la suppression'>";
+        echo "</form>";
+        echo "</fieldset>";
 
 
-          ?>
 
-  </body>
+      }
+
+     ?>
+
+</body>
 </html>
