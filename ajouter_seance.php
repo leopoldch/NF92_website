@@ -33,25 +33,44 @@ $selected_date=$_POST['date_inscription'];
 $idtheme=$_POST['menuchoixtheme'];
 $effectif=$_POST['effectif'];
 
+echo $selected_date;
+
 if($selected_date < $aujourdhui){
   echo"<p>Vous ne pouvez pas rentrer une date inférieure à aujourd'hui</p>";
   echo "<a href=ajout_seance.php> Retour </a>";
   exit();
 }
 
-$query2 = "SELECT * FROM seances WHERE idtheme ='$idtheme'";
-$result2 = mysqli_query($connect, $query2);
-$response2=mysqli_fetch_array($result2);
-  if($response2['DateSeance']==$selected_date){
-    echo "<p>La séance existe déjà</p>";
-    echo "<a href=ajout_seance.php> Retour </a>";
-  }
-  else{
+$result1 = mysqli_query($connect, "SELECT * FROM seances WHERE idtheme ='$idtheme' AND DateSeance='$selected_date' AND supprime=1");
+$result2 = mysqli_query($connect, "SELECT * FROM seances WHERE idtheme ='$idtheme' AND DateSeance='$selected_date' AND supprime=0");
+if(mysqli_num_rows($result1) !=0 ){
+    $request = mysqli_query($connect, "UPDATE seances SET supprime=0 WHERE idtheme ='$idtheme' AND DateSeance='$selected_date' AND supprime=1");
+    echo "<p>La séance à bien était remise à jour</p>";
+}
+elseif (mysqli_num_rows($result2) != 0 ) {
+
+  $nomtheme = mysqli_query($connect, "SELECT nom FROM theme WHERE idtheme ='$idtheme' AND supprime = 0");
+  $nom = mysqli_fetch_array($nomtheme);
+  $nom= $nom['nom'];
+
+  echo "<p>La séance prévue le ".$selected_date."sur les ".$nom." existe déjà, que voulez vous faire ?</p>";
+  echo "<form method='POST' action='valider_seance.php'>";
+  echo "<input type='hidden' name='date' value ='".$selected_date."'>";
+  echo "<input type='hidden' name='idtheme' value ='".$idtheme."'>";
+  echo "<input type='hidden' name='effectif' value ='".$effectif."'>";
+  echo "<label for='valider1'> Valider l'ajout</label>";
+  echo "<input type='radio' name='valider' id='valider1' selected value='1'><br><br>";
+  echo "<label for='valider2'> Annuler l'ajout</label>";
+  echo "<input type='radio' name='valider' id='valider2' value='2'><br><br>";
+  echo "<input type='submit' value='Valider'>";
+  echo "<input type='reset'>";
+}
+else{
       $query = "INSERT INTO seances VALUES (NULL,"."'$selected_date'".","."'$effectif'".","."'$idtheme'".","."'0'".")";
       $result = mysqli_query($connect, $query);
       echo "<p> Votre séance a bien été enregistrée </p>";
       echo "<a href=ajout_seance.php> Retour </a>";
-  }
+}
 
 
 ?>
