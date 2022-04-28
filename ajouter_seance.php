@@ -33,8 +33,6 @@ $selected_date=$_POST['date_inscription'];
 $idtheme=$_POST['menuchoixtheme'];
 $effectif=$_POST['effectif'];
 
-echo $selected_date;
-
 if($selected_date < $aujourdhui){
   echo"<p>Vous ne pouvez pas rentrer une date inférieure à aujourd'hui</p>";
   echo "<a href=ajout_seance.php> Retour </a>";
@@ -54,7 +52,7 @@ elseif (mysqli_num_rows($result2) != 0 ) {
   $nom= $nom['nom'];
 
   echo "<p>La séance prévue le ".$selected_date."sur les ".$nom." existe déjà, que voulez vous faire ?</p>";
-  echo "<form method='POST' action='valider_seance.php'>";
+  echo "<form method='POST' action='verification_seance.php'>";
   echo "<input type='hidden' name='date' value ='".$selected_date."'>";
   echo "<input type='hidden' name='idtheme' value ='".$idtheme."'>";
   echo "<input type='hidden' name='effectif' value ='".$effectif."'>";
