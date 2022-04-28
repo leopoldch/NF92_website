@@ -22,7 +22,7 @@ date_default_timezone_set('europe/paris');
 $aujourdhui = date("Y-m-d");
 
 
-echo $aujourdhui;
+
 ?>
 
 </body>
