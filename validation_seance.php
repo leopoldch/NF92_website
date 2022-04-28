@@ -42,7 +42,21 @@ else{
           $nom= $tab['nom'];
           $prenom = $tab['prenom'];
 
-          echo $prenom.$nom;
+          echo "<form method='POST' action='verification_seance.php'>";
+          echo "<p>".$nom." ".$prenom;
+          $note = mysqli_query($connect,"SELECT note FROM inscription WHERE idseance=$idseance");
+          $tab2 = mysqli_fetch_array($note);
+          $note= $tab2['note'];
+
+          if($note == -1){
+            echo " note à saisir : </p>";
+            echo "<input type='number' min='0' max='40' name=''>";
+          }
+          else{
+            echo " note actuelle : ".$note."</p>";
+
+          }
+
   }
 
 }
