@@ -22,23 +22,25 @@
             exit;
         }
 
-        elseif ( ) {
+      /*  elseif () {
           echo"<p>Veuillez à bien selectionner au moins un élève </p>";
           echo"<a href='inscription_eleve.php'>Retour à la page précédente</a>";
           exit;
-        }
+        } */
 
         $seance = $_POST['menuchoixseance'];
         $result = mysqli_query($connect,"SELECT * FROM seances WHERE supprime = 0 AND nb_inscrits<EffMax");
 
+        echo $_POST['menuchoixeleve'];
 
 
-
+        /*
         else{
           $request1 = mysqli_query($connect,"UPDATE seances Set nb_inscrits=nb_inscrits+1 where idseance=$seance");
           $request2 = mysqli_query($connect,"INSERT INTO inscription VALUES("."'$seance'".", "."'$nom'".","."'-1'".");
 ");
         }
+        */
 
           mysqli_close($connect);
 
