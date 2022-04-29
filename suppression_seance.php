@@ -39,7 +39,7 @@ else{
   /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
   while($response = mysqli_fetch_array($result)) {
 
-    $num = $response['Idtheme'];
+    $num = $response['idtheme'];
     $result_nom = mysqli_query($connect,"SELECT nom FROM theme WHERE idtheme=$num");
     $nom = mysqli_fetch_array($result_nom);
     $nom= $nom['nom'];

@@ -63,7 +63,7 @@ else{
           else{
             $val++;
             echo " note actuelle ".$note."/40.   Veuillez renseigner le nombre de fautes pour mettre à jour : ";
-            echo "<input type='number' placeholder='".(40-$note)."' min='0' max='40' name='".$val."'></p></div>";
+            echo "<input type='number' placeholder='".$note."' min='0' max='40' name='".$val."'></p></div>";
             echo "<input type='hidden' name='ideleve".$val."' value='".$ideleve."'>";
 
           }

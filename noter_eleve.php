@@ -36,7 +36,7 @@ while($val<=($nombre_participants+1)){
   $prenom = $tab['prenom'];
   $note=$_POST[$val];
 
-  if(empty($note) and $note != 0 ){
+  if(empty($note) and $note !== 0 ){
     echo "<p>".$nom." ".$prenom;
     echo ": pas de note rentrée ";
   }
@@ -48,9 +48,15 @@ while($val<=($nombre_participants+1)){
       echo "<a href='valider_seance.php>Retour</a>'";
     }
     else{
-      $ideleve = $_POST[$name];
-      $newnote= 40 - $note;
-      $request_note = mysqli_query($connect, "UPDATE inscription SET note = '$note' WHERE ideleve='$ideleve'");
+      if($note == 0 ){
+        $newnote = 40;
+      }
+      else{
+        $ideleve = $_POST[$name];
+        $newnote= 40 - $note;
+      }
+      echo $newnote;
+      $request_note = mysqli_query($connect, "UPDATE inscription SET note = '$newnote' WHERE ideleve='$ideleve'");
       echo "<p>".$nom." ".$prenom." : la note '".$newnote."' a bien été enregistrée";
     }
   }

@@ -39,8 +39,8 @@ if($selected_date < $aujourdhui){
   exit();
 }
 
-$result1 = mysqli_query($connect, "SELECT * FROM seances WHERE idtheme ='$idtheme' AND Date Seance='$selected_date' AND supprime=1");
-$result2 = mysqli_query($connect, "SELECT * FROM seances WHERE idtheme ='$idtheme' AND Date Seance='$selected_date' AND supprime=0");
+$result1 = mysqli_query($connect, "SELECT * FROM seances WHERE idtheme ='$idtheme' AND DateSeance='$selected_date' AND supprime=1");
+$result2 = mysqli_query($connect, "SELECT * FROM seances WHERE idtheme ='$idtheme' AND DateSeance='$selected_date' AND supprime=0");
 if(mysqli_num_rows($result1) !=0 ){
     $request = mysqli_query($connect, "UPDATE seances SET supprime=0 WHERE idtheme ='$idtheme' AND Date Seance='$selected_date' AND supprime=1");
     echo "<p>La séance à bien était remise à jour</p>";
@@ -64,7 +64,7 @@ elseif (mysqli_num_rows($result2) != 0 ) {
   echo "<input type='reset'>";
 }
 else{
-      $query = "INSERT INTO seances VALUES (NULL,"."'$selected_date'".","."'$effectif'".","."'$idtheme'".","."'0'".")";
+      $query = "INSERT INTO seances VALUES (NULL,"."'$selected_date'".","."'$effectif'".","."'$idtheme'".","."'0'".","."'0'".")";
       $result = mysqli_query($connect, $query);
       echo "<p> Votre séance a bien été enregistrée </p>";
       echo "<a href=ajout_seance.php> Retour </a>";
