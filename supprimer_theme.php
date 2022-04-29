@@ -32,7 +32,7 @@
                   // La ligne du dessus change la valeur du booléen supprime de 0 à 1 pour signifier que le thème est supprimé
                   $result = mysqli_query($connect, $query);
                   echo "<p> Le thème a bien était supprimée</p>";
-                  echo "<a href='suppression_theme.html' target='contenu'> Retour <a>";
+                  echo "<a href='suppression_theme.php' target='contenu'> Retour <a>";
               }
           mysqli_close($connect);
 
