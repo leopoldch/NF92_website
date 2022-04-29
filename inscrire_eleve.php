@@ -14,33 +14,28 @@
         $dbpass = '';
         $dbname = 'nf92p018';
         $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die ('Error connecting to mysql');
-        mysqli_set_charset($connect, 'utf8');
+        //la ligne suivante permet d'éviter les problèmes d'accent entre la page web et le serveur mysql
+        mysqli_set_charset($connect, 'utf8'); //les données envoyées vers mysql sont encodées en UTF-8
+        date_default_timezone_set('Europe/Paris');
+        $date = date("Y-m-d");
 
-        if(empty($_POST['menuchoixseance'])){
-            echo"<p>Veuillez à bien selectionner une seance </p>";
-            echo"<a href='inscription_eleve.php'>Retour à la page précédente</a>";
-            exit;
+        $ideleve = $_POST['ideleve'];
+
+        if(empty($_POST['selection_seance'])){
+          echo"<p>Veuillez à bien selectionner une séance</p>";
+          echo"<a href='inscription_eleve'>Réitérer l'inscription</a>";
         }
-
-      /*  elseif () {
-          echo"<p>Veuillez à bien selectionner au moins un élève </p>";
-          echo"<a href='inscription_eleve.php'>Retour à la page précédente</a>";
-          exit;
-        } */
-
-        $seance = $_POST['menuchoixseance'];
-        $result = mysqli_query($connect,"SELECT * FROM seances WHERE supprime = 0 AND nb_inscrits<EffMax");
-
-        echo $_POST['menuchoixeleve'];
-
-
-        /*
         else{
-          $request1 = mysqli_query($connect,"UPDATE seances Set nb_inscrits=nb_inscrits+1 where idseance=$seance");
-          $request2 = mysqli_query($connect,"INSERT INTO inscription VALUES("."'$seance'".", "."'$nom'".","."'-1'".");
-");
+          $idseance = $_POST['selection_seance'];
+
+          $resquest = mysqli_query($connect,"INSERT INTO inscription VALUES("."'$idseance'".","."'$ideleve'".","."'-1'".") ");
+
+          echo "<p>L'inscription a bien été prise en compte</p>";
+          echo "<a href='inscription_eleve.php'>Inscrire un nouvel élève</a>";
+
         }
-        */
+
+
 
           mysqli_close($connect);
 

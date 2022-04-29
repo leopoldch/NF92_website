@@ -39,7 +39,7 @@ else{
   echo "<form method='POST' action='noter_eleve.php'>";
 
   $val=0;
-  
+
   while($response = mysqli_fetch_array($request2)) {
 
           $ideleve = $response['ideleve'];
@@ -56,14 +56,14 @@ else{
 
           if($note == -1){
             $val++;
-            echo " pas encore de note : ";
+            echo " pas encore de note enregistrée. Veuillez renseigner le nombre de fautes : ";
             echo "<input type='number' min='0' max='40' name='".$val."'></p>";
             echo "<input type='hidden' name='ideleve".$val."' value='".$ideleve."'>";
           }
           else{
             $val++;
-            echo " note actuelle : ";
-            echo "<input type='number' placeholder='".$note."' min='0' max='40' name='".$val."'></p></div>";
+            echo " note actuelle ".$note."/40.   Veuillez renseigner le nombre de fautes pour mettre à jour : ";
+            echo "<input type='number' placeholder='".(40-$note)."' min='0' max='40' name='".$val."'></p></div>";
             echo "<input type='hidden' name='ideleve".$val."' value='".$ideleve."'>";
 
           }

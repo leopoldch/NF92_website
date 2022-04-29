@@ -49,8 +49,9 @@ while($val<=($nombre_participants+1)){
     }
     else{
       $ideleve = $_POST[$name];
+      $newnote= 40 - $note;
       $request_note = mysqli_query($connect, "UPDATE inscription SET note = '$note' WHERE ideleve='$ideleve'");
-      echo "<p>".$nom." ".$prenom." : la note '". $note ."' a bien été enregistrée";
+      echo "<p>".$nom." ".$prenom." : la note '".$newnote."' a bien été enregistrée";
     }
   }
 
