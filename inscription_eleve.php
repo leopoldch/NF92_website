@@ -17,7 +17,7 @@
         mysqli_set_charset($connect, 'utf8');
 
 
-        $result = mysqli_query($connect,"SELECT * FROM seances WHERE supprime = 0 AND nb_inscrits<EffMax");
+        $result = mysqli_query($connect,"SELECT * FROM seances WHERE  nb_inscrits<EffMax");
         $responseCount1=mysqli_num_rows($result);
         $result2 = mysqli_query($connect,"SELECT * FROM eleves");
         $responseCount2=mysqli_num_rows($result2);
@@ -29,7 +29,9 @@
 
         else{
           echo "<form method='POST' action='inscription_eleve_seance.php'>";
+
           echo "<label for='menuchoixeleve'> Veuillez selectionner des élèves pour les inscrire </label><br>";
+          echo "<fieldset";
           echo "<select name='menuchoixeleve' id='menuchoixeleve' multiple size='4' style='width:auto; text-align: center'>";
           /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
           while($response  = mysqli_fetch_array($result2))

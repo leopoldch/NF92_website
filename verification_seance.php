@@ -27,7 +27,7 @@
 
           if ($valider == 1){
             //si l'utilisateur a bien rempli son nom et son prénom alors on envoie les informations vers la BDD
-            $query = "INSERT INTO seances VALUES (NULL,"."'$selected_date'".","."'$effectif'".","."'$idtheme'".","."'0'".","."'0'".")";
+            $query = "INSERT INTO seances VALUES (NULL,"."'$selected_date'".","."'$effectif'".","."'$idtheme'".","."'0'".")";
             $result = mysqli_query($connect, $query);
             // $query utilise comme parametre de mysqli_query
             // le test ci-dessous est desormais impose pour chaque appel de :

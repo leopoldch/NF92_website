@@ -64,7 +64,7 @@ elseif (mysqli_num_rows($result2) != 0 ) {
   echo "<input type='reset'>";
 }
 else{
-      $query = "INSERT INTO seances VALUES (NULL,"."'$selected_date'".","."'$effectif'".","."'$idtheme'".","."'0'".","."'0'".")";
+      $query = "INSERT INTO seances VALUES (NULL,"."'$selected_date'".","."'$effectif'".","."'$idtheme'".","."'0'".")";
       $result = mysqli_query($connect, $query);
       echo "<p> Votre séance a bien été enregistrée </p>";
       echo "<a href=ajout_seance.php> Retour </a>";

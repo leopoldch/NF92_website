@@ -23,7 +23,7 @@ $aujourdhui = date("Y-m-d");
 
 //la ligne suivante permet d'éviter les problèmes d'accent entre la page web et le serveur mysql
 mysqli_set_charset($connect, 'utf8'); //les données envoyées vers mysql sont encodées en utf-8
-$result = mysqli_query($connect,"SELECT * FROM seances WHERE supprime=0");
+$result = mysqli_query($connect,"SELECT * FROM seances INNER JOIN theme WHERE seances.idtheme=theme.idtheme;");
 
 /*La ligne du dessus représente la requete qui permet à php de récupérer les données demandés (ici en l'occurence la liste des
 noms qui sont présent dans notre tableau) et de les trier par ordre alphabétique.*/
@@ -43,11 +43,7 @@ else{
   echo "<select name='menuchoixseance' id='menuchoixseance' size='4' style='width:35%; text-align: center'>";
   /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
   while($response = mysqli_fetch_array($result)) {
-          $num = $response['idtheme'];
-          $result_nom = mysqli_query($connect,"SELECT nom FROM theme WHERE idtheme=$num");
-          $nom = mysqli_fetch_array($result_nom);
-          $nom= $nom['nom'];
-    echo "<option value=".$response['idseance'].">".$response['DateSeance'].' / '.$nom."</option>";
+    echo "<option value=".$response['idseance'].">".$response['DateSeance'].' / '.$response['nom']."</option>";
   }
   echo "</select><br><br>";
   echo "<br><br>";
