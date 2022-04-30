@@ -34,15 +34,16 @@ else{
   $nombre_participants= $nombre_participants['nb_inscrits'];
 
 
-  $request2 = mysqli_query($connect,"SELECT * FROM inscription INNER JOIN eleves WHERE eleves.ideleve = inscription.ideleve AND idseance=$idseance");
+  $request = mysqli_query($connect,"SELECT * FROM inscription INNER JOIN eleves WHERE eleves.ideleve = inscription.ideleve AND idseance=$idseance");
 
   echo "<form method='POST' action='noter_eleve.php'>";
 
   $val=0;
-  echo mysqli_num_rows($request2);
-  while($response = mysqli_fetch_array($request2)) {
+  echo mysqli_num_rows($request);
+  while($response = mysqli_fetch_array($request)) {
 
-          echo "<div><p>".$response['nom']." ".$response['prenom'];
+          echo "<p>".$response['nom']." ".$response['prenom'];
+
           $ideleve = $response['ideleve'];
 
           $note= $response['note'];
@@ -58,7 +59,7 @@ else{
           else{
             $val++;
             echo " note actuelle ".$note."/40.   Veuillez renseigner le nombre de fautes pour mettre à jour : ";
-            echo "<input type='number' placeholder='".$note."' min='0' max='40' name='".$val."'></p></div>";
+            echo "<input type='number' placeholder='".$note."' min='0' max='40' name='".$val."'></p>";
             echo "<input type='hidden' name='ideleve".$val."' value='".$ideleve."'>";
 
           }
