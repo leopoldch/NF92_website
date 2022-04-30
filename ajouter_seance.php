@@ -39,13 +39,8 @@ if($selected_date < $aujourdhui){
   exit();
 }
 
-$result1 = mysqli_query($connect, "SELECT * FROM seances WHERE idtheme ='$idtheme' AND DateSeance='$selected_date' AND supprime=1");
-$result2 = mysqli_query($connect, "SELECT * FROM seances WHERE idtheme ='$idtheme' AND DateSeance='$selected_date' AND supprime=0");
-if(mysqli_num_rows($result1) !=0 ){
-    $request = mysqli_query($connect, "UPDATE seances SET supprime=0 WHERE idtheme ='$idtheme' AND Date Seance='$selected_date' AND supprime=1");
-    echo "<p>La séance à bien était remise à jour</p>";
-}
-elseif (mysqli_num_rows($result2) != 0 ) {
+$result1 = mysqli_query($connect, "SELECT * FROM seances WHERE idtheme ='$idtheme' AND DateSeance='$selected_date'");
+if (mysqli_num_rows($result1) != 0 ) {
 
   $nomtheme = mysqli_query($connect, "SELECT nom FROM theme WHERE idtheme ='$idtheme' AND supprime = 0");
   $nom = mysqli_fetch_array($nomtheme);
