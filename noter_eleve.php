@@ -20,9 +20,13 @@ $aujourdhui = date("Y-m-d");
 
 $idseance = $_POST['idseance'];
 
-$request1 = mysqli_query($connect,"SELECT * FROM seances WHERE idseance=$idseance");
-$nombre_participants = mysqli_fetch_array($request1);
-$nombre_participants= $nombre_participants['nb_inscrits'];
+$request1 = mysqli_query($connect,"SELECT * FROM inscription
+  INNER JOIN eleves ON eleves.ideleve = inscription.ideleve
+  INNER JOIN seances ON seances.idseance = inscription.idseance
+  WHERE seances.idseance=$idseance;");
+
+$tab = mysqli_fetch_array($request1);
+$nombre_participants= $tab['nb_inscrits'];
 
 $val = 0;
 echo "<h1>Récapitulatif de la saisie :</h1>";
@@ -30,11 +34,11 @@ while($val<=($nombre_participants)){
   $val++;
   $name = "ideleve".$val;
   $ideleve = $_POST[$name];
-  $request_nom = mysqli_query($connect,"SELECT * FROM eleves WHERE ideleve=$ideleve");
-  $tab = mysqli_fetch_array($request_nom);
-  $nom= $tab['nom'];
+  //on récupère les données du formulaire avec cette astuce d'assigner un nom qui dépend du nombre de valeur envoyés, on a juste besoin de savoir le nombre de valeurs envoyés
   $prenom = $tab['prenom'];
+  $nom = $tab['nom'];
   $note=$_POST[$val];
+  $tab = mysqli_fetch_array($request1); // on fait bouger le curseur de ligne pour afficher correctement les noms 
 
   if(isset($_POST[$val]) and !is_numeric($_POST[$val])){
     echo "<p>".$nom." ".$prenom;

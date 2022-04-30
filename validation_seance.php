@@ -36,10 +36,16 @@ else{
 
   $request = mysqli_query($connect,"SELECT * FROM inscription INNER JOIN eleves WHERE eleves.ideleve = inscription.ideleve AND idseance=$idseance");
 
+  if(mysqli_num_rows($request) == 0){
+    echo "<p> Il n'y a pas d'élèves inscrits à cette séance </p>";
+    echo "<a href='inscription_eleve.php'>Inscrire un élève</a>";
+    echo "<a href='valider_seance.php'> Retour </a>";
+    exit;
+  }
+
   echo "<form method='POST' action='noter_eleve.php'>";
 
   $val=0;
-  echo mysqli_num_rows($request);
   while($response = mysqli_fetch_array($request)) {
 
           echo "<p>".$response['nom']." ".$response['prenom'];
