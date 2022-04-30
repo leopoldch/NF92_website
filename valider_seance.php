@@ -48,8 +48,8 @@ else{
   echo "</select><br><br>";
   echo "<br><br>";
   echo "<input type='submit' value='Voir les élèves pour cette séance'>";
-  echo "</form>";
   echo "</fieldset>";
+  echo "</form>";
 
 
 

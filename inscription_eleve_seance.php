@@ -28,9 +28,9 @@
           $ideleve = $_POST['menuchoixeleve'];
           $verfication_seance = mysqli_query($connect,"SELECT * FROM seances
             INNER JOIN inscription
-            WHERE 'seances.idseance' = 'inscription.idseance'
-            AND 'seances.DateSeance' > $date
-            AND 'seances.nb_inscrits'<'seances.EffMax'");
+            WHERE seances.idseance = inscription.idseance
+            AND seances.DateSeance > $date
+            AND seances.nb_inscrits<seances.EffMax");
 
           $nombreseances = mysqli_num_rows($verfication_seance);
 
@@ -42,10 +42,10 @@
 
             $verfication_inscription = mysqli_query($connect,"SELECT * FROM seances
             INNER JOIN inscription
-            WHERE 'seances.idseance' = 'inscription.idseance'
-            AND 'seances.DateSeance' > $date
-            AND 'seances.nb_inscrits'<'seances.EffMax'
-            AND 'inscription.ideleve' != $ideleve");
+            WHERE seances.idseance = inscription.idseance
+            AND seances.DateSeance > $date
+            AND seances.nb_inscrits<seances.EffMax
+            AND inscription.ideleve != $ideleve");
 
             $nombreseances_disponibles= mysqli_num_rows($verfication_inscription);
 
@@ -58,12 +58,12 @@
             $request = mysqli_query($connect,"SELECT *
             FROM inscription
             INNER JOIN seances
-            ON 'inscription.idseance' = 'seances.idseance'
+            ON inscription.idseance = seances.idseance
             INNER JOIN theme
-            ON 'seances.idtheme' = 'theme.idtheme'
-            WHERE 'seances.DateSeance' > $date
-            AND 'seances.nb_inscrits'<'seances.EffMax'
-            AND 'inscription.ideleve' != $ideleve;");
+            ON seances.idtheme = theme.idtheme
+            WHERE seances.DateSeance > $date
+            AND seances.nb_inscrits<seances.EffMax
+            AND inscription.ideleve != $ideleve;");
 
             echo "<form method='POST' action='inscrire_eleve.php'>";
 
@@ -74,6 +74,7 @@
               echo "<option value=".$response['idseance'].">".$response['nom'].' / '.$response['DateSeance']."</option>";
             }
             echo "</select><br><br>";
+            echo "<input type='hidden' name ='ideleve' value='$ideleve'>";
             echo "<br><br>";
             echo "<input type='submit' value='Choisir cette séance'>";
             echo "</form>";

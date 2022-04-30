@@ -21,12 +21,12 @@
 
         $ideleve = $_POST['ideleve'];
 
-        if(empty($_POST['selection_seance'])){
+        if(empty($_POST['menuchoixseance'])){
           echo"<p>Veuillez à bien selectionner une séance</p>";
           echo"<a href='inscription_eleve'>Réitérer l'inscription</a>";
         }
         else{
-          $idseance = $_POST['selection_seance'];
+          $idseance = $_POST['menuchoixseance'];
 
           $resquest = mysqli_query($connect,"INSERT INTO inscription VALUES("."'$idseance'".","."'$ideleve'".","."'-1'".") ");
 

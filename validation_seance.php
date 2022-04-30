@@ -34,7 +34,7 @@ else{
   $nombre_participants= $nombre_participants['nb_inscrits'];
 
 
-  $request2 = mysqli_query($connect,"SELECT * FROM inscription INNER JOIN eleves WHERE 'eleves.ideleve'='eleves.ideleve' AND idseance=$idseance");
+  $request2 = mysqli_query($connect,"SELECT * FROM inscription INNER JOIN eleves WHERE eleves.ideleve = inscription.ideleve AND idseance=$idseance");
 
   echo "<form method='POST' action='noter_eleve.php'>";
 
