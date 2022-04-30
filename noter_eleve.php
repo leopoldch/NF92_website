@@ -38,7 +38,7 @@ while($val<=($nombre_participants)){
   $prenom = $tab['prenom'];
   $nom = $tab['nom'];
   $note=$_POST[$val];
-  $tab = mysqli_fetch_array($request1); // on fait bouger le curseur de ligne pour afficher correctement les noms 
+  $tab = mysqli_fetch_array($request1); // on fait bouger le curseur de ligne pour afficher correctement les noms
 
   if(isset($_POST[$val]) and !is_numeric($_POST[$val])){
     echo "<p>".$nom." ".$prenom;
@@ -57,9 +57,10 @@ while($val<=($nombre_participants)){
       echo "<p>".$nom." ".$prenom." : la note '".$newnote."/40' a bien été enregistrée";
     }
   }
+  echo "<a href='bienvenue.html'>Accueil</a>";
+  echo "<a href='validation_seance.php>Valider une autre séance</a>'";
 
 }
-echo "<a href='validation_seance.php>Retour</a>'";
 
 
 
