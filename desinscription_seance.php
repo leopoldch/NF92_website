@@ -29,7 +29,7 @@
         }
 
         else{
-          echo "<form method='POST' action='desinscrire_selection_seance.php'>";
+          echo "<form method='POST' action='desinscrire_seance_selection.php'>";
 
           echo "<label for='menuchoixeleve'> Veuillez selectionner des élèves pour les inscrire </label><br>";
           echo "<select name='menuchoixeleve' id='menuchoixeleve' multiple size='4' style='width:auto; text-align: center'>";
