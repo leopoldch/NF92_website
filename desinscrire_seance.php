@@ -22,33 +22,19 @@
         $ideleve = $_POST['ideleve'];
 
 
-
-
-
         if(empty($_POST['menuchoixseance'])){
           echo"<p>Veuillez à bien selectionner une séance</p>";
-          echo"<a href='inscription_eleve'>Réitérer l'inscription</a>";
+          echo"<a href='inscription_eleve'>Réitérer la désinscription</a>";
         }
         else{
           $idseance = $_POST['menuchoixseance'];
+          $resquest = mysqli_query($connect,"DELETE FROM inscription WHERE ideleve = $ideleve AND idseance = $idseance ");
 
-
-          $verification_inscription = mysqli_query($connect,"SELECT * FROM inscription WHERE ideleve= $ideleve  AND idseance = $idseance ");
-          $nb_erreur = mysqli_num_rows($verification_inscription);
-          if($nb_erreur != 0){
-            echo "<p>L'élève est déjà inscrit à cette séance, vous ne pouvez pas l'ajouter deux fois à une même séance</p>";
-            echo "<a href='inscrire_eleve.php'>Inscrire un élève</a><br>";
-            echo "<a href='bienvenue.html'>Accueil</a>";
-          }
-          else{
-            $resquest = mysqli_query($connect,"INSERT INTO inscription VALUES("."'$idseance'".","."'$ideleve'".","."'-1'".") ");
-
-            echo "<p>L'inscription a bien été prise en compte</p>";
-            echo "<a href='inscription_eleve.php'>Inscrire un nouvel élève</a>";
-            echo "<a href='bienvenue.html'>Accueil</a>";
+          echo "<p>L'élève a bien été désincrit</p>";
+          echo "<a href='inscription_eleve.php'>Inscrire un nouvel élève</a>";
+          echo "<a href='bienvenue.html'>Accueil</a>";
           }
 
-        }
 
 
 
