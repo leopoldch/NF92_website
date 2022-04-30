@@ -27,47 +27,27 @@
         else{
           $ideleve = $_POST['menuchoixeleve'];
           $verfication_seance = mysqli_query($connect,"SELECT * FROM seances
-            INNER JOIN inscription
-            WHERE seances.idseance = inscription.idseance
-            AND seances.DateSeance > $date
-            AND seances.nb_inscrits<seances.EffMax");
+            WHERE DateSeance > $date
+            AND nb_inscrits < EffMax");
 
           $nombreseances = mysqli_num_rows($verfication_seance);
 
           if($nombreseances == 0){
             echo "<p>Vous devez d'abord ajouter une séance</p>";
-            exit;
-          }
-
-
-            $verfication_inscription = mysqli_query($connect,"SELECT * FROM seances
-            INNER JOIN inscription
-            WHERE seances.idseance = inscription.idseance
-            AND seances.DateSeance > $date
-            AND seances.nb_inscrits<seances.EffMax
-            AND inscription.ideleve != $ideleve");
-
-            $nombreseances_disponibles= mysqli_num_rows($verfication_inscription);
-
-          if($nombreseances_disponibles == 0){
-            echo "<p>L'élève est déjà inscrit à toutes les séances disponibles </p>";
           }
           else{
 
 
             $request = mysqli_query($connect,"SELECT *
-            FROM inscription
-            INNER JOIN seances
-            ON inscription.idseance = seances.idseance
+            FROM seances
             INNER JOIN theme
-            ON seances.idtheme = theme.idtheme
-            WHERE seances.DateSeance > $date
-            AND seances.nb_inscrits<seances.EffMax
-            AND inscription.ideleve != $ideleve;");
+            WHERE seances.idtheme = theme.idtheme
+            AND seances.DateSeance > $date
+            AND seances.nb_inscrits<seances.EffMax;");
 
             echo "<form method='POST' action='inscrire_eleve.php'>";
 
-            echo "<label for='menuchoixseance'> Veuillez selectionner une séance pour les inscrire </label><br>";
+            echo "<label for='menuchoixseance'> Veuillez selectionner une séance pour inscrire l'élève </label><br>";
             echo "<select name='menuchoixseance' id='menuchoixseance' multiple size='4' style='width:auto; text-align: center'>";
 
             while($response  = mysqli_fetch_array($request)){
