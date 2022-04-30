@@ -7,7 +7,8 @@
 </head>
 <body>
 
-        <?php
+
+  <?php
 
         $dbhost = 'localhost:3307';
         $dbuser = 'root';
@@ -15,6 +16,8 @@
         $dbname = 'nf92p018';
         $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die ('Error connecting to mysql');
         mysqli_set_charset($connect, 'utf8');
+        date_default_timezone_set('Europe/Paris');
+        $date = date("Y-m-d");
 
         if(empty($_POST['menuchoixeleve'])){
             echo"<p>Veuillez à bien selectionner un élève </p>";
@@ -23,75 +26,61 @@
         }
         else{
           $ideleve = $_POST['menuchoixeleve'];
-          $result_verification = mysqli_query($connect,"SELECT * FROM inscription WHERE ideleve='$ideleve'");
-          $responseCount1=mysqli_num_rows($result_verification);
+          $verfication_seance = mysqli_query($connect,"SELECT * FROM seances
+            INNER JOIN inscription
+            WHERE 'seances.idseance' = 'inscription.idseance'
+            AND 'seances.DateSeance' > $date
+            AND 'seances.nb_inscrits'<'seances.EffMax'");
 
-          if ($responseCount1 == 0){
-            $result = mysqli_query($connect,"SELECT * FROM seances WHERE nb_inscrits < EffMax");
-            $result_verif=mysqli_num_rows($result);
-            if($result_verif == 0){
-              echo "<p>Il faut ajouter des séances pour pouvoir inscrire des élèves </p>";
-            }
-            else{
-              echo "<form method='POST' action='inscrire_eleve.php'>";
-              echo "<select name='selection_seance'  multiple size='4' style='width:auto; text-align: center' >";
+          $nombreseances = mysqli_num_rows($verfication_seance);
 
-            while($response  = mysqli_fetch_array($result)){
+          if($nombreseances == 0){
+            echo "<p>Vous devez d'abord ajouter une séance</p>";
+            exit;
+          }
 
-              $idtheme = $response['idtheme'];
-              $result_nom = mysqli_query($connect,"SELECT * FROM theme WHERE idtheme=$idtheme");
-              $tab = mysqli_fetch_row($result_nom);
-              $nom= $tab['nom'];
-              echo "<option value=".$response['idseance'].">  ".$nom.$response['DateSeance']." </option>";
 
+            $verfication_inscription = mysqli_query($connect,"SELECT * FROM seances
+            INNER JOIN inscription
+            WHERE 'seances.idseance' = 'inscription.idseance'
+            AND 'seances.DateSeance' > $date
+            AND 'seances.nb_inscrits'<'seances.EffMax'
+            AND 'inscription.ideleve' != $ideleve");
+
+            $nombreseances_disponibles= mysqli_num_rows($verfication_inscription);
+
+          if($nombreseances_disponibles == 0){
+            echo "<p>L'élève est déjà inscrit à toutes les séances disponibles </p>";
+          }
+          else{
+
+
+            $request = mysqli_query($connect,"SELECT *
+            FROM inscription
+            INNER JOIN seances
+            ON 'inscription.idseance' = 'seances.idseance'
+            INNER JOIN theme
+            ON 'seances.idtheme' = 'theme.idtheme'
+            WHERE 'seances.DateSeance' > $date
+            AND 'seances.nb_inscrits'<'seances.EffMax'
+            AND 'inscription.ideleve' != $ideleve;");
+
+            echo "<form method='POST' action='inscrire_eleve.php'>";
+
+            echo "<label for='menuchoixseance'> Veuillez selectionner une séance pour les inscrire </label><br>";
+            echo "<select name='menuchoixseance' id='menuchoixseance' multiple size='4' style='width:auto; text-align: center'>";
+
+            while($response  = mysqli_fetch_array($request)){
+              echo "<option value=".$response['idseance'].">".$response['nom'].' / '.$response['DateSeance']."</option>";
             }
             echo "</select><br><br>";
             echo "<br><br>";
-            echo "<input type='hidden' value='$ideleve' name='ideleve'>";
-            echo "<input type='submit' value='Inscrire ces élèves'>";
+            echo "<input type='submit' value='Choisir cette séance'>";
             echo "</form>";
           }
         }
-          else{
-            $recupid = mysqli_query($connect,"SELECT * FROM inscription WHERE ideleve='$ideleve''");
-
-            echo "<form method='POST' action='inscrire_eleve.php'>";
-            echo "<select name='selection_seance'  multiple size='4' style='width:auto; text-align: center' >";
-
-            while($tab = mysqli_fetch_array($recupid)){
-              $idseance_inscrit=$tab['idseance'];
-              $result = mysqli_query($connect,"SELECT * FROM seances WHERE nb_inscrits<EffMax' AND idseance != '$idseance'");
-
-              if(mysqli_num_rows($result) == 0){
-                echo "Cet élève est déjà inscrit à toutes les séances</p>";
-                exit;
-              }
-              
-              while($response  = mysqli_fetch_array($result)){
-
-                $idtheme = $response['idtheme'];
-                $result_nom = mysqli_query($connect,"SELECT * FROM theme WHERE idtheme='$idtheme'");
-                $tab = mysqli_fetch_row($result_nom);
-                $nom= $tab['nom'];
-                echo "<option value=".$response['idseance'].">  ".$nom.$response['DateSeance']." </option>";
-
-              }
-
-            }
-            echo "</select><br><br>";
-            echo "<br><br>";
-            echo "<input type='hidden' value='$ideleve' name='ideleve'>";
-            echo "<input type='submit' value='Inscrire ces élèves'>";
-            echo "</form>";
-          }
-          }
-
-
-
 
           mysqli_close($connect);
-
-
           ?>
 
   </body>
