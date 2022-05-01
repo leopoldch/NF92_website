@@ -10,7 +10,7 @@
     <h1 class="title">Suppression d'un thème</h1>
     <!--Création d'un formulaire en HTML avec le nom du thème à supprimer   -->
     <?php
-    $dbhost = 'tuxa.sme.utc/pma/';
+    $dbhost = 'tuxa.sme.utc';
     $dbuser = 'nf92p018';
     $dbpass = 'vE5DSom3';
     $dbname = 'nf92p018';

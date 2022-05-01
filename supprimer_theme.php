@@ -10,7 +10,7 @@
 
         <?php
 
-        $dbhost = 'tuxa.sme.utc/pma/';
+        $dbhost = 'tuxa.sme.utc';
         $dbuser = 'nf92p018';
         $dbpass = 'vE5DSom3';
         $dbname = 'nf92p018';
