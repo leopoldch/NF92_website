@@ -48,7 +48,13 @@
           }
           else{
             while($response =mysqli_fetch_array($request_seance)){
-              echo "<p>".$infos['nom'].' '.$infos['prenom']." a assité à ".$response['nom']." le ".$response['DateSeance']." et a obtenu la note de ".$response['note']."/40</p>";
+              echo "<p>".$infos['nom'].' '.$infos['prenom']." a assité à ".$response['nom']." le ".$response['DateSeance'];
+              if($response['note'] != -1){
+              echo" et a obtenu la note de ".$response['note']."/40</p>";
+              }
+              else{
+                echo" et n'a pas été évalué sur cette séance</p>";
+              }
             }
           }
 
