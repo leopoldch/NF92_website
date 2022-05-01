@@ -33,6 +33,7 @@ if( $responseCount == 0){
 
 else{
   echo "<form method='POST' action='visualiser_calendrier_eleve.php'>";
+  echo "<fieldset>";
 
   echo "<label for='menuchoixeleve'> Veuillez selectionner des élèves pour voir leur calendrier  </label><br>";
   echo "<select name='menuchoixeleve' id='menuchoixeleve' multiple size='4' style='width:auto; text-align: center'>";
@@ -45,6 +46,7 @@ else{
   echo "</select><br><br>";
   echo "<br><br>";
   echo "<input type='submit' value='Voir le calendrier de cet élève'>";
+  echo "</fieldset>";
   echo "</form>";
 }
 

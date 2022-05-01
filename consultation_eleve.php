@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <h1 class="title">Consulter les informations d'un élève</h1>
 
         <?php
 
@@ -28,6 +29,7 @@
 
         else{
           echo "<form method='POST' action='consulter_eleve.php'>";
+          echo "<fieldset>";
 
           echo "<label for='ideleve'> Veuillez selectionner des élèves pour les inscrire </label><br>";
           echo "<select name='ideleve' id='ideleve' multiple size='4' style='width:auto; text-align: center'>";
@@ -40,6 +42,7 @@
           echo "</select><br><br>";
           echo "<br><br>";
           echo "<input type='submit' value='Voir les informations de cet élève'>";
+          echo "</fieldset>";
           echo "</form>";
         }
 

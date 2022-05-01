@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1>Consultation élève</h1>
+  <h1 class="title">Consultation élève</h1>
 
         <?php
 
