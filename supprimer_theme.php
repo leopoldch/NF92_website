@@ -10,10 +10,10 @@
 
         <?php
 
-          $dbhost = 'localhost:3307';
-          $dbuser = 'root';
-          $dbpass = '';
-          $dbname = 'nf92p018';
+        $dbhost = 'tuxa.sme.utc/pma/';
+        $dbuser = 'nf92p018';
+        $dbpass = 'vE5DSom3';
+        $dbname = 'nf92p018';
           //Connexion à la BDD
           $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die ('Error connecting to mysql');
           //la ligne suivante permet d'éviter les problèmes d'accent entre la page web et le serveur mysql

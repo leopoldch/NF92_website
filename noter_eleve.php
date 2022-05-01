@@ -10,9 +10,9 @@
 
 <?php
 
-$dbhost = 'localhost:3307';
-$dbuser = 'root';
-$dbpass = '';
+$dbhost = 'tuxa.sme.utc/pma/';
+$dbuser = 'nf92p018';
+$dbpass = 'vE5DSom3';
 $dbname = 'nf92p018';
 $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('error connecting to mysql');
 mysqli_set_charset($connect, 'utf8');

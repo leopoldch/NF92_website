@@ -10,9 +10,9 @@
 
         <?php
 
-        $dbhost = 'localhost:3307';
-        $dbuser = 'root';
-        $dbpass = '';
+        $dbhost = 'tuxa.sme.utc/pma/';
+        $dbuser = 'nf92p018';
+        $dbpass = 'vE5DSom3';
         $dbname = 'nf92p018';
         $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die ('Error connecting to mysql');
         //la ligne suivante permet d'éviter les problèmes d'accent entre la page web et le serveur mysql

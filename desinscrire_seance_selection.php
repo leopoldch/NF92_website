@@ -11,10 +11,10 @@
 
   <?php
 
-        $dbhost = 'localhost:3307';
-        $dbuser = 'root';
-        $dbpass = '';
-        $dbname = 'nf92p018';
+  $dbhost = 'tuxa.sme.utc/pma/';
+  $dbuser = 'nf92p018';
+  $dbpass = 'vE5DSom3';
+  $dbname = 'nf92p018';
         $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die ('Error connecting to mysql');
         mysqli_set_charset($connect, 'utf8');
         date_default_timezone_set('Europe/Paris');

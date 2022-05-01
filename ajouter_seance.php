@@ -9,11 +9,10 @@
 
 <?php
 
-$dbhost = 'localhost:3307';
-$dbuser = 'root'; // remplacer les sxxx avec le semestre et le numero de votre compte
-// exemples nf92p014 ou nf92a078
-$dbpass = ''; // remplacer votremotdepasse par votre mot de passe
-$dbname = 'nf92p018'; // remplacer les sxxx comme indiqué ci-desus
+$dbhost = 'tuxa.sme.utc/pma/';
+$dbuser = 'nf92p018';
+$dbpass = 'vE5DSom3';
+$dbname = 'nf92p018';
 $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('error connecting to mysql');
 //la ligne suivante permet d'éviter les problèmes d'accent entre la page ouèbe et le serveur mysql
 mysqli_set_charset($connect, 'utf8'); //les données envoyées vers mysql sont encodées en utf-8

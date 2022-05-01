@@ -10,10 +10,10 @@
     <h1 class="title">Suppression d'un thème</h1>
     <!--Création d'un formulaire en HTML avec le nom du thème à supprimer   -->
     <?php
-      $dbhost = 'localhost:3307';
-      $dbuser = 'root';
-      $dbpass = '';
-      $dbname = 'nf92p018';
+    $dbhost = 'tuxa.sme.utc/pma/';
+    $dbuser = 'nf92p018';
+    $dbpass = 'vE5DSom3';
+    $dbname = 'nf92p018';
       $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('error connecting to mysql');
       mysqli_set_charset($connect, 'utf8');
 

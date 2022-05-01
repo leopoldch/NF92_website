@@ -10,9 +10,9 @@
 
 <?php
 
-$dbhost = 'localhost:3307';
-$dbuser = 'root';
-$dbpass = '';
+$dbhost = 'tuxa.sme.utc/pma/';
+$dbuser = 'nf92p018';
+$dbpass = 'vE5DSom3';
 $dbname = 'nf92p018';
 /*Les 4 lignes précédentes permettent la connexion à la BDD, on renseigne notre identifiant, mot de passe, nom de notre
 bdd et comment y accéder (ici le lien )*/

@@ -9,9 +9,9 @@
 
         <?php
 
-        $dbhost = 'localhost:3307';
-        $dbuser = 'root';
-        $dbpass = '';
+        $dbhost = 'tuxa.sme.utc/pma/';
+        $dbuser = 'nf92p018';
+        $dbpass = 'vE5DSom3';
         $dbname = 'nf92p018';
         //Connexion à la base de donnée avec le nom, le mot de passe, le lien et le nom de la base de donnée concernée.
         $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die ('Error connecting to mysql');
