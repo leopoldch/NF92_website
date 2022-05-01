@@ -42,24 +42,24 @@ while($val<=($nombre_participants-1)){
 
   if(isset($_POST[$val]) and !is_numeric($_POST[$val])){
     echo "<p>".$nom." ".$prenom;
-    echo ": pas de note rentrée </p>";
+    echo ": pas de note rentrée </p><br>";
   }
 
   else{
 
     if($note<0 or $note>40){
-      echo "<p>Valeur rentrée non valide, veuillez rentrer une valeur entre 0 et 40</p>";
+      echo "<p>Valeur rentrée non valide, veuillez rentrer une valeur entre 0 et 40</p><br>";
       echo "<a href='valider_seance.php>Retour</a>'";
     }
     else{
       $newnote = 40 - $note;
       $request_note = mysqli_query($connect, "UPDATE inscription SET note = '$newnote' WHERE ideleve='$ideleve'");
-      echo "<p>".$nom." ".$prenom." : la note '".$newnote."/40' a bien été enregistrée</p>";
+      echo "<p>".$nom." ".$prenom." : la note '".$newnote."/40' a bien été enregistrée</p><br>";
     }
   }
 
 }
-echo "<a href='bienvenue.html'>Accueil</a>";
+echo "<a href='bienvenue.html'>Accueil</a><br>";
 echo "<a href='validation_seance.php>Valider une autre séance</a>'";
 
 
