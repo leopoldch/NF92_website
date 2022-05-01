@@ -53,7 +53,7 @@
               }
               else{
                 //si l'utilisateur a bien rempli son nom et son prénom alors on envoie les informations vers la BDD
-                $query = "INSERT INTO eleves VALUES (NULL,"."'$nom'".","."'$prenom'".","."'$bdate'".","."'$date'".")";
+                $query = "INSERT INTO eleves VALUES (NULL,"."'$nom'".","."'$prenom'".","."'$bdate'".","."'$date'".","."'$genre'".")";
                 $result = mysqli_query($connect, $query);
                 // $query utilise comme parametre de mysqli_query
                 // le test ci-dessous est desormais impose pour chaque appel de :
