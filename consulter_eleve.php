@@ -17,7 +17,7 @@
         $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die ('Error connecting to mysql');
         mysqli_set_charset($connect, 'utf8');
         date_default_timezone_set('europe/paris');
-        $date = date("Y-m-d");
+        $date = date("Ymd");
 
 
         if(empty($_POST['ideleve']) ){

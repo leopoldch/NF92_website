@@ -44,6 +44,7 @@
                 echo "<input type='hidden' name='nom' value ='".$nom."'>";
                 echo "<input type='hidden' name='prenom' value ='".$prenom."'>";
                 echo "<input type='hidden' name='bdate' value ='".$bdate."'>";
+                echo "<input type='hidden' name='genre' value ='".$genre."'>";
                 echo "<label for='valider1'> Valider l'ajout</label>";
                 echo "<input type='radio' name='valider' id='valider1' selected value='1'><br><br>";
                 echo "<label for='valider2'> Annuler l'ajout</label>";

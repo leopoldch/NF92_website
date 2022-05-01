@@ -17,7 +17,7 @@
         $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die ('Error connecting to mysql');
         mysqli_set_charset($connect, 'utf8');
         date_default_timezone_set('Europe/Paris');
-        $date = date("Y-m-d");
+        $date = date("Ymd");
 
         if(empty($_POST['menuchoixeleve'])){
             echo"<p>Veuillez à bien selectionner un élève </p>";
@@ -31,7 +31,7 @@
             ON inscription.idseance = seances.idseance
             INNER JOIN theme
             ON seances.idtheme = theme.idtheme
-            WHERE DateSeance > 2022-04-30
+            WHERE DateSeance > $date
             AND ideleve = $ideleve");
 
           $nombreinscription = mysqli_num_rows($verification_inscription);
