@@ -31,7 +31,7 @@ noms qui sont présent dans notre tableau) et de les trier par ordre alphabétiq
 $resultCount=mysqli_num_rows($result);
 /*On vérifie qu'il y ait des thèmes selectionnables, sinon l'opération est impossible*/
 if($resultCount== 0){
-  echo"<p>il faut ajouter un thème pour pouvoir ajouter une séance";
+  echo"<p>Il faut ajouter un thème pour pouvoir ajouter une séance</p><br>";
   echo "<a href='ajout_seance.php' target='contenu'> Retour <a>";
 }
 /*S'il existe des thèmes dans notre table theme, alors on affiche notre formulaire pour ajouter une séance */
