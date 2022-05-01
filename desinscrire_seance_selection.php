@@ -28,13 +28,15 @@
           $ideleve = $_POST['menuchoixeleve'];
           $verification_inscription = mysqli_query($connect,"SELECT * FROM inscription
             INNER JOIN seances
-            WHERE inscription.idseance = seances.idseance
-            AND DateSeance > 2022-04-30
+            ON inscription.idseance = seances.idseance
+            INNER JOIN theme
+            ON seances.idtheme = theme.idtheme
+            WHERE DateSeance > 2022-04-30
             AND ideleve = $ideleve");
 
           $nombreinscription = mysqli_num_rows($verification_inscription);
 
-          if($nombreseances == 0){
+          if($nombreinscription == 0){
             echo "<p>L'élève n'est inscrit à aucune séance à venir </p>";
           }
           else{

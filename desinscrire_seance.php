@@ -30,9 +30,9 @@
           $idseance = $_POST['menuchoixseance'];
           $resquest = mysqli_query($connect,"DELETE FROM inscription WHERE ideleve = $ideleve AND idseance = $idseance ");
 
-          echo "<p>L'élève a bien été désincrit</p>";
-          echo "<a href='inscription_eleve.php'>Inscrire un nouvel élève</a>";
-          echo "<a href='bienvenue.html'>Accueil</a>";
+          echo "<p>L'élève a bien été désincrit</p><br>";
+          echo "<a href='inscription_eleve.php'>Inscrire un nouvel élève</a><br>";
+          echo "<a href='bienvenue.html'>Accueil</a><br>";
           }
 
 
