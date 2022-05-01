@@ -42,6 +42,7 @@
           }
           else{
             $resquest = mysqli_query($connect,"INSERT INTO inscription VALUES("."'$idseance'".","."'$ideleve'".","."'-1'".") ");
+            $incrementation_nbinscrits = mysqli_query($connect,"UPDATE seances Set nb_inscrits=nb_inscrits+1 where idseance=$idseance ");
 
             echo "<p>L'inscription a bien été prise en compte</p>";
             echo "<a href='inscription_eleve.php'>Inscrire un nouvel élève</a>";
