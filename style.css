@@ -4,6 +4,12 @@
 
 body{
   background-color: #C3C3C3;
+  background: -webkit-linear-gradient(to right, #C3C3C3, ##708090);
+  background: linear-gradient(to right, #C3C3C3, ##708090);
+}
+
+.copyright{
+  font-style: italic;
 }
 
 .image_accueil{
