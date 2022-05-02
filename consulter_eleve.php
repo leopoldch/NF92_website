@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body class='all_pages'>
   <h1 class="title">Consultation élève</h1>
 
         <?php
@@ -24,7 +24,7 @@
 
           $ideleve = $_POST['ideleve'];
           $ideleve = mysqli_real_escape_string($connect, $ideleve);
-          
+
           $request = mysqli_query($connect, "SELECT * FROM eleves WHERE ideleve=$ideleve");
           $infos = mysqli_fetch_array($request);
           if($infos['genre']==1){

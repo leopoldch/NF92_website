@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body class='all_pages'>
   <h1 class="title">Consulter les informations d'un élève</h1>
 
         <?php
@@ -24,10 +24,10 @@
 
         else{
           echo "<form method='POST' action='consulter_eleve.php'>";
-          echo "<fieldset>";
+          echo "<fieldset style='margin:auto;'>";
 
           echo "<label for='ideleve'> Veuillez selectionner des élèves pour les inscrire </label><br>";
-          echo "<select name='ideleve' id='ideleve' multiple size='4' style='width:auto; text-align: center'>";
+          echo "<select name='ideleve' id='ideleve'size='4' style='width:auto; text-align: center'>";
           /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
           while($response  = mysqli_fetch_array($result)){
 

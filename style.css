@@ -9,28 +9,31 @@
   font-family: "Calibri";
 }
 
-body{
+.all_pages{
   background-color: #C3C3C3;
-  background: -webkit-linear-gradient(to right, #C3C3C3, ##708090);
-  background: linear-gradient(to right, #C3C3C3, ##708090);
+  text-align: center;
+  margin: auto;
+  /* background: linear-gradient(to right, dimgrey 50%, orange 90%);
+  /*background-color: #C3C3C3;*/
 }
 
 .buttonclick{
   padding : 5px;
   margin-top: 2%;
-  border-radius: 2px;
-  background-color : ;
-}
-.buttonclick:hover{
+  border-radius: 10px;
 
 }
+
 
 .copyright{
   font-style: italic;
+  margin: auto;
 }
 
 fieldset{
   align: center;
+  border-radius: 5px;
+  margin-top: 5%;
 }
 
 footer{
@@ -48,8 +51,7 @@ height:50px;
   border-radius: 22px;
   width: 45%;
   height: auto;
-  margin-left:25%;
-  margin-right: auto;
+  margin: auto;
 }
 
 textarea{
@@ -128,10 +130,12 @@ nav > ul li:hover .sous{
 }
 /* fin du code pour le menu */
 
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Code pour le formulaire de la page ajout_eleve.html  */
 fieldset{
-  width: 50%
+  width: 50%;
+  margin : auto;
 }
 
 .informations_accueil{
@@ -144,9 +148,10 @@ fieldset{
 }
 
 .informations_accueil_div{
-  width : 90%;
+  width : 70%;
   background-color: grey;
   border-radius: 10px;
+  margin: auto;
   padding-left: 5%;
   padding-right: 5%;
 }

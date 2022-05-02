@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suppression d'un thème</title>
 </head>
-<body>
+<body class='all_pages'>
     <h1 class="title">Suppression d'un thème</h1>
     <!--Création d'un formulaire en HTML avec le nom du thème à supprimer   -->
     <?php
