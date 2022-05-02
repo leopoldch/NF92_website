@@ -23,8 +23,8 @@
 
         if($responseCount == 0 ){
           echo"<p>Il faut avoir au moins un élève inscrit pour pouvoir consulter ses informations </p><br> ";
-          echo "<a href='ajout_eleve.html' target='contenu'> ajout d'un élève <a><br>";
-          echo "<a href='bienvenue.html' target='contenu'> Accueil <a>";
+          echo "<a href='aout_eleve.html'><input class='buttonclick'type='button' value='Ajoutd'un élève'/></a>";
+          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
         }
 
         else{

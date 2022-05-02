@@ -22,8 +22,8 @@
 
         if(empty($_POST['ideleve']) ){
           echo"<p>Veuillez à bien sélectionner un élève </p><br> ";
-          echo "<a href='consultation_eleve.php' target='contenu'> Retour <a><br>";
-          echo "<a href='bienvenue.html' target='contenu'> Accueil <a>";
+          echo "<a href='consultation_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a>";
+          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
         }
         else{
 
@@ -57,6 +57,8 @@
               }
             }
           }
+          echo "<a href='consultation_eleve.php'><input class='buttonclick'type='button' value='Nouvelle consultation'/></a><br>";
+          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
 
         }
 

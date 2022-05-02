@@ -8,6 +8,13 @@ body{
   background: linear-gradient(to right, #C3C3C3, ##708090);
 }
 
+.buttonclick{
+  padding : 5px;
+  margin-top: 2%;
+  border-radius: 15px;
+  background-color : ;
+}
+
 .copyright{
   font-style: italic;
 }

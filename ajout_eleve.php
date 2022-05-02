@@ -29,7 +29,8 @@
           //vérification que les champs soient non vides, c'est une seconde vérification en plus du required dans la balise html
           if (empty($nom) or empty($prenom)) {
             echo "<p> Veuillez saisir votre nom ainsi que votre votre prénom </p>";
-            echo "<a href='ajout_eleve.html' target='contenu'> Retour <a>";
+            echo "<a href='ajout_eleve.html'><input class='buttonclick'type='button' value='Retour'/></a>";
+            echo "<a href='bienvenue.html'><input type='button' value='Accueil' /></a>";
           }
           else{
             //vérification du nom dans la BDD pour voir si il n'y est pas déjà
@@ -54,22 +55,26 @@
               }
               else{
                 //si l'utilisateur a bien rempli son nom et son prénom alors on envoie les informations vers la BDD
-                $query = "INSERT INTO eleves VALUES (NULL,"."'$nom'".","."'$prenom'".","."'$bdate'".","."'$date'".","."'$genre'".")";
+                $query = "INSERT INTO eleves VALUES(NULL,"."'$nom'".","."'$prenom'".","."'$bdate'".","."'$date'".","."'$genre'".")";
                 $result = mysqli_query($connect, $query);
                 // $query utilise comme parametre de mysqli_query
                 // le test ci-dessous est desormais impose pour chaque appel de :
                 // mysqli_query($connect, $query)
                 echo "<p>Votre inscription a bien été prise en compte</p>";
+                echo "<a href='ajout_eleve.html'><input class='buttonclick'type='button' value='Ajouter un autre élève'/></a>";
+                echo "<a href='bienvenue.html'><input type='button' class='buttonclick' value='Accueil' /></a>";
             }
             }
             else{
               //si l'utilisateur a bien rempli son nom et son prénom alors on envoie les informations vers la BDD
-              $query = "INSERT INTO eleves VALUES (NULL,"."'$nom'".","."'$prenom'".","."'$bdate'".","."'$date'".")";
+              $query = "INSERT INTO eleves VALUES (NULL,"."'$nom'".","."'$prenom'".","."'$bdate'".","."'$date'".","."'$genre'".")";
               $result = mysqli_query($connect, $query);
               // $query utilise comme parametre de mysqli_query
               // le test ci-dessous est desormais impose pour chaque appel de :
               // mysqli_query($connect, $query)
               echo "<p>Votre inscription a bien été prise en compte</p>";
+              echo "<a href='ajout_eleve.html'><input class='buttonclick'type='button' value='Ajouter un autre élève'/></a>";
+              echo "<a href='bienvenue.html'><input class='buttonclick'type='button' value='Accueil'/></a>";
           }
           }
 

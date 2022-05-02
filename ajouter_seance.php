@@ -24,7 +24,8 @@ $aujourdhui = date("Y-m-d");
 //vérification que les champs soient bien remplis par l'utilisateur
 if(empty($_POST['date_inscription']) or empty($_POST['menuchoixtheme']) or empty($_POST['effectif'])){
   echo "<p>Veuillez remplir tous les champs</p>";
-  echo "<a href=ajout_seance.php> Retour </a>";
+  echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a>";
+  echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
   exit();
 }
 
@@ -34,7 +35,8 @@ $effectif=$_POST['effectif'];
 
 if($selected_date < $aujourdhui){
   echo"<p>Vous ne pouvez pas rentrer une date inférieure à aujourd'hui</p>";
-  echo "<a href=ajout_seance.php> Retour </a>";
+  echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a>";
+  echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
   exit();
 }
 
@@ -60,8 +62,8 @@ if (mysqli_num_rows($result1) != 0 ) {
 else{
       $query = "INSERT INTO seances VALUES (NULL,"."'$selected_date'".","."'$effectif'".","."'$idtheme'".","."'0'".")";
       $result = mysqli_query($connect, $query);
-      echo "<p> Votre séance a bien été enregistrée </p>";
-      echo "<a href=ajout_seance.php> Retour </a>";
+      echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a>";
+      echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
 }
 
 

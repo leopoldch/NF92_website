@@ -32,6 +32,8 @@ $resultCount=mysqli_num_rows($result);
 /*On vérifie qu'il y ait des thèmes selectionnables, sinon l'opération est impossible*/
 if($resultCount== 0){
   echo"<p>Il faut ajouter un thème pour pouvoir ajouter une séance</p><br>";
+  echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a>";
+  echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
   echo "<a href='ajout_seance.php' target='contenu'> Retour <a>";
 }
 /*S'il existe des thèmes dans notre table theme, alors on affiche notre formulaire pour ajouter une séance */

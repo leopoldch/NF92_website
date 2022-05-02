@@ -26,7 +26,8 @@ $aujourdhui = date("Y-m-d");
 
 if(empty($_POST['menuchoixseance'])){
   echo"<p>Veuillez à bien selectionner une séance </p>";
-  echo"<a href='valider_seance.php'>Retour à la selection</a>";
+  echo "<br><a href='valider_seance.php'><input class='buttonclick'type='button' value='retour'/></a><br>";
+  echo "<a href='suppression_theme.php'><input class='buttonclick' type='button' value='Accueil' /></a>";
 }
 else{
   $idseance = $_POST['menuchoixseance'];
@@ -39,8 +40,8 @@ else{
 
   if(mysqli_num_rows($request) == 0){
     echo "<p> Il n'y a pas d'élèves inscrits à cette séance </p>";
-    echo "<a href='inscription_eleve.php'>Inscrire un élève</a>";
-    echo "<a href='valider_seance.php'> Retour </a>";
+    echo "<br><a href='inscription_eleve.php'><input class='buttonclick'type='button' value='inscire un élève'/></a><br>";
+    echo "<a href='suppression_theme.php'><input class='buttonclick' type='button' value='Accueil' /></a>";
     exit;
   }
 

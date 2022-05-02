@@ -50,7 +50,8 @@ while($val<=($nombre_participants-1)){
 
     if($note<0 or $note>40){
       echo "<p>Valeur rentrée non valide, veuillez rentrer une valeur entre 0 et 40</p><br>";
-      echo "<a href='valider_seance.php>Retour</a>'";
+      echo "<a href='validation_seance.php'><input class='buttonclick'type='button' value='retour'/></a>";
+      echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
     }
     else{
       $newnote = 40 - $note;
@@ -60,8 +61,8 @@ while($val<=($nombre_participants-1)){
   }
 
 }
-echo "<a href='bienvenue.html'>Accueil</a><br>";
-echo "<a href='validation_seance.php>Valider une autre séance</a>'";
+echo "<a href='validation_seance.php'><input class='buttonclick'type='button' value='valider une autre séance'/></a>";
+echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
 
 
 mysqli_close($connect);

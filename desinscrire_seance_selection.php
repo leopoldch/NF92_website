@@ -22,7 +22,8 @@
 
         if(empty($_POST['menuchoixeleve'])){
             echo"<p>Veuillez à bien selectionner un élève </p>";
-            echo"<a href='desinscription_seance.php'>Retour à la page précédente</a>";
+            echo "<a href='desinscription_seance.php'><input class='buttonclick'type='button' value='Retour'/></a>";
+            echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
             exit;
         }
         else{

@@ -26,7 +26,8 @@
 
       if($resultCount == 0){
         echo"<p>il faut ajouter un thème pour pouvoir en supprimer</p>";
-        echo "<a href='ajout_theme.html' target='contenu'> Ajouter un thème <a>";
+        echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='ajouter un thème'/></a>";
+        echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
       }
       else{
         echo "<form method='post' action='supprimer_theme.php'>";

@@ -21,7 +21,8 @@
 
         if(empty($_POST['menuchoixeleve'])){
             echo"<p>Veuillez à bien selectionner un élève </p>";
-            echo"<a href='inscription_eleve.php'>Retour à la page précédente</a>";
+            echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='retour'/></a>";
+            echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
             exit;
         }
         else{
@@ -34,6 +35,8 @@
 
           if($nombreseances == 0){
             echo "<p>Vous devez d'abord ajouter une séance</p>";
+            echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='ajouter une séance'/></a>";
+            echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
           }
           else{
 

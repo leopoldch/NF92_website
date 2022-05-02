@@ -35,11 +35,13 @@
             // le test ci-dessous est desormais impose pour chaque appel de :
             // mysqli_query($connect, $query)
             echo "<p>L'inscription a bien été prise en compte</p>";
-            echo "<a href='ajout_eleve.html'>Retour</a>";
+            echo "<br><a href='ajout_eleve.html'><input class='buttonclick'type='button' value='retour'/></a><br>";
+            echo "<a href='suppression_theme.php'><input class='buttonclick' type='button' value='Accueil' /></a>";
           }
           else{
             echo "<p>L'inscription a bien été annulée</p>";
-            echo "<a href='ajout_eleve.html'>Retour</a>";
+            echo "<br><a href='ajout_eleve.html'><input class='buttonclick'type='button' value='retour'/></a><br>";
+            echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
           }
 
           mysqli_close($connect);

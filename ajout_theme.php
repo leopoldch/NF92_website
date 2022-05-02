@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <h1 class='title'>Ajouter un thème</h1>
 
         <?php
 
@@ -26,7 +27,8 @@
 
           if (empty($theme_name)){
             echo "<p> Veuillez rentrer le theme de votre séance </p>";
-            echo "<a href='ajout_theme.html' target='contenu'> Retour <a>";
+            echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Retour'/></a>";
+            echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
             exit();
           }
           /*Les lignes précédentes permettent de s'assurer que l'utilisateur rentre bien quelque chose dans le champ textuel pour
@@ -45,10 +47,14 @@
               //si oui on lui affecte 0 pour montrer qu'elle n'est plus supprimée
               $result3 = mysqli_query($connect, $query3);//envoie la requête à la BDD
               echo "<p> Le thème a bien été remis à jour </p>";
+              echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a>";
+              echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
             }
             else {
               /* sinon on indique que la valeur est déjà dans la base de données */
               echo "<p> Le thème est déjà dans la base de donnée </p>";
+              echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a>";
+              echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
             }
           }
           else{
@@ -56,6 +62,8 @@
             $query = "INSERT INTO theme VALUES (NULL,"."'$theme_name'".","."'$supprime'".","."'$description'".")";
             $result = mysqli_query($connect, $query); //envoie la requête à la BDD
             echo "<p> Votre thème a bien été enregistré</p>";
+            echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a>";
+            echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
           }
 
 

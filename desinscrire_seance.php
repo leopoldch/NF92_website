@@ -24,15 +24,16 @@
 
         if(empty($_POST['menuchoixseance'])){
           echo"<p>Veuillez à bien selectionner une séance</p>";
-          echo"<a href='inscription_eleve'>Réitérer la désinscription</a>";
+          echo "<a href='desinscription_seance_selection.php'><input class='buttonclick'type='button' value='retour'/></a>";
+          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
         }
         else{
           $idseance = $_POST['menuchoixseance'];
           $resquest = mysqli_query($connect,"DELETE FROM inscription WHERE ideleve = $ideleve AND idseance = $idseance ");
 
           echo "<p>L'élève a bien été désincrit</p><br>";
-          echo "<a href='inscription_eleve.php'>Inscrire un nouvel élève</a><br>";
-          echo "<a href='bienvenue.html'>Accueil</a><br>";
+          echo "<a href='desinscription_seance.php'><input class='buttonclick'type='button' value='désinscrire un autre élève'/></a>";
+          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
           }
 
 

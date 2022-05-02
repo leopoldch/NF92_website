@@ -25,8 +25,8 @@
 
         if($responseCount1 == 0 or $responseCount2 == 0){
           echo"<p>Il faut avoir au moins un élève inscrit pour pouvoir le désinscrire </p> ";
-          echo "<a href='inscription_eleve.php' target='contenu'> Inscription d'un élève <a>";
-          echo "<a href='bienvenue.html' target='contenu'> Accueil <a>";
+          echo "<a href='isncription_eleve.php'><input class='buttonclick'type='button' value='Inscription d'un élève'/></a>";
+          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
         }
 
         else{
