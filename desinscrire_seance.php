@@ -40,7 +40,7 @@
 
           ?>
           <footer>
-            <p class="copyright">Auto école © 2022</p>
+            <p class="copyright"><?php  include('footer.php'); ?></p>
           </footer>
 
   </body>
