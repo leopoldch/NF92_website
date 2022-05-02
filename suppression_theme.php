@@ -51,5 +51,9 @@
 
      ?>
 
+     <footer>
+       <p class="copyright">Auto école © 2022</p>
+     </footer>
+
 </body>
 </html>
