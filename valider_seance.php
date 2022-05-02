@@ -10,13 +10,7 @@
 
 <?php
 
-$dbhost = 'tuxa.sme.utc';
-$dbuser = 'nf92p018';
-$dbpass = 'vE5DSom3';
-$dbname = 'nf92p018';
-/*Les 4 lignes précédentes permettent la connexion à la BDD, on renseigne notre identifiant, mot de passe, nom de notre
-bdd et comment y accéder (ici le lien )*/
-$connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('error connecting to mysql');
+include('connexion.php');
 
 // récupération de la date du jour mise dans $aujourdhui
 date_default_timezone_set('europe/paris');

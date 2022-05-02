@@ -10,13 +10,7 @@
 
         <?php
 
-        $dbhost = 'tuxa.sme.utc';
-        $dbuser = 'nf92p018';
-        $dbpass = 'vE5DSom3';
-        $dbname = 'nf92p018';
-        $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die ('Error connecting to mysql');
-        mysqli_set_charset($connect, 'utf8');
-
+        include('connexion.php');
 
         $result = mysqli_query($connect,"SELECT * FROM inscription");
         $responseCount1=mysqli_num_rows($result);

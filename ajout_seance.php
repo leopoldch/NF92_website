@@ -9,21 +9,12 @@
   <h1 class='title'>Ajout d'une séance</h1>
 
 <?php
-
-$dbhost = 'tuxa.sme.utc';
-$dbuser = 'nf92p018';
-$dbpass = 'vE5DSom3';
-$dbname = 'nf92p018';
-/*Les 4 lignes précédentes permettent la connexion à la BDD, on renseigne notre identifiant, mot de passe, nom de notre
-bdd et comment y accéder (ici le lien )*/
-$connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('error connecting to mysql');
+include('connexion.php');
 
 // récupération de la date du jour mise dans $aujourdhui
 date_default_timezone_set('europe/paris');
 $aujourdhui = date("Y-m-d");
 
-//la ligne suivante permet d'éviter les problèmes d'accent entre la page web et le serveur mysql
-mysqli_set_charset($connect, 'utf8'); //les données envoyées vers mysql sont encodées en utf-8
 $result = mysqli_query($connect,"SELECT * FROM theme WHERE supprime=0 ORDER BY nom ASC");
 
 /*La ligne du dessus représente la requete qui permet à php de récupérer les données demandés (ici en l'occurence la liste des

@@ -10,12 +10,7 @@
     <h1 class="title">Suppression d'un thème</h1>
     <!--Création d'un formulaire en HTML avec le nom du thème à supprimer   -->
     <?php
-    $dbhost = 'tuxa.sme.utc';
-    $dbuser = 'nf92p018';
-    $dbpass = 'vE5DSom3';
-    $dbname = 'nf92p018';
-      $connect = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('error connecting to mysql');
-      mysqli_set_charset($connect, 'utf8');
+    include('connexion.php');
 
       date_default_timezone_set('europe/paris');
       $aujourdhui = date("Y-m-d");
