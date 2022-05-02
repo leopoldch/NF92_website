@@ -11,8 +11,11 @@ body{
 .buttonclick{
   padding : 5px;
   margin-top: 2%;
-  border-radius: 15px;
+  border-radius: 2px;
   background-color : ;
+}
+.buttonclick:hover{
+
 }
 
 .copyright{
@@ -26,7 +29,6 @@ fieldset{
 footer{
 position:absolute;
 bottom:0;
-width:100%;
 padding-top:50px;
 height:50px;
 }
@@ -36,10 +38,11 @@ height:50px;
 
 
 .image_accueil{
+  border-radius: 22px;
   width: 45%;
   height: auto;
-  padding-left:25%;
-  padding-right: auto;
+  margin-left:25%;
+  margin-right: auto;
 }
 
 textarea{
@@ -125,8 +128,6 @@ fieldset{
 }
 
 .informations_accueil{
-  display: grid;
-  grid-template-columns: 15% 15% 15% 15%;
   align-items: start;
   justify-content: space-between;
   padding-top: 4%;
@@ -136,6 +137,7 @@ fieldset{
 }
 
 .informations_accueil_div{
+  width : 90%;
   background-color: grey;
   border-radius: 10px;
   padding-left: 5%;
