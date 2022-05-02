@@ -23,6 +23,7 @@
             }
               else{
                   $idtheme = $_POST['theme_supp'];
+                  $idtheme = mysqli_real_escape_string($connect, $idtheme);
                   $query = "UPDATE theme SET supprime='1' WHERE idtheme='$idtheme';";
                   // La ligne du dessus change la valeur du booléen supprime de 0 à 1 pour signifier que le thème est supprimé
                   $result = mysqli_query($connect, $query);

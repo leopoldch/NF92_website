@@ -14,6 +14,7 @@
         $date = date("Y-m-d");
 
         $ideleve = $_POST['ideleve'];
+        $ideleve = mysqli_real_escape_string($connect, $ideleve);
 
 
 
@@ -26,6 +27,7 @@
         }
         else{
           $idseance = $_POST['menuchoixseance'];
+          $idseance = mysqli_real_escape_string($connect, $idseance);
 
 
           $verification_inscription = mysqli_query($connect,"SELECT * FROM inscription WHERE ideleve= $ideleve  AND idseance = $idseance ");

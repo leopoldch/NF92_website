@@ -22,6 +22,7 @@
         }
         else{
           $ideleve = $_POST['menuchoixeleve'];
+          $ideleve = mysqli_real_escape_string($connect, $ideleve);
           $verfication_seance = mysqli_query($connect,"SELECT * FROM seances
             WHERE DateSeance > $date
             AND nb_inscrits < EffMax");

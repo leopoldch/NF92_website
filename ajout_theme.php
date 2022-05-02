@@ -14,6 +14,10 @@
 
           $theme_name =$_POST["theme_name"];
           $description=$_POST["description"];
+
+          $theme_name = mysqli_real_escape_string($connect, $theme_name);
+          $description = mysqli_real_escape_string($connect, $description);
+
           $supprime=0;
           /*on récupère les données du formulaire HTML et on affecte par défaut la valeur 0 à supprime
           pour siginifer que par défaut l'élement n'est pas supprimé */

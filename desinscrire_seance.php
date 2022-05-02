@@ -14,6 +14,7 @@
         $date = date("Y-m-d");
 
         $ideleve = $_POST['ideleve'];
+        $ideleve = mysqli_real_escape_string($connect, $ideleve);
 
 
         if(empty($_POST['menuchoixseance'])){
@@ -23,6 +24,7 @@
         }
         else{
           $idseance = $_POST['menuchoixseance'];
+          $idseance = mysqli_real_escape_string($connect, $idseance);
           $resquest = mysqli_query($connect,"DELETE FROM inscription WHERE ideleve = $ideleve AND idseance = $idseance ");
 
           echo "<p>L'élève a bien été désincrit</p><br>";

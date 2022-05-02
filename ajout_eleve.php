@@ -16,6 +16,15 @@
           $genre=$_POST["genre"];
           //récu^pération des données qui proviennent du formulaire html
 
+
+          $nom = mysqli_real_escape_string($connect, $nom);
+          $bdate = mysqli_real_escape_string($connect, $bdate);
+          $genre = mysqli_real_escape_string($connect, $genre);
+          $prenom = mysqli_real_escape_string($connect, $nom);
+
+
+
+
           date_default_timezone_set('Europe/Paris');
           $date = date("Y-m-d");
 

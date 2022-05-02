@@ -16,6 +16,11 @@
           $effectif=$_POST["effectif"];
           $valider=$_POST['valider'];
 
+          $selected_date = mysqli_real_escape_string($connect, $selected_date);
+          $idtheme = mysqli_real_escape_string($connect, $idtheme);
+          $effectif = mysqli_real_escape_string($connect, $effectif);
+          $valider = mysqli_real_escape_string($connect, $valider);
+
           date_default_timezone_set('Europe/Paris');
           $date = date("Y-m-d");
 

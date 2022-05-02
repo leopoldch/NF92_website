@@ -15,6 +15,7 @@ date_default_timezone_set('europe/paris');
 $aujourdhui = date("Y-m-d");
 
 $idseance = $_POST['idseance'];
+$idseance = mysqli_real_escape_string($connect, $idseance);
 
 $request1 = mysqli_query($connect,"SELECT * FROM inscription
   INNER JOIN eleves ON eleves.ideleve = inscription.ideleve

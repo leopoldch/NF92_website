@@ -28,6 +28,10 @@ $selected_date=$_POST['date_inscription'];
 $idtheme=$_POST['menuchoixtheme'];
 $effectif=$_POST['effectif'];
 
+$selected_date = mysqli_real_escape_string($connect, $selected_date);
+$idtheme = mysqli_real_escape_string($connect, $idtheme);
+$effectif = mysqli_real_escape_string($connect, $effectif);
+
 if($selected_date < $aujourdhui){
   echo"<p>Vous ne pouvez pas rentrer une date inférieure à aujourd'hui</p>";
   echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a>";
