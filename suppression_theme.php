@@ -25,9 +25,9 @@
 
       if($resultCount == 0){
         echo "<div class='retour'>";
-        echo"<p>il faut ajouter un thème pour pouvoir en supprimer</p>";
-        echo "<a href='bienvenue.html'><input class='formbutton' type='button' value='Accueil' /></a>";
-        echo "<a href='ajout_theme.html'><input class='formbutton'type='button' value='ajouter un thème'/></a></div>";
+        echo"<p>Attention : Il faut ajouter un thème pour pouvoir en supprimer</p>";
+        echo "<a class='space' href='bienvenue.html'><input class='formbutton' type='button' value='Accueil' /></a>";
+        echo "<a class='space' href='ajout_theme.html'><input class='formbutton'type='button' value='Ajout thème'/></a></div>";
       }
       else{
         echo "<fieldset >";

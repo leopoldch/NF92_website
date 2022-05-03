@@ -41,14 +41,14 @@
             // mysqli_query($connect, $query)
             echo "<div class='retour'>";
             echo "<p>L'inscription a bien été prise en compte</p>";
-            echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-            echo "<a href='ajout_eleve.html'><input class='buttonclick'type='button' value='retour'/></a></div>";
+            echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a class='space' href='ajout_eleve.html'><input class='buttonclick'type='button' value='retour'/></a></div>";
           }
           else{
             echo "<div class='retour'>";
             echo "<p>L'inscription a bien été annulée</p>";
-            echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-            echo "<a href='ajout_eleve.html'><input class='buttonclick'type='button' value='retour'/></a></div>";
+            echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a class='space' href='ajout_eleve.html'><input class='buttonclick'type='button' value='retour'/></a></div>";
           }
 
           mysqli_close($connect);

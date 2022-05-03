@@ -20,8 +20,8 @@ $aujourdhui = date("Y-m-d");
 if(empty($_POST['date_inscription']) or empty($_POST['menuchoixtheme']) or empty($_POST['effectif'])){
   echo "<div class='retour'>";
   echo "<p>Attention : Veuillez remplir tous les champs.</p>";
-  echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-  echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
+  echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+  echo "<a class='space' href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
   exit();
 }
 
@@ -36,8 +36,8 @@ $effectif = mysqli_real_escape_string($connect, $effectif);
 if($selected_date < $aujourdhui){
   echo "<div class='retour'>";
   echo"<p>Attention : Vous ne pouvez pas rentrer une date inférieure à aujourd'hui.</p>";
-  echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-  echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
+  echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+  echo "<a class='space' href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
   exit();
 }
 
@@ -76,8 +76,8 @@ else{
         }
         echo "<div class='retour'>";
         echo "<p>La séance a bien été ajouté. </p>";
-        echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-        echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
+        echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+        echo "<a class='space' href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
 }
 
 

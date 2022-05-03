@@ -17,9 +17,9 @@
 
         if(empty($_POST['ideleve']) ){
           echo "<div class='retour'>";
-          echo"<p>Veuillez à bien sélectionner un élève </p><br> ";
-          echo "<a href='consultation_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a>";
-          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+          echo"<p>Attention : Veuillez à bien sélectionner un élève.</p><br> ";
+          echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+          echo "<a class='space' href='consultation_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
         }
         else{
           echo"<fieldset>";
@@ -64,8 +64,8 @@
               }
             }
           }
-          echo "<a href='bienvenue.html'><input  type='button' value='Accueil' /></a>";
-          echo "<a href='consultation_eleve.php'><input type='button' value='Nouvelle consultation'/></a><br>";
+          echo "<a class='space' href='bienvenue.html'><input  type='button' value='Accueil' /></a>";
+          echo "<a class='space' href='consultation_eleve.php'><input type='button' value='Consultation'/></a><br>";
           echo "</div></fieldset>";
 
         }

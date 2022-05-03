@@ -32,9 +32,9 @@
           //vérification que les champs soient non vides, c'est une seconde vérification en plus du required dans la balise html
           if (empty($nom) or empty($prenom)) {
             echo "<div class='retour'>";
-            echo "<p> Veuillez saisir votre nom ainsi que votre votre prénom </p><br>";
-            echo "<a href='ajout_eleve.html'><input class='buttonclick'type='button' value='Retour'/></a>";
-            echo "<a href='bienvenue.html'><input type='button' value='Accueil' /></a></div>";
+            echo "<p> Attention : Veuillez saisir votre nom ainsi que votre votre prénom.</p><br>";
+            echo "<a class='space' href='bienvenue.html'><input type='button' value='Accueil'/></a></div>";
+            echo "<a class='sapce' href='ajout_eleve.html'><input class='buttonclick'type='button' value='Retour'/></a></div>";
           }
           else{
             //vérification du nom dans la BDD pour voir si il n'y est pas déjà
@@ -77,8 +77,8 @@
                 // mysqli_query($connect, $query)
                 echo "<div class='retour'>";
                 echo "<p>Votre inscription a bien été prise en compte</p>";
-                echo "<a href='ajout_eleve.html'><input class='buttonclick'type='button' value='Ajouter un autre élève'/></a>";
-                echo "<a href='bienvenue.html'><input type='button' class='buttonclick' value='Accueil' /></a></div>";
+                echo "<a class='space' href='bienvenue.html'><input type='button' class='buttonclick' value='Accueil' /></a>";
+                echo "<a class='space' href='ajout_eleve.html'><input class='buttonclick'type='button' value='Ajout élève.'/></a></div>";
             }
             }
             else{
@@ -94,8 +94,8 @@
               // mysqli_query($connect, $query)
               echo "<div class='retour'>";
               echo "<p>Votre inscription a bien été prise en compte</p>";
-              echo "<a href='bienvenue.html'><input class='buttonclick'type='button' value='Accueil'/></a>";
-              echo "<a href='ajout_eleve.html'><input class='buttonclick'type='button' value='Ajout élève'/></a></div>";
+              echo "<a class='space' href='bienvenue.html'><input class='buttonclick'type='button' value='Accueil'/></a>";
+              echo "<a class='space' href='ajout_eleve.html'><input class='buttonclick'type='button' value='Ajout élève'/></a></div>";
           }
           }
 

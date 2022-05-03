@@ -20,8 +20,8 @@ $aujourdhui = date("Y-m-d");
 if(empty($_POST['menuchoixseance'])){
   echo "<div class='retour'>";
   echo"<p>Veuillez à bien selectionner une séance </p>";
-  echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-  echo "<a href='valider_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
+  echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+  echo "<a class='space' href='valider_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
 }
 else{
   $idseance = $_POST['menuchoixseance'];
@@ -39,9 +39,9 @@ else{
 
   if(mysqli_num_rows($request) == 0){
     echo "<div class='retour'>";
-    echo "<p> Il n'y a pas d'élèves inscrits à cette séance </p>";
-    echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-    echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='Inscriptions'/></a></div>";
+    echo "<p>Attention : Il n'y a pas d'élèves inscrits à cette séance </p>";
+    echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+    echo "<a class='space' href='inscription_eleve.php'><input class='buttonclick'type='button' value='Inscriptions'/></a></div>";
     exit;
   }
 

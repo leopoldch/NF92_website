@@ -19,9 +19,9 @@
 
         if(empty($_POST['menuchoixseance'])){
           echo "<div class='retour'>";
-          echo"<p>Veuillez à bien selectionner une séance</p>";
-          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-          echo "<a href='desinscription_seance_selection.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
+          echo"<p>Attention : Veuillez à bien selectionner une séance.</p>";
+          echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+          echo "<a class='space' href='desinscription_seance_selection.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
         }
         else{
           $idseance = $_POST['menuchoixseance'];
@@ -33,8 +33,8 @@
             }
           echo "<div class='retour'>";
           echo "<p>L'élève a bien été désincrit</p><br>";
-          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-          echo "<a href='desinscription_seance_selection.php'><input class='buttonclick'type='button' value='Desinscriptions'/></a></div>";
+          echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+          echo "<a class='space' href='desinscription_seance_selection.php'><input class='buttonclick'type='button' value='Desinscriptions'/></a></div>";
           }
 
 

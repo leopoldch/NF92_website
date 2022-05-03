@@ -27,9 +27,9 @@
 
         if($responseCount1 == 0 or $responseCount2 == 0){
           echo "<div class='retour'>";
-          echo"<p>Il faut avoir au moins un élève inscrit pour pouvoir le désinscrire </p> ";
-          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-          echo "<a href='isncription_eleve.php'><input class='buttonclick'type='button' value='Inscriptions'/></a></div>";
+          echo"<p>Attention : Il faut avoir au moins un élève inscrit pour pouvoir le désinscrire.</p> ";
+          echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+          echo "<a class='space' href='isncription_eleve.php'><input class='buttonclick'type='button' value='Inscriptions'/></a></div>";
         }
 
         else{

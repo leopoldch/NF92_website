@@ -28,9 +28,9 @@ $resultCount=mysqli_num_rows($result);
 /*On vérifie qu'il y ait des thèmes selectionnables, sinon l'opération est impossible*/
 if($resultCount== 0){
   echo "<div class='retour'>";
-  echo"<p>Il faut ajouter un thème pour pouvoir ajouter une séance</p><br>";
-  echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-  echo "<a href='ajout_theme.html'><input class='buttonclick' type='button' value='Ajout thème' /></a></div>";
+  echo"<p>Attention : Il faut ajouter un thème pour pouvoir ajouter une séance.</p><br>";
+  echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+  echo "<a class='space' href='ajout_theme.html'><input class='buttonclick' type='button' value='Ajout thème' /></a></div>";
 }
 /*S'il existe des thèmes dans notre table theme, alors on affiche notre formulaire pour ajouter une séance */
 else{
@@ -44,9 +44,9 @@ else{
     echo "<option value=".$response['idtheme'].">".$response['nom']."</option>";
   }
   echo "</select><br><br>";
-  echo "<label for='date_inscription'>Date de la séance </label><br><input type='date' id='date_inscription' name='date_inscription' data-date='' data-date-format='DD MMMM YYYY' min='$aujourdhui'><br><br>";
+  echo "<label for='date_inscription'>Date de la séance </label><br><input required type='date' id='date_inscription' name='date_inscription' data-date='' data-date-format='DD MMMM YYYY' min='$aujourdhui'><br><br>";
   echo "<label for='effectif'> Effectif </label><br>";
-  echo "<input class='text' type='number' name='effectif' id='effectif'> </input><br>";
+  echo "<input class='text' type='number' required name='effectif' id='effectif'> </input><br>";
   echo "<br><br>";
   echo "<input class='formbutton' type='submit' value='Enregistrer'>";
   echo "</form>";

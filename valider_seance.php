@@ -33,8 +33,8 @@ $resultCount=mysqli_num_rows($result);
 if($resultCount == 0){
   echo "<div class='retour'>";
   echo"<p>Attention : Il faut ajouter une séance pour pouvoir noter des élèves.</p><br>";
-  echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-  echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Ajout séance'/></a></div>";
+  echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+  echo "<a class='space' href='ajout_seance.php'><input class='buttonclick'type='button' value='Ajout séance'/></a></div>";
 }
 /*S'il existe des thèmes dans notre table theme, alors on affiche notre formulaire pour ajouter une séance */
 else{

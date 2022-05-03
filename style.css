@@ -128,11 +128,20 @@ nav > ul li:hover .sous{
 
 .buttonclick{
   cursor: pointer;
-  width: 5%;
-  border-radius: 3px;
-  margin-left: 2%;
-  margin-right: 2%;
-  background: ;
+  width: 15%;
+  border-radius: 5px;
+  padding-left: 1%;
+  padding-right: 1%;
+  background: #E7AF04;
+  color: white;
+  font-weight: bold;
+  font-weight: bold;
+  margin-bottom: -3%;
+}
+
+.space{
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 
@@ -156,7 +165,7 @@ input{
 
 .formbutton{
   width : 20%;
-  font-size: 15px;
+  font-weight: bold;
   margin-top: 5%;
   margin-left:2%;
   margin-right:2%;
@@ -171,8 +180,12 @@ input{
 
 
 .retour{
+  padding-top: 2%;
+  text-align: center;
   width: 50%;
-  height: auto;
+  border-radius: 10px;
+  background-color: #ABABAB;
+  height: 15%;
   margin-top: 8%;
   margin-left:auto;
   margin-right: auto;

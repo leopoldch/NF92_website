@@ -24,9 +24,9 @@
 
           if (empty($theme_name)){
             echo "<div class='retour'>";
-            echo "<p> Veuillez rentrer le theme de votre séance </p>";
-            echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-            echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a></div>";
+            echo "<p>Attention : Veuillez rentrer le theme de votre séance.</p>";
+            echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a class='space' href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a></div>";
             exit();
           }
           /*Les lignes précédentes permettent de s'assurer que l'utilisateur rentre bien quelque chose dans le champ textuel pour
@@ -54,15 +54,15 @@
                 }
               echo "<div class='retour'>";
               echo "<p> Le thème a bien été remis à jour </p>";
-              echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-              echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a></div>";
+              echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+              echo "<a class='space' href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajout thème'/></a></div>";
             }
             else {
               /* sinon on indique que la valeur est déjà dans la base de données */
               echo "<div class='retour'>";
-              echo "<p> Le thème est déjà dans la base de donnée </p>";
-              echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-              echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a></div>";
+              echo "<p>Attention : Le thème est déjà dans la base de donnée.</p>";
+              echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+              echo "<a class='space' href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajout thème '/></a></div>";
 
             }
           }
@@ -76,8 +76,8 @@
               }
             echo "<div class='retour'>";
             echo "<p> Votre thème a bien été enregistré</p>";
-            echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-            echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a></div>";
+            echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a class='space' href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajout thème'/></a></div>";
           }
 
 

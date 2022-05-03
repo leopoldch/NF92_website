@@ -23,9 +23,9 @@
 
         if(empty($_POST['menuchoixseance'])){
           echo "<div class='retour'>";
-          echo"<p>Veuillez à bien selectionner une séance</p>";
-          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-          echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='Insciptions'/></a></div>";
+          echo"<p>Attention : Veuillez à bien selectionner une séance.</p>";
+          echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+          echo "<a class='space' href='inscription_eleve.php'><input class='buttonclick'type='button' value='Insciptions'/></a></div>";
         }
         else{
           $idseance = $_POST['menuchoixseance'];
@@ -41,8 +41,8 @@
           if($nb_erreur != 0){
             echo "<div class='retour'>";
             echo "<p>L'élève est déjà inscrit à cette séance, vous ne pouvez pas l'ajouter deux fois à une même séance</p>";
-            echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-            echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='Insciptions'/></a></div>";
+            echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a class='space' href='inscription_eleve.php'><input class='buttonclick'type='button' value='Insciptions'/></a></div>";
           }
           else{
             $request = mysqli_query($connect,"INSERT INTO inscription VALUES("."'$idseance'".","."'$ideleve'".","."'-1'".") ");
@@ -57,8 +57,8 @@
               }
             echo "<div class='retour'>";
             echo "<p>L'inscription a bien été prise en compte</p>";
-            echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-            echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='Insciptions'/></a></div>";
+            echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a class='space' href='inscription_eleve.php'><input class='buttonclick'type='button' value='Insciptions'/></a></div>";
           }
 
         }
