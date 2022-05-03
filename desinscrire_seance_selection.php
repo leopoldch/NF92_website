@@ -47,7 +47,7 @@
           }
           else{
             echo "<fieldset>";
-            echo "<legend><p>Choisir séance</p><legend>";
+            echo "<legend><p>Choisir séance</p></legend>";
             echo "<form method='POST' action='desinscrire_seance.php'>";
 
             echo "<label for='menuchoixseance'> Veuillez selectionner une séance pour désinscrire l'élève </label><br>";
@@ -59,7 +59,7 @@
             echo "</select><br><br>";
             echo "<input type='hidden' name ='ideleve' value='$ideleve'>";
             echo "<br><br>";
-            echo "<input class='formbutton' type='submit' value='Choisir cette séance'>";
+            echo "<input class='formbutton' type='submit' value='Choisir'>";
             echo "</form>";
             echo "</fieldset>";
           }
