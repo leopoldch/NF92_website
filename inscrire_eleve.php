@@ -14,22 +14,20 @@
         date_default_timezone_set('Europe/Paris');
         $date = date("Y-m-d");
 
-        $ideleve = $_POST['ideleve'];
-        $ideleve = mysqli_real_escape_string($connect, $ideleve);
 
 
 
-
-
-        if(empty($_POST['menuchoixseance'])){
+        if(empty($_POST['menuchoixseance']) or empty($_POST['menuchoixeleve'])){
           echo "<div class='retour'>";
-          echo"<p>Attention : Veuillez à bien selectionner une séance.</p>";
+          echo"<p>Attention : Veuillez à bien selectionner une séance ainsi qu'un élève .</p>";
           echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
           echo "<a class='space' href='inscription_eleve.php'><input class='buttonclick'type='button' value='Insciptions'/></a></div>";
         }
         else{
           $idseance = $_POST['menuchoixseance'];
           $idseance = mysqli_real_escape_string($connect, $idseance);
+          $ideleve = $_POST['menuchoixeleve'];
+          $ideleve = mysqli_real_escape_string($connect, $ideleve);
 
 
           $verification_inscription = mysqli_query($connect,"SELECT * FROM inscription WHERE ideleve= $ideleve  AND idseance = $idseance ");

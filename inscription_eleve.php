@@ -11,9 +11,13 @@
         <?php
 
         include('connexion.php');
+        date_default_timezone_set('Europe/Paris');
+        $date = date("Ymd");
 
 
-        $result = mysqli_query($connect,"SELECT * FROM seances WHERE  nb_inscrits<EffMax");
+        $result = mysqli_query($connect,"SELECT * FROM seances
+          WHERE DateSeance > $date
+          AND nb_inscrits < EffMax");
         if (!$result){
           echo "<br>erreur".mysqli_error($connect);
           exit;
@@ -28,15 +32,15 @@
 
         if($responseCount1 == 0 or $responseCount2 == 0){
           echo "<div class='retour'>";
-          echo"<p>Attention : Il faut avoir au moins une séance et un élève ajouté.</p><br>";
+          echo"<p>Attention : Il faut avoir au moins une séance libre et un élève ajouté.</p><br>";
           echo "<a class='space' href='bienvenue.html'><input type='button' value='Accueil' /></a>";
           echo "<a class='space' href='inscription_eleve.php'><input type='button' value='retour'/></a></div>";
         }
 
         else{
           echo "<fieldset>";
-          echo "<legend><p>Choisir un élève</p></legend>";
-          echo "<form method='POST' action='inscription_eleve_seance.php'>";
+          echo "<legend><p>Inscription</p></legend>";
+          echo "<form method='POST' action='inscrire_eleve.php'>";
           echo "<label for='menuchoixeleve'> Veuillez selectionner des élèves pour les inscrire </label><br>";
           echo "<select name='menuchoixeleve' id='menuchoixeleve' multiple size='4' style='width:auto; text-align: center'>";
           /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
@@ -47,7 +51,27 @@
           }
           echo "</select><br><br>";
           echo "<br><br>";
-          echo "<input class='formbutton' type='submit' value='Choisir'>";
+
+          $request = mysqli_query($connect,"SELECT *
+          FROM seances
+          INNER JOIN theme
+          WHERE seances.idtheme = theme.idtheme
+          AND seances.DateSeance > $date
+          AND seances.nb_inscrits<seances.EffMax;");
+          if (!$request){
+            echo "<br>erreur".mysqli_error($connect);
+            exit;
+          }
+
+          echo "<label for='menuchoixseance'> Veuillez selectionner une séance pour inscrire l'élève </label><br>";
+          echo "<select name='menuchoixseance' id='menuchoixseance' multiple size='4' style='width:auto; text-align: center'>";
+
+          while($response  = mysqli_fetch_array($request)){
+            echo "<option value=".$response['idseance'].">".$response['nom'].' / '.$response['DateSeance']."</option>";
+          }
+          echo "</select><br><br>";
+
+          echo "<input class='formbutton' type='submit' value='Valider'>";
           echo "</form>";
           echo "</fieldset>";
         }
