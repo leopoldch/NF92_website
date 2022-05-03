@@ -22,7 +22,6 @@
           echo "<a class='space' href='consultation_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
         }
         else{
-          echo"<fieldset>";
           echo "<div class='retour' style='width:auto;height:auto;'>";
           $ideleve = $_POST['ideleve'];
           $ideleve = mysqli_real_escape_string($connect, $ideleve);
@@ -51,7 +50,7 @@
               exit;
               }
           if(mysqli_num_rows($request_seance) == 0){
-            echo "<p>".$infos['nom'].' '.$infos['prenom']." n'a effectué aucune séance dans le passé</p>";
+            echo "<p>".$infos['nom'].' '.$infos['prenom']." : aucune séance dans le passé</p>";
           }
           else{
             while($response =mysqli_fetch_array($request_seance)){
@@ -64,9 +63,9 @@
               }
             }
           }
-          echo "<a class='space' href='bienvenue.html'><input  type='button' value='Accueil' /></a>";
-          echo "<a class='space' href='consultation_eleve.php'><input type='button' value='Consultation'/></a><br>";
-          echo "</div></fieldset>";
+          echo "<a class='space' href='bienvenue.html'><input class='buttonclick'  type='button' value='Accueil' /></a>";
+          echo "<a class='space' href='consultation_eleve.php'><input class='buttonclick' type='button' value='Consultation'/></a><br>";
+          echo "</div>";
 
         }
 
