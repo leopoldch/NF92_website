@@ -16,6 +16,7 @@
 
 
         if(empty($_POST['ideleve']) ){
+          echo "<div class='retour'>";
           echo"<p>Veuillez à bien sélectionner un élève </p><br> ";
           echo "<a href='consultation_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a>";
           echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";

@@ -47,7 +47,7 @@
 
             if($response){
               if ($response['nom'] == $nom and $response['prenom'] == $prenom ){
-                echo "fieldset";
+                echo "<fieldset>";
                 echo "<legend><p>Valider élève</p></legend>";
                 echo "<p> Le nom de cet élève est déjà présent dans la base de données</p>";
                 echo "<form method='POST' action='valider_eleve.php'>";

@@ -27,17 +27,17 @@
         $responseCount2=mysqli_num_rows($result2);
 
         if($responseCount1 == 0 or $responseCount2 == 0){
-          echo "<div class='erreur'>";
+          echo "<div class='retour'>";
           echo"<p>Il faut avoir au moins une séance et un élève ajouté </p><br>";
-          echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='retour'/></a>";
-          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a></div>";
+          echo "<a href='inscription_eleve.php'><input type='button' value='retour'/></a>";
+          echo "<a href='bienvenue.html'><input type='button' value='Accueil' /></a></div>";
         }
 
         else{
           echo "<form method='POST' action='inscription_eleve_seance.php'>";
 
           echo "<fieldset>";
-
+          echo "<legend><p>Choisir un élève</p></legend>";
           echo "<label for='menuchoixeleve'> Veuillez selectionner des élèves pour les inscrire </label><br>";
           echo "<select name='menuchoixeleve' id='menuchoixeleve' multiple size='4' style='width:auto; text-align: center'>";
           /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
@@ -48,7 +48,7 @@
           }
           echo "</select><br><br>";
           echo "<br><br>";
-          echo "<input type='submit' value='Inscrire ces élèves'>";
+          echo "<input class='formbutton' type='submit' value='Inscrire ces élèves'>";
           echo "</fieldset>";
           echo "</form>";
         }

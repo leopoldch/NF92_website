@@ -34,17 +34,17 @@ if($resultCount== 0){
 }
 /*S'il existe des thèmes dans notre table theme, alors on affiche notre formulaire pour ajouter une séance */
 else{
-  echo "<form method='post' action='ajouter_seance.php'>";
   echo "<fieldset>";
   echo "<legend><p>Selection thème</p></legend>";
-  echo "<label for='menuchoixtheme'> Veuillez selectionner un thème </label><br><br>";
+  echo "<form method='post' action='ajouter_seance.php'>";;
+  echo "<label for='menuchoixtheme'> Veuillez selectionner un thème :</label><br><br>";
   echo "<select name='menuchoixtheme' id='menuchoixtheme' size='4' style='width:20%; text-align: center'>";
   /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
   while($response = mysqli_fetch_array($result)) {
     echo "<option value=".$response['idtheme'].">".$response['nom']."</option>";
   }
   echo "</select><br><br>";
-  echo "<label for='date_inscription'>Date de la séance </label><input type='date' id='date_inscription' name='date_inscription' data-date='' data-date-format='DD MMMM YYYY' min='$aujourdhui'><br><br>";
+  echo "<label for='date_inscription'>Date de la séance </label><br><input type='date' id='date_inscription' name='date_inscription' data-date='' data-date-format='DD MMMM YYYY' min='$aujourdhui'><br><br>";
   echo "<label for='effectif'> Effectif </label><br>";
   echo "<input class='text' type='number' name='effectif' id='effectif'> </input><br>";
   echo "<br><br>";

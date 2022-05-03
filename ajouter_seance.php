@@ -18,9 +18,10 @@ $aujourdhui = date("Y-m-d");
 
 //vérification que les champs soient bien remplis par l'utilisateur
 if(empty($_POST['date_inscription']) or empty($_POST['menuchoixtheme']) or empty($_POST['effectif'])){
+  echo "<div class='retour'>";
   echo "<p>Veuillez remplir tous les champs</p>";
-  echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a>";
   echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+  echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
   exit();
 }
 
@@ -33,9 +34,10 @@ $idtheme = mysqli_real_escape_string($connect, $idtheme);
 $effectif = mysqli_real_escape_string($connect, $effectif);
 
 if($selected_date < $aujourdhui){
+  echo "<div class='retour'>";
   echo"<p>Vous ne pouvez pas rentrer une date inférieure à aujourd'hui</p>";
-  echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a>";
   echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+  echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
   exit();
 }
 
@@ -50,7 +52,9 @@ if (mysqli_num_rows($result1) != 0 ) {
   $nom = mysqli_fetch_array($nomtheme);
   $nom= $nom['nom'];
 
-  echo "<p>La séance prévue le ".$selected_date."sur les ".$nom." existe déjà, que voulez vous faire ?</p>";
+  echo "<p style='margin:auto'>La séance prévue le ".$selected_date."sur les ".$nom." existe déjà, que voulez vous faire ?</p><br>";
+  echo "<fieldset>";
+  echo "<legend><p>Validation ajout</p></legend>";
   echo "<form method='POST' action='verification_seance.php'>";
   echo "<input type='hidden' name='date' value ='".$selected_date."'>";
   echo "<input type='hidden' name='idtheme' value ='".$idtheme."'>";
@@ -59,8 +63,9 @@ if (mysqli_num_rows($result1) != 0 ) {
   echo "<input type='radio' name='valider' id='valider1' selected value='1'><br><br>";
   echo "<label for='valider2'> Annuler l'ajout</label>";
   echo "<input type='radio' name='valider' id='valider2' value='2'><br><br>";
-  echo "<input type='submit' value='Valider'>";
-  echo "<input type='reset'>";
+  echo "<input class='formbutton' type='submit' value='Valider'>";
+  echo "<input class='formbutton' type='reset'>";
+  echo "</fieldset>";
 }
 else{
       $query = "INSERT INTO seances VALUES (NULL,"."'$selected_date'".","."'$effectif'".","."'$idtheme'".","."'0'".")";
@@ -69,8 +74,9 @@ else{
         echo "<br>erreur".mysqli_error($connect);
         exit;
         }
-      echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a>";
-      echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+        echo "<div class='retour'>";
+        echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+        echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
 }
 
 

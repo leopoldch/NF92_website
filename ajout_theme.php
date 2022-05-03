@@ -23,9 +23,10 @@
           pour siginifer que par défaut l'élement n'est pas supprimé */
 
           if (empty($theme_name)){
+            echo "<div class='retour'>";
             echo "<p> Veuillez rentrer le theme de votre séance </p>";
-            echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Retour'/></a>";
             echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a></div>";
             exit();
           }
           /*Les lignes précédentes permettent de s'assurer que l'utilisateur rentre bien quelque chose dans le champ textuel pour
@@ -51,15 +52,18 @@
                 echo "<br>erreur".mysqli_error($connect);
                 exit;
                 }
+              echo "<div class='retour'>";
               echo "<p> Le thème a bien été remis à jour </p>";
-              echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a>";
               echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+              echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a></div>";
             }
             else {
               /* sinon on indique que la valeur est déjà dans la base de données */
+              echo "<div class='retour'>";
               echo "<p> Le thème est déjà dans la base de donnée </p>";
-              echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a>";
               echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+              echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a></div>";
+
             }
           }
           else{
