@@ -11,6 +11,8 @@
         <?php
 
         include('connexion.php');
+        date_default_timezone_set('Europe/Paris');
+        $date = date("Ymd");
 
         $result = mysqli_query($connect,"SELECT * FROM inscription");
         if (!$result){
@@ -33,9 +35,9 @@
         }
 
         else{
-          echo "<form method='POST' action='desinscrire_seance_selection.php'>";
+          echo "<form method='POST' action='desinscrire_seance.php'>";
           echo "<fieldset>";
-          echo "<legend><p>Choisir élèves</p></legend>";
+          echo "<legend><p>Désinscription</p></legend>";
           echo "<label for='menuchoixeleve'> Veuillez selectionner des élèves pour les inscrire </label><br>";
           echo "<select name='menuchoixeleve' id='menuchoixeleve' multiple size='4' style='width:auto; text-align: center'>";
           /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
@@ -46,7 +48,28 @@
           }
           echo "</select><br><br>";
           echo "<br><br>";
-          echo "<input class='formbutton' type='submit' value='Voir les séances'>";
+
+          $request = mysqli_query($connect,"SELECT *
+          FROM seances
+          INNER JOIN theme
+          WHERE seances.idtheme = theme.idtheme
+          AND seances.DateSeance > $date");
+          if (!$request){
+            echo "<br>erreur".mysqli_error($connect);
+            exit;
+          }
+
+        echo "<select name='menuchoixseance' id='menuchoixseance' multiple size='4' style='width:auto; text-align: center'>";
+
+        while($response  = mysqli_fetch_array($request)){
+            echo "<option value=".$response['idseance'].">".$response['nom'].' / '.$response['DateSeance']."</option>";
+          }
+            echo "</select><br><br>";
+
+
+
+
+          echo "<input class='formbutton' type='submit' value='Valider'>";
           echo "</fieldset>";
           echo "</form>";
         }

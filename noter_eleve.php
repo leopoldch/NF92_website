@@ -65,8 +65,8 @@ while($val<=($nombre_participants-1)){
       echo "<p>".$nom." ".$prenom." : la note '".$newnote."/40' a bien été enregistrée</p><br>";
     }
   }
-echo "</fieldset>";
 }
+echo "</fieldset>";
 echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
 echo "<a class='space' href='valider_seance.php'><input class='buttonclick'type='button' value='Valider séances'/></a>";
 
