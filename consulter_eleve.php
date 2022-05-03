@@ -26,6 +26,10 @@
           $ideleve = mysqli_real_escape_string($connect, $ideleve);
 
           $request = mysqli_query($connect, "SELECT * FROM eleves WHERE ideleve=$ideleve");
+          if (!$request){
+            echo "<br>erreur".mysqli_error($connect);
+            exit;
+            }
           $infos = mysqli_fetch_array($request);
           if($infos['genre']==1){
               echo "<p> Mme. ".$infos['nom'].' '.$infos['prenom']." née le ".$infos['dateNaiss']." inscrite le ".$infos['dateInscription']."</p>";
@@ -40,6 +44,10 @@
             ON theme.idtheme = seances.idtheme
             WHERE inscription.ideleve = $ideleve
             AND DateSeance < $date");
+            if (!$request_seance){
+              echo "<br>erreur".mysqli_error($connect);
+              exit;
+              }
           if(mysqli_num_rows($request_seance) == 0){
             echo "<p>".$infos['nom'].' '.$infos['prenom']." n'a effectué aucune séance dans le passé</p>";
           }

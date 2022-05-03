@@ -16,6 +16,10 @@ date_default_timezone_set('europe/paris');
 $aujourdhui = date("Y-m-d");
 
 $request = mysqli_query($connect,"SELECT * FROM eleves");
+if (!$request){
+  echo "<br>erreur".mysqli_error($connect);
+  exit;
+  }
 $responseCount=mysqli_num_rows($request);
 
 if( $responseCount == 0){

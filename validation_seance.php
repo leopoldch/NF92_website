@@ -31,6 +31,10 @@ else{
 
 
   $request = mysqli_query($connect,"SELECT * FROM inscription INNER JOIN eleves WHERE eleves.ideleve = inscription.ideleve AND idseance=$idseance");
+  if (!$request){
+    echo "<br>erreur".mysqli_error($connect);
+    exit;
+    }
 
   if(mysqli_num_rows($request) == 0){
     echo "<p> Il n'y a pas d'élèves inscrits à cette séance </p>";

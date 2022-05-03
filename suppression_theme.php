@@ -16,6 +16,10 @@
       $aujourdhui = date("Y-m-d");
 
       $result = mysqli_query($connect,"SELECT * FROM theme WHERE supprime = 0");
+      if (!$result){
+        echo "<br>erreur".mysqli_error($connect);
+        exit;
+        }
 
       $resultCount=mysqli_num_rows($result);
 
@@ -28,7 +32,7 @@
         echo "<form method='post' action='supprimer_theme.php'>";
         echo "<fieldset style='width: 50%; height: 15%'>";
         echo "<label for='theme_supp'> Veuillez selectionner la séance à supprimer </label>";
-        echo "<select name='theme_supp' id='theme_supp' size='4' style='width:20%; text-align: center'>";
+        echo "<select class='form'name='theme_supp' id='theme_supp' size='4' style='width:20%; text-align: center'>";
 
         /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
         while($response = mysqli_fetch_array($result)) {
@@ -36,7 +40,7 @@
         }
 
         echo "</select><br><br>";
-        echo "<input type='submit' value='Valider la suppression'>";
+        echo "<input class='form' type='submit' value='Valider la suppression'>";
         echo "</form>";
         echo "</fieldset>";
 

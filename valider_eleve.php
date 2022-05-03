@@ -30,7 +30,12 @@
           if ($valider == 1){
             //si l'utilisateur a bien rempli son nom et son prénom alors on envoie les informations vers la BDD
             $query = "INSERT INTO eleves VALUES (NULL,"."'$nom'".","."'$prenom'".","."'$bdate'".","."'$date'".","."'$genre'".")";
+
             $result = mysqli_query($connect, $query);
+            if (!$result){
+              echo "<br>erreur".mysqli_error($connect);
+              exit;
+              }
             // $query utilise comme parametre de mysqli_query
             // le test ci-dessous est desormais impose pour chaque appel de :
             // mysqli_query($connect, $query)

@@ -26,6 +26,10 @@
           $idseance = $_POST['menuchoixseance'];
           $idseance = mysqli_real_escape_string($connect, $idseance);
           $resquest = mysqli_query($connect,"DELETE FROM inscription WHERE ideleve = $ideleve AND idseance = $idseance ");
+          if (!$request){
+            echo "<br>erreur".mysqli_error($connect);
+            exit;
+            }
 
           echo "<p>L'élève a bien été désincrit</p><br>";
           echo "<a href='desinscription_seance.php'><input class='buttonclick'type='button' value='désinscrire un autre élève'/></a>";

@@ -13,8 +13,16 @@
         include('connexion.php');
 
         $result = mysqli_query($connect,"SELECT * FROM inscription");
+        if (!$result){
+          echo "<br>erreur".mysqli_error($connect);
+          exit;
+          }
         $responseCount1=mysqli_num_rows($result);
         $result2 = mysqli_query($connect,"SELECT * FROM eleves");
+        if (!$result2){
+          echo "<br>erreur".mysqli_error($connect);
+          exit;
+          }
         $responseCount2=mysqli_num_rows($result2);
 
         if($responseCount1 == 0 or $responseCount2 == 0){

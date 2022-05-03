@@ -4,46 +4,24 @@
 
 
 
-
+/* ce qui s'applique à toutes les pages */
 *{
   font-family: "Calibri";
 }
-
-.all_pages{
-  background-color: #C3C3C3;
-  text-align: center;
-  margin: auto;
-  /* background: linear-gradient(to right, dimgrey 50%, orange 90%);
-  /*background-color: #C3C3C3;*/
-}
-
-.buttonclick{
-  padding : 5px;
-  margin-top: 2%;
-  border-radius: 10px;
-
-}
-
-
-.copyright{
-  font-style: italic;
-  margin: auto;
-}
-
+/* mise en page des fieldsets à revoir */
 fieldset{
   align: center;
   border-radius: 5px;
   margin-top: 5%;
 }
-
+/* mise en page en bas à droite du copyright */
 footer{
-position:absolute;
-bottom:0;
-padding-top:50px;
-margin-left:90%;
+  font-style: italic;
+  position:absolute;
+  bottom:0;
+  padding-top:50px;
+  margin-left:70%;
 }
-
-
 .image_accueil{
   width: 45%;
   height: auto;
@@ -51,28 +29,39 @@ margin-left:90%;
   margin-top: 10%;
   margin-bottom: 3%
 }
-
-
 .image_menu{
   width: 45%;
   margin-top: 10%;
   margin-bottom: 20%;
   margin-left: 30%;
 }
-
-
-textarea{
-  resize: none;
-}
-
 .title{
   text-align: center;
 }
-
-/*code du menu déroulant*/
 .menu_page{
   background-color: #C3C3C3;
 }
+
+/* mise en page du texte sur la page bienvenue */
+.informations_accueil{
+  align-items: start;
+  justify-content: space-between;
+  padding-top: 4%;
+}
+.titre_accueil{
+  text-align: center;
+}
+.informations_accueil_div{
+  width : 70%;
+  background-color: grey;
+  border-radius: 10px;
+  margin: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+
+/* code de l'affichage du menu déroulant */
 nav{
     width: 100%;
     margin: 0 auto;
@@ -135,30 +124,23 @@ nav > ul li:hover .sous{
     content:" ▼";
     font-size: 12px;
 }
-/* fin du code pour le menu */
+/* fin du code de l'affichage du menu déroulant */
 
-/* --------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/*Code pour le formulaire de la page ajout_eleve.html  */
-fieldset{
-  width: 50%;
-  margin : auto;
+/* code pour la mise en page de toutes les pages générées en php */
+
+.all_pages{
+  background-color: #C3C3C3; // fait en sorte que le fond de toutes les pages soient en gris
+  text-align: left;    // fait en sorte que le texte s'alligne à gauche de leur balises
+  margin: auto;  // fixe tout le contenu d'une page au millieu 
 }
 
-.informations_accueil{
-  align-items: start;
-  justify-content: space-between;
-  padding-top: 4%;
-}
-.titre_accueil{
-  text-align: center;
-}
-
-.informations_accueil_div{
-  width : 70%;
-  background-color: grey;
-  border-radius: 10px;
-  margin: auto;
-  padding-left: 5%;
-  padding-right: 5%;
+.form{
+  border-radius: 2px;
+  width: 20%;
+  height: 7%;
+  padding-left: 2%;
+  font-size: 15px;
+  outline-color: #FFDB89;
+  background-color: #FFFAED;
 }

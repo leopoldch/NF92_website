@@ -16,6 +16,10 @@ date_default_timezone_set('europe/paris');
 $aujourdhui = date("Y-m-d");
 
 $result = mysqli_query($connect,"SELECT * FROM theme WHERE supprime=0 ORDER BY nom ASC");
+if (!$result){
+  echo "<br>erreur".mysqli_error($connect);
+  exit;
+  }
 
 /*La ligne du dessus représente la requete qui permet à php de récupérer les données demandés (ici en l'occurence la liste des
 noms qui sont présent dans notre tableau) et de les trier par ordre alphabétique.*/

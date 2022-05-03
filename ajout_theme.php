@@ -33,16 +33,24 @@
 
 
           //code de vérification si le nom n'existe pas déjà dans la BDD
-          $name = $connect->query("SELECT * FROM theme WHERE nom='$theme_name'")->fetch_object();
+          $result = mysqli_query($connect,"SELECT * FROM theme WHERE nom='$theme_name'");
+          if (!$result){
+            echo "<br>erreur".mysqli_error($connect);
+            exit;
+            }
+          $array = mysqli_fetch_array($result);
 
-
-          if (!empty($name)){
+          if ($array){
           /*teste si il y a bien une valeur dans ou non qui correspond au même nom*/
-            if ($name->supprime){
+            if ($array['supprime']){
             // Si la valeur est présente alors on regarde si elle est suprimée ou non
               $query3 = "UPDATE theme SET supprime='0' WHERE nom='$theme_name';";
               //si oui on lui affecte 0 pour montrer qu'elle n'est plus supprimée
               $result3 = mysqli_query($connect, $query3);//envoie la requête à la BDD
+              if (!$result3){
+                echo "<br>erreur".mysqli_error($connect);
+                exit;
+                }
               echo "<p> Le thème a bien été remis à jour </p>";
               echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a>";
               echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
@@ -58,6 +66,10 @@
             //Si le même nom n'est pas présent dans la base de données alors on l'ajoute
             $query = "INSERT INTO theme VALUES (NULL,"."'$theme_name'".","."'$supprime'".","."'$description'".")";
             $result = mysqli_query($connect, $query); //envoie la requête à la BDD
+            if (!$result){
+              echo "<br>erreur".mysqli_error($connect);
+              exit;
+              }
             echo "<p> Votre thème a bien été enregistré</p>";
             echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a>";
             echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";

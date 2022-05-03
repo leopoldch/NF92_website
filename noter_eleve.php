@@ -21,6 +21,10 @@ $request1 = mysqli_query($connect,"SELECT * FROM inscription
   INNER JOIN eleves ON eleves.ideleve = inscription.ideleve
   INNER JOIN seances ON seances.idseance = inscription.idseance
   WHERE seances.idseance=$idseance;");
+  if (!$request1){
+    echo "<br>erreur".mysqli_error($connect);
+    exit;
+    }
 
 $tab = mysqli_fetch_array($request1);
 $nombre_participants= $tab['nb_inscrits'];
@@ -52,6 +56,10 @@ while($val<=($nombre_participants-1)){
     else{
       $newnote = 40 - $note;
       $request_note = mysqli_query($connect, "UPDATE inscription SET note = '$newnote' WHERE ideleve='$ideleve'");
+      if (!$request_note){
+        echo "<br>erreur".mysqli_error($connect);
+        exit;
+        }
       echo "<p>".$nom." ".$prenom." : la note '".$newnote."/40' a bien été enregistrée</p><br>";
     }
   }

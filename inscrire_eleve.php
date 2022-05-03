@@ -31,6 +31,10 @@
 
 
           $verification_inscription = mysqli_query($connect,"SELECT * FROM inscription WHERE ideleve= $ideleve  AND idseance = $idseance ");
+          if (!$verification_inscription){
+            echo "<br>erreur".mysqli_error($connect);
+            exit;
+            }
           $nb_erreur = mysqli_num_rows($verification_inscription);
           if($nb_erreur != 0){
             echo "<p>L'élève est déjà inscrit à cette séance, vous ne pouvez pas l'ajouter deux fois à une même séance</p>";
@@ -39,7 +43,15 @@
           }
           else{
             $resquest = mysqli_query($connect,"INSERT INTO inscription VALUES("."'$idseance'".","."'$ideleve'".","."'-1'".") ");
+            if (!$request){
+              echo "<br>erreur".mysqli_error($connect);
+              exit;
+              }
             $incrementation_nbinscrits = mysqli_query($connect,"UPDATE seances Set nb_inscrits=nb_inscrits+1 where idseance=$idseance ");
+            if (!$incrementation_nbinscrits){
+              echo "<br>erreur".mysqli_error($connect);
+              exit;
+              }
 
             echo "<p>L'inscription a bien été prise en compte</p>";
             echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='Inscrire un élève'/></a>";

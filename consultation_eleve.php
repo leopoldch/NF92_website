@@ -14,6 +14,10 @@
 
 
         $result = mysqli_query($connect,"SELECT * FROM eleves");
+        if (!$result){
+          echo "<br>erreur".mysqli_error($connect);
+          exit;
+          }
         $responseCount=mysqli_num_rows($result);
 
         if($responseCount == 0 ){

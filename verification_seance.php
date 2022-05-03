@@ -28,6 +28,10 @@
             //si l'utilisateur a bien rempli son nom et son prénom alors on envoie les informations vers la BDD
             $query = "INSERT INTO seances VALUES (NULL,"."'$selected_date'".","."'$effectif'".","."'$idtheme'".","."'0'".")";
             $result = mysqli_query($connect, $query);
+            if (!$result){
+              echo "<br>erreur".mysqli_error($connect);
+              exit;
+              }
             // $query utilise comme parametre de mysqli_query
             // le test ci-dessous est desormais impose pour chaque appel de :
             // mysqli_query($connect, $query)

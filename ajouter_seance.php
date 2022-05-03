@@ -40,6 +40,10 @@ if($selected_date < $aujourdhui){
 }
 
 $result1 = mysqli_query($connect, "SELECT * FROM seances WHERE idtheme ='$idtheme' AND DateSeance='$selected_date'");
+if (!$result1){
+  echo "<br>erreur".mysqli_error($connect);
+  exit;
+  }
 if (mysqli_num_rows($result1) != 0 ) {
 
   $nomtheme = mysqli_query($connect, "SELECT nom FROM theme WHERE idtheme ='$idtheme' AND supprime = 0");
@@ -61,6 +65,10 @@ if (mysqli_num_rows($result1) != 0 ) {
 else{
       $query = "INSERT INTO seances VALUES (NULL,"."'$selected_date'".","."'$effectif'".","."'$idtheme'".","."'0'".")";
       $result = mysqli_query($connect, $query);
+      if (!$result){
+        echo "<br>erreur".mysqli_error($connect);
+        exit;
+        }
       echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a>";
       echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
 }

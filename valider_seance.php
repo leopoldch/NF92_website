@@ -19,6 +19,10 @@ $aujourdhui = date("Y-m-d");
 //la ligne suivante permet d'éviter les problèmes d'accent entre la page web et le serveur mysql
 mysqli_set_charset($connect, 'utf8'); //les données envoyées vers mysql sont encodées en utf-8
 $result = mysqli_query($connect,"SELECT * FROM seances INNER JOIN theme WHERE seances.idtheme=theme.idtheme;");
+if (!$result){
+  echo "<br>erreur".mysqli_error($connect);
+  exit;
+  }
 
 /*La ligne du dessus représente la requete qui permet à php de récupérer les données demandés (ici en l'occurence la liste des
 noms qui sont présent dans notre tableau) et de les trier par ordre alphabétique.*/

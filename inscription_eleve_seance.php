@@ -26,6 +26,10 @@
           $verfication_seance = mysqli_query($connect,"SELECT * FROM seances
             WHERE DateSeance > $date
             AND nb_inscrits < EffMax");
+            if (!$verification_seance){
+              echo "<br>erreur".mysqli_error($connect);
+              exit;
+              }
 
           $nombreseances = mysqli_num_rows($verfication_seance);
 
@@ -43,6 +47,10 @@
             WHERE seances.idtheme = theme.idtheme
             AND seances.DateSeance > $date
             AND seances.nb_inscrits<seances.EffMax;");
+            if (!$request){
+              echo "<br>erreur".mysqli_error($connect);
+              exit;
+              }
 
             echo "<form method='POST' action='inscrire_eleve.php'>";
 

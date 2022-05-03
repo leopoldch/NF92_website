@@ -31,6 +31,10 @@
             ON seances.idtheme = theme.idtheme
             WHERE DateSeance > $date
             AND ideleve = $ideleve");
+            if (!$verification_inscription){
+              echo "<br>erreur".mysqli_error($connect);
+              exit;
+              }
 
           $nombreinscription = mysqli_num_rows($verification_inscription);
 

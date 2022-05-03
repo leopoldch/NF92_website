@@ -32,6 +32,10 @@ else{
   ON theme.idtheme = seances.idtheme
   WHERE DateSeance > $date
   WHERE inscription.ideleve = $ideleve;");
+  if (!$request){
+    echo "<br>erreur".mysqli_error($connect);
+    exit;
+    }
 
   $i = 0
   $requestcount = mysqli_num_rows($request);
@@ -49,6 +53,10 @@ else{
       INNER JOIN theme
       WHERE seances.idtheme = theme.idtheme
       AND DateSeance > $date";)
+      if (!$request2){
+        echo "<br>erreur".mysqli_error($connect);
+        exit;
+        }
 
       $request2count = mysqli_num_rows($request2);
 
