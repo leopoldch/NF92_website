@@ -38,7 +38,7 @@
           echo "<form method='POST' action='desinscrire_seance.php'>";
           echo "<fieldset>";
           echo "<legend><p>Désinscription</p></legend>";
-          echo "<label for='menuchoixeleve'> Veuillez selectionner des élèves pour les inscrire </label><br>";
+          echo "<label for='menuchoixeleve'> Veuillez selectionner des élèves pour les désinscrire </label><br>";
           echo "<select name='menuchoixeleve' id='menuchoixeleve' multiple size='4' style='width:auto; text-align: center'>";
           /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
           while($response  = mysqli_fetch_array($result2)){
@@ -59,6 +59,7 @@
             exit;
           }
 
+        echo "<label for='menuchoixseance'> Veuillez selectionner une séance </label><br>";
         echo "<select name='menuchoixseance' id='menuchoixseance' multiple size='4' style='width:auto; text-align: center'>";
 
         while($response  = mysqli_fetch_array($request)){
