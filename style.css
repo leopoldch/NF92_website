@@ -137,6 +137,7 @@ nav > ul li:hover .sous{
   font-weight: bold;
   font-weight: bold;
   margin-bottom: -3%;
+  border-width: 1px;
 }
 
 .space{
@@ -157,6 +158,7 @@ nav > ul li:hover .sous{
   font-size: 15px;
   outline-color: #FFDB89;
   background-color: #FFFAED;
+  border-width: 1px;
 }
 
 input{
@@ -175,6 +177,7 @@ input{
   color: white;
   font-weight: bold;
   outline-color: white;
+  border-width: 1px;
 }
 
 
@@ -185,7 +188,7 @@ input{
   width: 50%;
   border-radius: 10px;
   background-color: #ABABAB;
-  height: 15%;
+  height: 19%;
   margin-top: 8%;
   margin-left:auto;
   margin-right: auto;
