@@ -40,7 +40,7 @@ if($resultCount == 0){
 else{
   echo "<form method='post' action='validation_seance.php'>";
   echo "<fieldset >";
-  echo "<legend><p>Selection séance</p></legend>"
+  echo "<legend><p>Selection séance</p></legend>";
   echo "<label for='menuchoixseance'> Veuillez selectionner une séance </label>";
   echo "<select name='menuchoixseance' id='menuchoixseance' size='4' style='width:35%; text-align: center'>";
   /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/

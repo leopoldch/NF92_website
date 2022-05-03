@@ -134,7 +134,6 @@ nav > ul li:hover .sous{
 .text{
   border-radius: 4px;
   width: 20%;
-  height: 7%;
   padding-left: 2%;
   font-size: 15px;
   outline-color: #FFDB89;
@@ -147,16 +146,21 @@ input{
 
 .formbutton{
   width : 20%;
-  height : 1%;
   font-size: 15px;
   margin-top: 5%;
   margin-left:2%;
   margin-right:2%;
   border-radius: 4px;
+  cursor: pointer;
+  background: #E7AF04;
+  color: white;
+  font-weight: bold;
+  outline-color: white;
 }
 
 
-.erreur{
+
+.retour{
   width: 50%;
   height: auto;
   margin-top: 8%;
