@@ -30,8 +30,8 @@ $tab = mysqli_fetch_array($request1);
 $nombre_participants= $tab['nb_inscrits'];
 
 $val = 0;
-echo "<h1 style='margin:auto;'>Récapitulatif de la saisie :</h1>";
-echo "<fieldset style='width:auto;height:auto;'>";
+echo "<fieldset style='margin-left:0%'>";
+echo "<legend><h1>Récapitulatif de la saisie :</h1></legend>";
 while($val<=($nombre_participants-1)){
   $val++;
   $name = "ideleve".$val;
@@ -51,8 +51,9 @@ while($val<=($nombre_participants-1)){
 
     if($note<0 or $note>40){
       echo "<p>Valeur rentrée non valide, veuillez rentrer une valeur entre 0 et 40</p><br>";
-      echo "<a href='validation_seance.php'><input class='buttonclick'type='button' value='retour'/></a>";
       echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+      echo "<a href='valider_seance.php'><input class='buttonclick'type='button' value='Retour'/></a>";
+      exit;
     }
     else{
       $newnote = 40 - $note;
@@ -67,7 +68,7 @@ while($val<=($nombre_participants-1)){
 echo "</fieldset>";
 }
 echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-echo "<a href='validation_seance.php'><input class='buttonclick'type='button' value='Valider séances'/></a>";
+echo "<a href='valider_seance.php'><input class='buttonclick'type='button' value='Valider séances'/></a>";
 
 
 mysqli_close($connect);

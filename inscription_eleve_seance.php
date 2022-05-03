@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class='all_pages'>
+  <h1 class="title">Inscrire un élève </h1>
 
 
   <?php
@@ -24,7 +25,7 @@
         else{
           $ideleve = $_POST['menuchoixeleve'];
           $ideleve = mysqli_real_escape_string($connect, $ideleve);
-          $verfication_seance = mysqli_query($connect,"SELECT * FROM seances
+          $verification_seance = mysqli_query($connect,"SELECT * FROM seances
             WHERE DateSeance > $date
             AND nb_inscrits < EffMax");
             if (!$verification_seance){
@@ -32,7 +33,7 @@
               exit;
               }
 
-          $nombreseances = mysqli_num_rows($verfication_seance);
+          $nombreseances = mysqli_num_rows($verification_seance);
 
           if($nombreseances == 0){
             echo "<div class='retour'>";
@@ -67,7 +68,7 @@
             echo "</select><br><br>";
             echo "<input type='hidden' name ='ideleve' value='$ideleve'>";
             echo "<br><br>";
-            echo "<input class='formbutton' type='submit' value='Choisir cette séance'>";
+            echo "<input class='formbutton' type='submit' value='Choisir'>";
             echo "</form>";
             echo "</fieldset>";
           }

@@ -47,7 +47,7 @@
           }
           echo "</select><br><br>";
           echo "<br><br>";
-          echo "<input class='formbutton' type='submit' value='Inscrire ces élèves'>";
+          echo "<input class='formbutton' type='submit' value='Choisir'>";
           echo "</form>";
           echo "</fieldset>";
         }

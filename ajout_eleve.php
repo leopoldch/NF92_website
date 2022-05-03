@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class='all_pages'>
+  <h1 class="title">Ajouter un élève</h1>
 
         <?php
         include('connexion.php');
@@ -20,7 +21,7 @@
           $nom = mysqli_real_escape_string($connect, $nom);
           $bdate = mysqli_real_escape_string($connect, $bdate);
           $genre = mysqli_real_escape_string($connect, $genre);
-          $prenom = mysqli_real_escape_string($connect, $nom);
+          $prenom = mysqli_real_escape_string($connect, $prenom);
 
 
 

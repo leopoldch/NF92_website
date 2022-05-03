@@ -26,7 +26,7 @@
         else{
           $idseance = $_POST['menuchoixseance'];
           $idseance = mysqli_real_escape_string($connect, $idseance);
-          $resquest = mysqli_query($connect,"DELETE FROM inscription WHERE ideleve = $ideleve AND idseance = $idseance ");
+          $request = mysqli_query($connect,"DELETE FROM inscription WHERE ideleve = $ideleve AND idseance = $idseance ");
           if (!$request){
             echo "<br>erreur".mysqli_error($connect);
             exit;

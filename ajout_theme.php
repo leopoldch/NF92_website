@@ -74,9 +74,10 @@
               echo "<br>erreur".mysqli_error($connect);
               exit;
               }
+            echo "<div class='retour'>";
             echo "<p> Votre thème a bien été enregistré</p>";
-            echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a>";
             echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a></div>";
           }
 
 

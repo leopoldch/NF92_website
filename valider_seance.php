@@ -31,16 +31,16 @@ $resultCount=mysqli_num_rows($result);
 
 /*On vérifie qu'il y ait des thèmes selectionnables, sinon l'opération est impossible*/
 if($resultCount == 0){
-  echo "<div class='erreur'>";
-  echo"<p>il faut ajouter une séance pour pouvoir noter des élèves</p><br>";
-  echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='ajout séance'/></a>";
-  echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a></div>";
+  echo "<div class='retour'>";
+  echo"<p>Attention : Il faut ajouter une séance pour pouvoir noter des élèves.</p><br>";
+  echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+  echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Ajout séance'/></a></div>";
 }
 /*S'il existe des thèmes dans notre table theme, alors on affiche notre formulaire pour ajouter une séance */
 else{
-  echo "<form method='post' action='validation_seance.php'>";
   echo "<fieldset >";
   echo "<legend><p>Selection séance</p></legend>";
+  echo "<form method='post' action='validation_seance.php'>";
   echo "<label for='menuchoixseance'> Veuillez selectionner une séance </label>";
   echo "<select name='menuchoixseance' id='menuchoixseance' size='4' style='width:35%; text-align: center'>";
   /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
@@ -49,9 +49,9 @@ else{
   }
   echo "</select><br><br>";
   echo "<br><br>";
-  echo "<input class='formbutton'type='submit' value='Voir les élèves pour cette séance'>";
-  echo "</fieldset>";
+  echo "<input class='formbutton'type='submit' value='Voir les élèves'>";
   echo "</form>";
+  echo "</fieldset>";
 
 
 

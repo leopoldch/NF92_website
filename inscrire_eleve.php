@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class='all_pages'>
+  <h1 class="title">Inscrire un élève </h1>
 
         <?php
 
@@ -44,7 +45,7 @@
             echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='Insciptions'/></a></div>";
           }
           else{
-            $resquest = mysqli_query($connect,"INSERT INTO inscription VALUES("."'$idseance'".","."'$ideleve'".","."'-1'".") ");
+            $request = mysqli_query($connect,"INSERT INTO inscription VALUES("."'$idseance'".","."'$ideleve'".","."'-1'".") ");
             if (!$request){
               echo "<br>erreur".mysqli_error($connect);
               exit;

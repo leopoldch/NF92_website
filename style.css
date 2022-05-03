@@ -126,6 +126,16 @@ nav > ul li:hover .sous{
 
 /* code pour la mise en page de toutes les pages générées en php */
 
+.buttonclick{
+  cursor: pointer;
+  width: 5%;
+  border-radius: 3px;
+  margin-left: 2%;
+  margin-right: 2%;
+  background: ;
+}
+
+
 .all_pages{
   background-color: #C3C3C3; // fait en sorte que le fond de toutes les pages soient en gris    // fait en sorte que le texte s'alligne à gauche de leur balises
   margin: auto;  // fixe tout le contenu d'une page au millieu
