@@ -14,10 +14,6 @@
         $date = date("Y-m-d");
 
 
-        $ideleve = $_POST['menuchoixeleve'];
-        $ideleve = mysqli_real_escape_string($connect, $ideleve);
-        $idseance = $_POST['menuchoixseance'];
-        $idseance = mysqli_real_escape_string($connect, $idseance);
 
 
         if(empty($_POST['menuchoixseance']) or empty($_POST['menuchoixeleve'])){
@@ -27,6 +23,12 @@
           echo "<a class='space' href='desinscription_seance_selection.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
         }
         else{
+          $ideleve = $_POST['menuchoixeleve'];
+          $ideleve = mysqli_real_escape_string($connect, $ideleve);
+          $idseance = $_POST['menuchoixseance'];
+          $idseance = mysqli_real_escape_string($connect, $idseance);
+
+
           $verification_inscription = mysqli_query($connect,"SELECT * FROM inscription
             INNER JOIN seances
             ON inscription.idseance = seances.idseance

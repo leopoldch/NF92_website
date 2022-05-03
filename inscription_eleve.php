@@ -33,8 +33,8 @@
         if($responseCount1 == 0 or $responseCount2 == 0){
           echo "<div class='retour'>";
           echo"<p>Attention : Il faut avoir au moins une séance libre et un élève ajouté.</p><br>";
-          echo "<a class='space' href='bienvenue.html'><input type='button' value='Accueil' /></a>";
-          echo "<a class='space' href='inscription_eleve.php'><input type='button' value='retour'/></a></div>";
+          echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+          echo "<a class='space' href='inscription_eleve.php'><input class='buttonclick' type='button' value='retour'/></a></div>";
         }
 
         else{
