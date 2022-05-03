@@ -26,9 +26,10 @@
         $responseCount2=mysqli_num_rows($result2);
 
         if($responseCount1 == 0 or $responseCount2 == 0){
+          echo "<div class='erreur'>";
           echo"<p>Il faut avoir au moins un élève inscrit pour pouvoir le désinscrire </p> ";
-          echo "<a href='isncription_eleve.php'><input class='buttonclick'type='button' value='Inscription d'un élève'/></a>";
           echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+          echo "<a href='isncription_eleve.php'><input class='buttonclick'type='button' value='Inscriptions'/></a></div>";
         }
 
         else{

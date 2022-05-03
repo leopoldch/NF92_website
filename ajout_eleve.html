@@ -14,24 +14,21 @@
       <fieldset> <!-- les balises fieldset permettent de faire apparaitre les contours du formulaire-->
         <legend style="text-align:left;">Ajout élève</legend>
 
-      <input class="form" id="fname" placeholder="Prénom" type="text" name="fname" required > <br><br>
+      <input class="text" id="fname" placeholder="Prénom" type="text" name="fname" required > <br><br>
 
-      <input class="form" id="lname" placeholder="nom" type="text" name="lname" required><br><br>
+      <input class="text" id="lname" placeholder="nom" type="text" name="lname" required><br><br>
 
-      </fieldset>
-      <fieldset >
-      <input  name="genre" type="radio" value="0">homme <br><br>
-      <input  name="genre" type="radio"value="1">femme<br><br>
-      </fieldset>
-      <fieldset class='ajout_eleve'>
-      <label for="bdate">date de naissance</label>
-      <input class='form'type="date" id="bdate" name="bdate" data-date="" data-date-format="dd mmmm yyyy" min="1932-01-01" max="2007-01-01" >
+      <input  name="genre" type="radio" value="0">Homme <br><br>
+
+      <input  name="genre" type="radio"value="1">Femme<br><br>
+
+
+      <label for="bdate">Date de naissance</label>
+      <input type="date" id="bdate" name="bdate" data-date="" data-date-format="dd mmmm yyyy" min="1932-01-01" max="2007-01-01" >
       <br><br>
-      </fieldset>
-      <fieldset class='ajout_eleve'>
-      <input class="form" value="ajouter l'élève" type="submit">
+      <input class="formbutton" value="Ajout" type="submit">
         <!--bouton qui envoie les données de la page html à la page php qui va traiter les données-->
-      <input class="form" value="réinitialiser" type="reset"><br>
+      <input class="formbutton" value="Réinitialiser" type="reset"><br>
       </fieldset>
     </form>
 

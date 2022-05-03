@@ -1,18 +1,17 @@
-
-
-
-
-
-
 /* ce qui s'applique à toutes les pages */
 *{
-  font-family: "Calibri";
+  font-family: 'Prompt', sans-serif;
 }
 /* mise en page des fieldsets à revoir */
 fieldset{
   align: center;
   border-radius: 5px;
-  margin-top: 5%;
+  margin-top: 8%;
+  padding-left: 3%;
+  padding-right: 3%;
+  margin-left:auto;
+  margin-right: auto;
+  width: 40%;
 }
 /* mise en page en bas à droite du copyright */
 footer{
@@ -25,7 +24,7 @@ footer{
 .image_accueil{
   width: 45%;
   height: auto;
-  margin: auto;
+  margin: 25%;
   margin-top: 10%;
   margin-bottom: 3%
 }
@@ -37,11 +36,11 @@ footer{
 }
 .title{
   text-align: center;
+  margin-top: 4%;
 }
 .menu_page{
   background-color: #C3C3C3;
 }
-
 /* mise en page du texte sur la page bienvenue */
 .informations_accueil{
   align-items: start;
@@ -59,8 +58,6 @@ footer{
   padding-left: 5%;
   padding-right: 5%;
 }
-
-
 /* code de l'affichage du menu déroulant */
 nav{
     width: 100%;
@@ -130,17 +127,40 @@ nav > ul li:hover .sous{
 /* code pour la mise en page de toutes les pages générées en php */
 
 .all_pages{
-  background-color: #C3C3C3; // fait en sorte que le fond de toutes les pages soient en gris
-  text-align: left;    // fait en sorte que le texte s'alligne à gauche de leur balises
-  margin: auto;  // fixe tout le contenu d'une page au millieu 
+  background-color: #C3C3C3; // fait en sorte que le fond de toutes les pages soient en gris    // fait en sorte que le texte s'alligne à gauche de leur balises
+  margin: auto;  // fixe tout le contenu d'une page au millieu
 }
 
-.form{
-  border-radius: 2px;
+.text{
+  border-radius: 4px;
   width: 20%;
   height: 7%;
   padding-left: 2%;
   font-size: 15px;
   outline-color: #FFDB89;
   background-color: #FFFAED;
+}
+
+input{
+  margin-top: 2%;
+}
+
+.formbutton{
+  width : 20%;
+  height : 1%;
+  font-size: 15px;
+  margin-top: 5%;
+  margin-left:2%;
+  margin-right:2%;
+  border-radius: 4px;
+}
+
+
+.erreur{
+  width: 50%;
+  height: auto;
+  margin-top: 8%;
+  margin-left:auto;
+  margin-right: auto;
+  font-size: 20px;
 }

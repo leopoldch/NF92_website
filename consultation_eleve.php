@@ -21,14 +21,15 @@
         $responseCount=mysqli_num_rows($result);
 
         if($responseCount == 0 ){
-          echo"<p>Il faut avoir au moins un élève inscrit pour pouvoir consulter ses informations </p><br> ";
+          echo "<div class='erreur'>";
+          echo"<p>Il faut avoir au moins un élève inscrit pour pouvoir consulter ses informations </p> ";
           echo "<a href='aout_eleve.html'><input class='buttonclick'type='button' value='Ajoutd'un élève'/></a>";
-          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a></div>";
         }
 
         else{
           echo "<form method='POST' action='consulter_eleve.php'>";
-          echo "<fieldset style='margin:auto;'>";
+          echo "<fieldset >";
 
           echo "<label for='ideleve'> Veuillez selectionner des élèves pour les inscrire </label><br>";
           echo "<select name='ideleve' id='ideleve'size='4' style='width:auto; text-align: center'>";
@@ -40,7 +41,7 @@
           }
           echo "</select><br><br>";
           echo "<br><br>";
-          echo "<input type='submit' value='Voir les informations de cet élève'>";
+          echo "<input class='formbutton' type='submit' value='Voir les informations de cet élève'>";
           echo "</fieldset>";
           echo "</form>";
         }

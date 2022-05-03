@@ -13,17 +13,18 @@
 alors que le nom est en effet obligatoire d'où le "required"-->
     <form class='form' method='post' action="ajout_theme.php">
       <fieldset>
-      <label for="theme_name">nom du thème :</label>
-      <input id="theme_name" type="text" name="theme_name" required > <br><br>
+        <legend>
+          <p>Ajout thème</p>
+          </legend>
+      <label for="theme_name">Nom du thème :</label>
+      <input class="text"id="theme_name" type="text" name="theme_name" required > <br><br>
 
-      <label for "description"> description : </label> <br>
-      <textarea id="description" name="description" rows="12" cols="50"></textarea><br>
-      </fieldset>
-      <fieldset>
-      <input value="ajouter le thème" type="submit">
+      <label for "description"> Description : </label> <br>
+      <textarea  class="text" id="description" name="description" rows="12" cols="50" style="width:auto;height:auto;"></textarea><br>
+      <input class="formbutton" value="Ajout" type="submit">
       <!-- Ici on a  deux boutons un qui permet d'envoyer les données à la page php pour qu'elles soient exploités et l'autre
     permet la réinitialisation des champs du formulaire -->
-      <input value="réinitialiser" type="reset"><br>
+      <input class="formbutton" value="Réinitialiser" type="reset"><br>
     </fieldset>
     </form>
     <footer>

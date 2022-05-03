@@ -27,9 +27,10 @@
         $responseCount2=mysqli_num_rows($result2);
 
         if($responseCount1 == 0 or $responseCount2 == 0){
-          echo"<p>Il faut avoir au moins une séance et un élève ajouté ";
+          echo "<div class='erreur'>";
+          echo"<p>Il faut avoir au moins une séance et un élève ajouté </p><br>";
           echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='retour'/></a>";
-          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a></div>";
         }
 
         else{
