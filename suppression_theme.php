@@ -31,8 +31,8 @@
       }
       else{
         echo "<fieldset >";
-        echo "<form method='post' action='supprimer_theme.php'>";
         echo "<legend><p>Supprimer un thème</p></legend>";
+        echo "<form method='post' action='supprimer_theme.php'>";
         echo "<p style='margin-bottom:-1%;'> Veuillez selectionner la séance à supprimer :</p><br>";
         echo "<select name='theme_supp' size='4' style='width:20%; text-align: center; margin-bottom:5%;'>";
 
