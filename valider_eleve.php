@@ -39,14 +39,16 @@
             // $query utilise comme parametre de mysqli_query
             // le test ci-dessous est desormais impose pour chaque appel de :
             // mysqli_query($connect, $query)
+            echo "<div class='retour'>";
             echo "<p>L'inscription a bien été prise en compte</p>";
-            echo "<br><a href='ajout_eleve.html'><input class='buttonclick'type='button' value='retour'/></a><br>";
-            echo "<a href='suppression_theme.php'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a href='ajout_eleve.html'><input class='buttonclick'type='button' value='retour'/></a></div>";
           }
           else{
+            echo "<div class='retour'>";
             echo "<p>L'inscription a bien été annulée</p>";
-            echo "<br><a href='ajout_eleve.html'><input class='buttonclick'type='button' value='retour'/></a><br>";
             echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a href='ajout_eleve.html'><input class='buttonclick'type='button' value='retour'/></a></div>";
           }
 
           mysqli_close($connect);

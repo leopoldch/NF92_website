@@ -22,7 +22,8 @@
           echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
         }
         else{
-
+          echo"<fieldset>";
+          echo "<div class='retour' style='width:auto;height:auto;'>";
           $ideleve = $_POST['ideleve'];
           $ideleve = mysqli_real_escape_string($connect, $ideleve);
 
@@ -63,8 +64,9 @@
               }
             }
           }
-          echo "<a href='consultation_eleve.php'><input class='buttonclick'type='button' value='Nouvelle consultation'/></a><br>";
-          echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+          echo "<a href='bienvenue.html'><input  type='button' value='Accueil' /></a>";
+          echo "<a href='consultation_eleve.php'><input type='button' value='Nouvelle consultation'/></a><br>";
+          echo "</div></fieldset>";
 
         }
 

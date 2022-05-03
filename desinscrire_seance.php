@@ -18,9 +18,10 @@
 
 
         if(empty($_POST['menuchoixseance'])){
+          echo "<div class='retour'>";
           echo"<p>Veuillez à bien selectionner une séance</p>";
-          echo "<a href='desinscription_seance_selection.php'><input class='buttonclick'type='button' value='retour'/></a>";
           echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+          echo "<a href='desinscription_seance_selection.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
         }
         else{
           $idseance = $_POST['menuchoixseance'];
@@ -30,10 +31,10 @@
             echo "<br>erreur".mysqli_error($connect);
             exit;
             }
-
+          echo "<div class='retour'>";
           echo "<p>L'élève a bien été désincrit</p><br>";
-          echo "<a href='desinscription_seance.php'><input class='buttonclick'type='button' value='désinscrire un autre élève'/></a>";
           echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+          echo "<a href='desinscription_seance_selection.php'><input class='buttonclick'type='button' value='Desinscriptions'/></a></div>";
           }
 
 

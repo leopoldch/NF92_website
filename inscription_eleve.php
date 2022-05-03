@@ -34,10 +34,9 @@
         }
 
         else{
-          echo "<form method='POST' action='inscription_eleve_seance.php'>";
-
           echo "<fieldset>";
           echo "<legend><p>Choisir un élève</p></legend>";
+          echo "<form method='POST' action='inscription_eleve_seance.php'>";
           echo "<label for='menuchoixeleve'> Veuillez selectionner des élèves pour les inscrire </label><br>";
           echo "<select name='menuchoixeleve' id='menuchoixeleve' multiple size='4' style='width:auto; text-align: center'>";
           /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
@@ -49,8 +48,8 @@
           echo "</select><br><br>";
           echo "<br><br>";
           echo "<input class='formbutton' type='submit' value='Inscrire ces élèves'>";
-          echo "</fieldset>";
           echo "</form>";
+          echo "</fieldset>";
         }
 
           mysqli_close($connect);

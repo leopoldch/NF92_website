@@ -24,17 +24,17 @@
       $resultCount=mysqli_num_rows($result);
 
       if($resultCount == 0){
-        echo "<div class='erreur'>";
+        echo "<div class='retour'>";
         echo"<p>il faut ajouter un thème pour pouvoir en supprimer</p>";
-        echo "<a href='ajout_theme.html'><input class='formbutton'type='button' value='ajouter un thème'/></a>";
-        echo "<a href='bienvenue.html'><input class='formbutton' type='button' value='Accueil' /></a></div>";
+        echo "<a href='bienvenue.html'><input class='formbutton' type='button' value='Accueil' /></a>";
+        echo "<a href='ajout_theme.html'><input class='formbutton'type='button' value='ajouter un thème'/></a></div>";
       }
       else{
-        echo "<form method='post' action='supprimer_theme.php'>";
         echo "<fieldset >";
+        echo "<form method='post' action='supprimer_theme.php'>";
         echo "<legend><p>Supprimer un thème</p></legend>";
         echo "<p style='margin-bottom:-1%;'> Veuillez selectionner la séance à supprimer :</p><br>";
-        echo "<select class='form'name='theme_supp' size='4' style='width:20%; text-align: center; margin-bottom:5%;'>";
+        echo "<select name='theme_supp' size='4' style='width:20%; text-align: center; margin-bottom:5%;'>";
 
         /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
         while($response = mysqli_fetch_array($result)) {
@@ -43,8 +43,8 @@
 
         echo "</select><br><br>";
         echo "<input class='formbutton' type='submit' value='Valider'>";
-        echo "</fieldset>";
         echo "</form>";
+        echo "</fieldset>";
 
 
 

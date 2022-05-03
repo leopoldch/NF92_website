@@ -21,9 +21,10 @@
 
 
         if(empty($_POST['menuchoixseance'])){
+          echo "<div class='retour'>";
           echo"<p>Veuillez à bien selectionner une séance</p>";
-          echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='réitérer l'inscription'/></a>";
           echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+          echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='Insciptions'/></a></div>";
         }
         else{
           $idseance = $_POST['menuchoixseance'];
@@ -37,9 +38,10 @@
             }
           $nb_erreur = mysqli_num_rows($verification_inscription);
           if($nb_erreur != 0){
+            echo "<div class='retour'>";
             echo "<p>L'élève est déjà inscrit à cette séance, vous ne pouvez pas l'ajouter deux fois à une même séance</p>";
-            echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='inscrire un élève'/></a>";
             echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='Insciptions'/></a></div>";
           }
           else{
             $resquest = mysqli_query($connect,"INSERT INTO inscription VALUES("."'$idseance'".","."'$ideleve'".","."'-1'".") ");
@@ -52,10 +54,10 @@
               echo "<br>erreur".mysqli_error($connect);
               exit;
               }
-
+            echo "<div class='retour'>";
             echo "<p>L'inscription a bien été prise en compte</p>";
-            echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='Inscrire un élève'/></a>";
             echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='Insciptions'/></a></div>";
           }
 
         }

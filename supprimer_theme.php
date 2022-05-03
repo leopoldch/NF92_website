@@ -17,9 +17,10 @@
             if(empty($_POST['theme_supp'])){
               //on vérifie d'abord si le theme qu'on souhaite supprimé est déjà dans la BDD
               //Si effectivement il ne si trouve pas, on ne peut pas le supprimer
+              echo "<div class='retour'";
               echo "<p>Veuillez à bien selectionner un thème  </p>";
-              echo "<br><a href='suppression_theme.php'><input class='buttonclick'type='button' value='retour'/></a><br>";
               echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+              echo "<a href='suppression_theme.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
             }
               else{
                   $idtheme = $_POST['theme_supp'];
@@ -31,9 +32,10 @@
                     }
                   // La ligne du dessus change la valeur du booléen supprime de 0 à 1 pour signifier que le thème est supprimé
                   $result = mysqli_query($connect, $query);
+                  echo "<div class='retour'";
                   echo "<p> Le thème a bien était supprimée</p>";
-                  echo "<br><a href='suppression_theme.php'><input class='buttonclick'type='button' value='retour'/></a><br>";
-                  echo "<a href='suppression_theme.php'><input class='buttonclick' type='button' value='Accueil' /></a>";
+                  echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+                  echo "<a href='suppression_theme.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
               }
           mysqli_close($connect);
 

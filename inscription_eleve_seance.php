@@ -15,9 +15,10 @@
         $date = date("Ymd");
 
         if(empty($_POST['menuchoixeleve'])){
+            echo "<div class='retour'>";
             echo"<p>Veuillez à bien selectionner un élève </p>";
-            echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='retour'/></a>";
             echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
             exit;
         }
         else{
@@ -34,9 +35,10 @@
           $nombreseances = mysqli_num_rows($verfication_seance);
 
           if($nombreseances == 0){
+            echo "<div class='retour'>";
             echo "<p>Vous devez d'abord ajouter une séance</p>";
-            echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='ajouter une séance'/></a>";
             echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a href='ajout_seance.php'><input class='buttonclick'type='button' value='Ajout séance'/></a></div>";
           }
           else{
 
@@ -52,6 +54,8 @@
               exit;
               }
 
+            echo "<fieldset>";
+            echo "<legend><p>Choisir Séance</p></legend>";
             echo "<form method='POST' action='inscrire_eleve.php'>";
 
             echo "<label for='menuchoixseance'> Veuillez selectionner une séance pour inscrire l'élève </label><br>";
@@ -63,8 +67,9 @@
             echo "</select><br><br>";
             echo "<input type='hidden' name ='ideleve' value='$ideleve'>";
             echo "<br><br>";
-            echo "<input type='submit' value='Choisir cette séance'>";
+            echo "<input class='formbutton' type='submit' value='Choisir cette séance'>";
             echo "</form>";
+            echo "</fieldset>";
           }
         }
 

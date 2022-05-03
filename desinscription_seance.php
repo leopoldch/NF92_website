@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class='all_pages'>
-  <h1 class="title">désinscrire un élève</h1>
+  <h1 class="title">Désinscrire un élève</h1>
 
         <?php
 
@@ -26,7 +26,7 @@
         $responseCount2=mysqli_num_rows($result2);
 
         if($responseCount1 == 0 or $responseCount2 == 0){
-          echo "<div class='erreur'>";
+          echo "<div class='retour'>";
           echo"<p>Il faut avoir au moins un élève inscrit pour pouvoir le désinscrire </p> ";
           echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
           echo "<a href='isncription_eleve.php'><input class='buttonclick'type='button' value='Inscriptions'/></a></div>";
@@ -35,6 +35,7 @@
         else{
           echo "<form method='POST' action='desinscrire_seance_selection.php'>";
           echo "<fieldset>";
+          echo "<legend><p>Choisir élèves</p></legend>";
           echo "<label for='menuchoixeleve'> Veuillez selectionner des élèves pour les inscrire </label><br>";
           echo "<select name='menuchoixeleve' id='menuchoixeleve' multiple size='4' style='width:auto; text-align: center'>";
           /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
@@ -45,7 +46,7 @@
           }
           echo "</select><br><br>";
           echo "<br><br>";
-          echo "<input type='submit' value='Voir les séances de cet élève'>";
+          echo "<input class='formbutton' type='submit' value='Voir les séances'>";
           echo "</fieldset>";
           echo "</form>";
         }

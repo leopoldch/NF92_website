@@ -18,10 +18,10 @@ $aujourdhui = date("Y-m-d");
 
 
 if(empty($_POST['menuchoixseance'])){
-  echo "<div class='erreur'>";
+  echo "<div class='retour'>";
   echo"<p>Veuillez à bien selectionner une séance </p>";
-  echo "<a href='valider_seance.php'><input class='buttonclick'type='button' value='retour'/></a>";
-  echo "<a href='suppression_theme.php'><input class='buttonclick' type='button' value='Accueil' /></a></div>";
+  echo "<a href='suppression_theme.php'><input class='buttonclick' type='button' value='Accueil' /></a>";
+  echo "<a href='valider_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
 }
 else{
   $idseance = $_POST['menuchoixseance'];
@@ -38,13 +38,15 @@ else{
     }
 
   if(mysqli_num_rows($request) == 0){
-    echo "<div class='erreur'>";
+    echo "<div class='retour'>";
     echo "<p> Il n'y a pas d'élèves inscrits à cette séance </p>";
-    echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='inscire un élève'/></a>";
-    echo "<a href='suppression_theme.php'><input class='buttonclick' type='button' value='Accueil' /></a></div>";
+    echo "<a href='suppression_theme.php'><input class='buttonclick' type='button' value='Accueil' /></a>";
+    echo "<a href='inscription_eleve.php'><input class='buttonclick'type='button' value='Inscriptions'/></a></div>";
     exit;
   }
 
+  echo "<fieldset style='width:auto; height:auto;'>";
+  echo "<legend><p> Notation </p></legend>";
   echo "<form method='POST' action='noter_eleve.php'>";
 
   $val=0;
@@ -74,9 +76,10 @@ else{
 
   }
   echo "<input type='hidden' name='idseance' value='".$idseance."'>";
-  echo "<input type='submit' value='Evaluer'>";
-  echo "<input type='reset' value='Réinitialiser'>";
+  echo "<input class='formbutton' type='submit' value='Evaluer'>";
+  echo "<input class='formbutton' type='reset' value='Réinitialiser'>";
   echo "</form>";
+  echo "</fieldset>";
 }
 
 

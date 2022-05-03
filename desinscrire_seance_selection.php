@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class='all_pages'>
-  <h1 class="title">désinscrire un élève</h1>
+  <h1 class="title">Désinscrire un élève</h1>
 
 
   <?php
@@ -16,9 +16,10 @@
         $date = date("Ymd");
 
         if(empty($_POST['menuchoixeleve'])){
+          echo "<div class='retour'>";
             echo"<p>Veuillez à bien selectionner un élève </p>";
-            echo "<a href='desinscription_seance.php'><input class='buttonclick'type='button' value='Retour'/></a>";
             echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a href='desinscription_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
             exit;
         }
         else{
@@ -39,10 +40,14 @@
           $nombreinscription = mysqli_num_rows($verification_inscription);
 
           if($nombreinscription == 0){
+            echo "<div class='retour>'";
             echo "<p>L'élève n'est inscrit à aucune séance à venir </p>";
+            echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a href='desinscription_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
           }
           else{
-
+            echo "<fieldset>";
+            echo "<legend><p>Choisir séance</p><legend>";
             echo "<form method='POST' action='desinscrire_seance.php'>";
 
             echo "<label for='menuchoixseance'> Veuillez selectionner une séance pour désinscrire l'élève </label><br>";
@@ -54,8 +59,9 @@
             echo "</select><br><br>";
             echo "<input type='hidden' name ='ideleve' value='$ideleve'>";
             echo "<br><br>";
-            echo "<input type='submit' value='Choisir cette séance'>";
+            echo "<input class='formbutton' type='submit' value='Choisir cette séance'>";
             echo "</form>";
+            echo "</fieldset>";
           }
         }
 

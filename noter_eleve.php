@@ -30,7 +30,8 @@ $tab = mysqli_fetch_array($request1);
 $nombre_participants= $tab['nb_inscrits'];
 
 $val = 0;
-echo "<h1>Récapitulatif de la saisie :</h1>";
+echo "<h1 style='margin:auto;'>Récapitulatif de la saisie :</h1>";
+echo "<fieldset style='width:auto;height:auto;'>";
 while($val<=($nombre_participants-1)){
   $val++;
   $name = "ideleve".$val;
@@ -63,10 +64,10 @@ while($val<=($nombre_participants-1)){
       echo "<p>".$nom." ".$prenom." : la note '".$newnote."/40' a bien été enregistrée</p><br>";
     }
   }
-
+echo "</fieldset>";
 }
-echo "<a href='validation_seance.php'><input class='buttonclick'type='button' value='valider une autre séance'/></a>";
 echo "<a href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+echo "<a href='validation_seance.php'><input class='buttonclick'type='button' value='Valider séances'/></a>";
 
 
 mysqli_close($connect);
