@@ -49,7 +49,7 @@ else{
   }
   echo "</select><br><br>";
   echo "<br><br>";
-  echo "<input class='formbutton'type='submit' value='Voir les élèves'>";
+  echo "<input class='formbutton'type='submit' value='Valider'>";
   echo "</form>";
   echo "</fieldset>";
 

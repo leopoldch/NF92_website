@@ -15,18 +15,21 @@ fieldset{
 }
 /* mise en page en bas à droite du copyright */
 footer{
+  position: absolute;
+  float: right;
+  border-top: none;
+  width: 97%;
   font-style: italic;
-  position:absolute;
   bottom:0;
   padding-top:50px;
-  margin-left:70%;
+  text-align: right;
 }
 .image_accueil{
   width: 45%;
   height: auto;
   margin: 25%;
-  margin-top: 10%;
-  margin-bottom: 3%
+  margin-top: 6%;
+  margin-bottom: 4%
 }
 .image_menu{
   width: 45%;
@@ -36,7 +39,7 @@ footer{
 }
 .title{
   text-align: center;
-  margin-top: 4%;
+  margin-top: 3%;
 }
 .menu_page{
   background-color: #C3C3C3;
