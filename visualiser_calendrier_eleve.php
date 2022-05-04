@@ -21,7 +21,7 @@
           echo "<div class='retour'>";
           echo"<p>Attention : Veuillez à bien selectionnerun élève .</p>";
           echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-          echo "<a class='space' href='visualisation_calendrier.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
+          echo "<a class='space' href='visualisation_calendrier_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
         }
         else{
           $ideleve = $_POST['menuchoixeleve'];
@@ -50,7 +50,7 @@
                 echo"<p>".$response['nom'].'  '.$response['DateSeance']."</p>";
             }
             echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-            echo "<a class='space' href='visualisation_calendrier.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
+            echo "<a class='space' href='visualisation_calendrier_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
             echo "</fieldset>";
 
 
@@ -78,7 +78,7 @@
               echo "<div class='retour'>";
               echo "<p>L'élève a effectué ou est inscrit à toutes les séances possibles</p>";
               echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-              echo "<a class='space' href='visualisation_calendrier.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
+              echo "<a class='space' href='visualisation_calendrier_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
               exit;
             }
 
@@ -90,7 +90,7 @@
                 echo"<p>".$response['nom'].'  '.$response['DateSeance']."</p>";
             }
             echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-            echo "<a class='space' href='visualisation_calendrier.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
+            echo "<a class='space' href='visualisation_calendrier_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
             echo "</fieldset>";
 
 
