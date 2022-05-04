@@ -25,7 +25,7 @@
 
         if($responseCount1 == 0){
           echo "<div class='retour'>";
-          echo"<p>Attention : Il faut avoir au moins un un élève ajouté pour visualiser son calendrier.</p><br>";
+          echo"<p>Attention : Il faut avoir au moins un élève ajouté pour visualiser son calendrier.</p><br>";
           echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
           echo "<a class='space' href='inscription_eleve.php'><input class='buttonclick' type='button' value='retour'/></a></div>";
         }
@@ -34,7 +34,7 @@
           echo "<fieldset>";
           echo "<legend><p>Selection élève</p></legend>";
           echo "<form method='POST' action='visualiser_calendrier_eleve.php'>";
-          echo "<label for='menuchoixeleve'> Veuillez selectionner des élèves pour voir leur calendrier </label><br>";
+          echo "<label for='menuchoixeleve'> Veuillez selectionner un élève pour voir le calendrier </label><br>";
           echo "<select name='menuchoixeleve' id='menuchoixeleve' multiple size='4' style='width:auto; text-align: center'>";
           /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
           while($response  = mysqli_fetch_array($result)){
@@ -55,7 +55,7 @@
           ?>
         <footer>
             <p class="copyright"><?php // include('footer.php'); ?></p>
-          </footer> 
+          </footer>
 
   </body>
 </html>

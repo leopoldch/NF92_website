@@ -49,7 +49,11 @@
             while($response = mysqli_fetch_array($seances)){
                 echo"<p>".$response['nom'].'  '.$response['DateSeance'];
             }
+            echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a class='space' href='visualisation_calendrier.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
             echo "</fieldset>";
+            echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a class='space' href='visualisation_calendrier.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
 
           }
           else{
@@ -86,6 +90,8 @@
             while($response = mysqli_fetch_array($seances)){
                 echo"<p>".$response['nom'].'  '.$response['DateSeance'];
             }
+            echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a class='space' href='visualisation_calendrier.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
             echo "</fieldset>";
 
 
@@ -102,7 +108,7 @@
           ?>
          <footer>
             <p class="copyright"><?php // include('footer.php'); ?></p>
-          </footer>  
+          </footer>
 
   </body>
 </html>
