@@ -63,11 +63,39 @@
               }
             }
           }
+
+
+
+
+              $request_seance2 = mysqli_query($connect, "SELECT * FROM inscription
+                INNER JOIN seances
+                ON inscription.idseance = seances.idseance
+                INNER JOIN theme
+                ON theme.idtheme = seances.idtheme
+                WHERE inscription.ideleve = $ideleve
+                AND DateSeance > $date");
+
+                if (!$request_seance2){
+                  echo "<br>erreur".mysqli_error($connect);
+                  exit;
+                  }
+
+              if(mysqli_num_rows($request_seance) == 0){
+                echo "<p>".$infos['nom'].' '.$infos['prenom']." n'est inscrit à aucune séance</p>";
+              }
+              else{
+                while($response =mysqli_fetch_array($request_seance2)){
+                  echo "<p>".$infos['nom'].' '.$infos['prenom']." est inscrit à ".$response['nom']." le ".$response['DateSeance'];
+                }
+              }
+
+
           echo "<a class='space' href='bienvenue.html'><input class='buttonclick'  type='button' value='Accueil' /></a>";
           echo "<a class='space' href='consultation_eleve.php'><input class='buttonclick' type='button' value='Consultation'/></a><br>";
           echo "</div>";
 
         }
+
 
 
           mysqli_close($connect);
