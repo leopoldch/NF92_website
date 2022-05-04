@@ -47,13 +47,12 @@
             echo "<fieldset>";
             echo "<legend><h1>L'élève n'a encore réalisé aucune séance, voici celles qui lui reste à faire </h1></legend>";
             while($response = mysqli_fetch_array($seances)){
-                echo"<p>".$response['nom'].'  '.$response['DateSeance'];
+                echo"<p>".$response['nom'].'  '.$response['DateSeance']."</p>";
             }
             echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
             echo "<a class='space' href='visualisation_calendrier.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
             echo "</fieldset>";
-            echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-            echo "<a class='space' href='visualisation_calendrier.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
+
 
           }
           else{
@@ -88,7 +87,7 @@
             echo "<fieldset>";
             echo "<legend><h1>Voici les séances sur les thème que l'élève n'a pas encore effectué</h1></legend>";
             while($response = mysqli_fetch_array($seances)){
-                echo"<p>".$response['nom'].'  '.$response['DateSeance'];
+                echo"<p>".$response['nom'].'  '.$response['DateSeance']."</p>";
             }
             echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
             echo "<a class='space' href='visualisation_calendrier.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
