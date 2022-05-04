@@ -100,9 +100,9 @@
 
 
           ?>
-      <!--    <footer>
+         <footer>
             <p class="copyright"><?php // include('footer.php'); ?></p>
-          </footer>  -->
+          </footer>  
 
   </body>
 </html>
