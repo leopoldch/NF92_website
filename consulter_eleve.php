@@ -34,10 +34,10 @@
             }
           $infos = mysqli_fetch_array($request);
           if($infos['genre']==1){
-              echo "<p> Mme. ".$infos['nom'].' '.$infos['prenom']." née le ".$infos['dateNaiss']." inscrite le ".$infos['dateInscription']."</p>";
+              echo "<p style='text-decoration: underline;'> Mme. ".$infos['nom'].' '.$infos['prenom']." née le ".$infos['dateNaiss']." inscrite le ".$infos['dateInscription']."</p><br>";
           }
           else{
-              echo "<p> M. ".$infos['nom'].' '.$infos['prenom']." né le ".$infos['dateNaiss']." inscrit le ".$infos['dateInscription']."</p>";
+              echo "<p style='text-decoration: underline;'> M. ".$infos['nom'].' '.$infos['prenom']." né le ".$infos['dateNaiss']." inscrit le ".$infos['dateInscription']."</p><br>";
           }
           $request_seance = mysqli_query($connect, "SELECT * FROM inscription
             INNER JOIN seances
@@ -51,11 +51,18 @@
               exit;
               }
           if(mysqli_num_rows($request_seance) == 0){
-            echo "<p>".$infos['nom'].' '.$infos['prenom']." : aucune séance dans le passé</p>";
+            echo "<p> Aucune séance suivie dans le passé</p>";
           }
           else{
+            if(mysqli_num_rows($request_seance) == 1){
+              echo "<p>Séance suivie par l'élève :</p>";
+            }
+            else{
+              echo "<p>Séances suivies par l'élève :</p>";
+            }
+
             while($response =mysqli_fetch_array($request_seance)){
-              echo "<p>".$infos['nom'].' '.$infos['prenom']." a assité à une séance sur : ".$response['nom']." le ".$response['DateSeance'].' .';
+              echo "<p style='font-size:medium'>  ".$response['nom']." le ".$response['DateSeance'].' .';
               if($response['note'] != -1){
               echo" et a obtenu la note de ".$response['note']."/40</p>";
               }
@@ -65,7 +72,7 @@
             }
           }
 
-
+          echo "<br>";
 
           $request_seance2 = mysqli_query($connect, "SELECT * FROM inscription
             INNER JOIN seances
@@ -79,11 +86,17 @@
               exit;
               }
           if(mysqli_num_rows($request_seance2) == 0){
-            echo "<p>".$infos['nom'].' '.$infos['prenom']." : aucune séance de prévue.</p>";
+            echo "<p> Aucune séance n'est prévue pour cet élève .</p>";
           }
           else{
+            if(mysqli_num_rows($request_seance2) == 1){
+              echo "<p>Séance plannifiée pour l'élève :</p>";
+            }
+            else{
+              echo "<p>Séances plannifiées pour l'élève :</p>";
+            }
             while($response =mysqli_fetch_array($request_seance2)){
-              echo "<p>".$infos['nom'].' '.$infos['prenom']." va assiter à une séance sur : ".$response['nom']." le ".$response['DateSeance'].' .</p>';
+              echo "<p style='font-size:medium'>    ".$response['nom']." le ".$response['DateSeance'].' .</p>';
             }
           }
 
