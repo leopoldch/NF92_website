@@ -20,6 +20,7 @@
           echo"<p>Attention : Veuillez à bien sélectionner un élève.</p><br> ";
           echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
           echo "<a class='space' href='consultation_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
+          exit;
         }
         else{
           echo "<div class='retour' style='width:auto;height:auto;'>";
@@ -54,7 +55,7 @@
           }
           else{
             while($response =mysqli_fetch_array($request_seance)){
-              echo "<p>".$infos['nom'].' '.$infos['prenom']." a assité à ".$response['nom']." le ".$response['DateSeance'];
+              echo "<p>".$infos['nom'].' '.$infos['prenom']." a assité à une séance sur : ".$response['nom']." le ".$response['DateSeance'].' .';
               if($response['note'] != -1){
               echo" et a obtenu la note de ".$response['note']."/40</p>";
               }
@@ -63,11 +64,41 @@
               }
             }
           }
+
+
+
+          $request_seance2 = mysqli_query($connect, "SELECT * FROM inscription
+            INNER JOIN seances
+            ON inscription.idseance = seances.idseance
+            INNER JOIN theme
+            ON theme.idtheme = seances.idtheme
+            WHERE inscription.ideleve = $ideleve
+            AND DateSeance > $date");
+            if (!$request_seance2){
+              echo "<br>erreur".mysqli_error($connect);
+              exit;
+              }
+          if(mysqli_num_rows($request_seance2) == 0){
+            echo "<p>".$infos['nom'].' '.$infos['prenom']." : aucune séance de prévue.</p>";
+          }
+          else{
+            while($response =mysqli_fetch_array($request_seance2)){
+              echo "<p>".$infos['nom'].' '.$infos['prenom']." va assiter à une séance sur : ".$response['nom']." le ".$response['DateSeance'].' .</p>';
+            }
+          }
+
+
+
+
+
           echo "<a class='space' href='bienvenue.html'><input class='buttonclick'  type='button' value='Accueil' /></a>";
           echo "<a class='space' href='consultation_eleve.php'><input class='buttonclick' type='button' value='Consultation'/></a><br>";
           echo "</div>";
 
+
+
         }
+
 
 
           mysqli_close($connect);
