@@ -24,6 +24,31 @@
           $prenom = mysqli_real_escape_string($connect, $prenom);
 
 
+          $subject = $prenom;
+          // <>\/+"*%&()=?`^'[]!${}_:;,
+          $pattern = '/[][(){}<>\/+"*%&=?`^\'!$_:;,-]/';
+
+            // Si la chaîne contient des caractères spéciaux
+            if (preg_match($pattern, $subject, $matches)){
+              echo "<div class='retour'>";
+              echo "<p> Attention : Les caractères spéciaux ne sont pas accepté.</p><br>";
+              echo "<a class='space' href='bienvenue.html'><input type='button' value='Accueil'/></a></div>";
+              echo "<a class='sapce' href='ajout_eleve.html'><input class='buttonclick'type='button' value='Retour'/></a></div>";
+            exit;
+          }
+
+          $subject = $nom;
+          // <>\/+"*%&()=?`^'[]!${}_:;,
+          $pattern = '/[][(){}<>\/+"*%&=?`^\'!$_:;,-]/';
+
+            // Si la chaîne contient des caractères spéciaux
+            if (preg_match($pattern, $subject, $matches)){
+              echo "<div class='retour'>";
+              echo "<p> Attention : Les caractères spéciaux ne sont pas accepté.</p><br>";
+              echo "<a class='space' href='bienvenue.html'><input type='button' value='Accueil'/></a></div>";
+              echo "<a class='sapce' href='ajout_eleve.html'><input class='buttonclick'type='button' value='Retour'/></a></div>";
+            exit;
+          }
 
 
           date_default_timezone_set('Europe/Paris');

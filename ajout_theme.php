@@ -18,6 +18,21 @@
           $theme_name = mysqli_real_escape_string($connect, $theme_name);
           $description = mysqli_real_escape_string($connect, $description);
 
+          $subject = $theme_name;
+          // <>\/+"*%&()=?`^'[]!${}_:;,
+          $pattern = '/[][(){}<>\/+"*%&=?`^\'!$_:;,-]/';
+
+
+          if (preg_match($pattern, $subject, $matches)){
+            echo "<div class='retour'>";
+            echo "<p> Attention : Les caractères spéciaux ne sont pas accepté.</p><br>";
+            echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+            echo "<a class='space' href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a></div>";
+          exit;
+        }
+
+
+
           $supprime=0;
           /*on récupère les données du formulaire HTML et on affecte par défaut la valeur 0 à supprime
           pour siginifer que par défaut l'élement n'est pas supprimé */
