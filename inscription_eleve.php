@@ -17,7 +17,7 @@
 
         $result = mysqli_query($connect,"SELECT * FROM seances
           WHERE DateSeance > $date
-          AND nb_inscrits != EffMax");
+          AND nb_inscrits < EffMax");
         if (!$result){
           echo "<br>erreur".mysqli_error($connect);
           exit;
@@ -57,7 +57,7 @@
           INNER JOIN theme
           WHERE seances.idtheme = theme.idtheme
           AND seances.DateSeance > $date
-          AND seances.nb_inscrits != seances.EffMax;");
+          AND seances.nb_inscrits < seances.EffMax;");
           if (!$request){
             echo "<br>erreur".mysqli_error($connect);
             exit;
