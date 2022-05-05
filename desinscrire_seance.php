@@ -59,7 +59,7 @@
           echo "<div class='retour'>";
           echo "<p>L'élève a bien été désincrit.</p><br>";
           echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-          echo "<a class='space' href='desinscription_seance.php'><input class='buttonclick'type='button' value='Desinscriptions'/></a></div>";
+          echo "<a class='space' href='desinscription_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
           }
         }
 

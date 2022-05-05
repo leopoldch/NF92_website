@@ -32,7 +32,7 @@
             if (preg_match($pattern, $subject, $matches)){
               echo "<div class='retour'>";
               echo "<p> Attention : Les caractères spéciaux ne sont pas accepté.</p><br>";
-              echo "<a class='space' href='bienvenue.html'><input type='button' value='Accueil'/></a></div>";
+              echo "<a class='space' href='bienvenue.html'><input type='button' value='Accueil'/></a>";
               echo "<a class='sapce' href='ajout_eleve.html'><input class='buttonclick'type='button' value='Retour'/></a></div>";
             exit;
           }
@@ -45,7 +45,7 @@
             if (preg_match($pattern, $subject, $matches)){
               echo "<div class='retour'>";
               echo "<p> Attention : Les caractères spéciaux ne sont pas accepté.</p><br>";
-              echo "<a class='space' href='bienvenue.html'><input type='button' value='Accueil'/></a></div>";
+              echo "<a class='space' href='bienvenue.html'><input type='button' value='Accueil'/></a>";
               echo "<a class='sapce' href='ajout_eleve.html'><input class='buttonclick'type='button' value='Retour'/></a></div>";
             exit;
           }
@@ -58,7 +58,7 @@
           if (empty($nom) or empty($prenom)) {
             echo "<div class='retour'>";
             echo "<p> Attention : Veuillez saisir votre nom ainsi que votre votre prénom.</p><br>";
-            echo "<a class='space' href='bienvenue.html'><input type='button' value='Accueil'/></a></div>";
+            echo "<a class='space' href='bienvenue.html'><input type='button' value='Accueil'/></a>";
             echo "<a class='sapce' href='ajout_eleve.html'><input class='buttonclick'type='button' value='Retour'/></a></div>";
           }
           else{

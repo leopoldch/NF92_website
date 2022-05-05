@@ -25,9 +25,9 @@
 
           if (preg_match($pattern, $subject, $matches)){
             echo "<div class='retour'>";
-            echo "<p> Attention : Les caractères spéciaux ne sont pas accepté.</p><br>";
+            echo "<p> Attention : Les caractères spéciaux ne sont pas acceptés.</p><br>";
             echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-            echo "<a class='space' href='ajout_theme.html'><input class='buttonclick'type='button' value='Ajouter un autre thème'/></a></div>";
+            echo "<a class='space' href='ajout_theme.html'><input class='buttonclick'type='button' value='Retour'/></a></div>";
           exit;
         }
 
