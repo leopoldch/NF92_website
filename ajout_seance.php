@@ -46,7 +46,7 @@ else{
   echo "</select><br><br>";
   echo "<label for='date_inscription'>Date de la séance </label><br><input required type='date' id='date_inscription' name='date_inscription' data-date='' data-date-format='DD MMMM YYYY' min='$aujourdhui'><br><br>";
   echo "<label for='effectif'> Effectif </label><br>";
-  echo "<input class='text' type='number' required name='effectif' id='effectif'> </input><br>";
+  echo "<input class='text' type='number' max='30' min='0' required name='effectif' id='effectif'> </input><br>";
   echo "<br><br>";
   echo "<input class='formbutton' type='submit' value='Enregistrer'>";
   echo "</form>";
