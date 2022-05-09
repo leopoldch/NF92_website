@@ -52,19 +52,10 @@ if (mysqli_num_rows($result1) != 0 ) {
   $nom = mysqli_fetch_array($nomtheme);
   $nom= $nom['nom'];
 
-  echo "<fieldset>";
-  echo "<legend><p>La séance prévue le ".$selected_date." sur les ".$nom." existe déjà, que voulez vous faire ?</p></legend>";
-  echo "<form method='POST' action='verification_seance.php'>";
-  echo "<input type='hidden' name='date' value ='".$selected_date."'>";
-  echo "<input type='hidden' name='idtheme' value ='".$idtheme."'>";
-  echo "<input type='hidden' name='effectif' value ='".$effectif."'>";
-  echo "<label for='valider1'> Valider l'ajout</label>";
-  echo "<input type='radio' name='valider' id='valider1' selected value='1'><br><br>";
-  echo "<label for='valider2'> Annuler l'ajout</label>";
-  echo "<input type='radio' name='valider' id='valider2' value='2'><br><br>";
-  echo "<input class='formbutton' type='submit' value='Valider'>";
-  echo "<input class='formbutton' type='reset'>";
-  echo "</fieldset>";
+  echo "<div class='retour'>";
+  echo "<p>La séance prévue le ".$selected_date." sur les ".$nom." existe déjà, ajout annulé. </p>";
+  echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
+  echo "<a class='space' href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
 }
 else{
       $query = "INSERT INTO seances VALUES (NULL,"."'$selected_date'".","."'$effectif'".","."'$idtheme'".","."'0'".")";
