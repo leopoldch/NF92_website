@@ -42,59 +42,21 @@
 
           if($nb == 0){
 
-            $seances = mysqli_query($connect, "SELECT * FROM seances
-            INNER JOIN theme ON seances.idtheme = theme.idtheme
-            WHERE DateSeance > $date");
-
-            echo "<fieldset>";
-            echo "<legend><h1>L'élève n'a encore réalisé aucune séance, voici celles qui lui reste à faire </h1></legend>";
-            while($response = mysqli_fetch_array($seances)){
-                echo"<p>".$response['nom'].'  '.$response['DateSeance']."</p>";
-            }
+            echo "<div class='retour'>";
+            echo "<p>L'élève n'est inscrit à aucune séance.</p>";
             echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-            echo "<a class='space' href='visualisation_calendrier_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
-            echo "</fieldset>";
+            echo "<a class='space' href='visualisation_calendrier_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";;
 
 
           }
           else{
-
-            $donnee = '';
+            echo "<div class='retour'>";
+            echo "L'élève est inscrit aux séances suivantes : ";
             while($response = mysqli_fetch_array($request_inscription)){
-
-              $donnee = $donnee.' AND theme.idtheme <> '.$response['idtheme'];
-            }
-
-            $seances = mysqli_query($connect, "SELECT * FROM `inscription`
-            INNER JOIN seances ON seances.idseance = inscription.idseance
-            INNER JOIN theme ON seances.idtheme = theme.idtheme
-            WHERE DateSeance > $date
-            $donnee");
-
-            if(!$seances){
-              echo "<br>erreur".mysqli_error($connect);
-              exit;
-            }
-
-            if (mysqli_num_rows($seances) == 0 ){
-              echo "<div class='retour'>";
-              echo "<p>L'élève a effectué ou est inscrit à toutes les séances possibles</p>";
-              echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-              echo "<a class='space' href='visualisation_calendrier_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
-              exit;
-            }
-
-
-
-            echo "<fieldset>";
-            echo "<legend><h1>Voici les séances sur les thème que l'élève n'a pas encore effectué</h1></legend>";
-            while($response = mysqli_fetch_array($seances)){
-                echo"<p>".$response['nom'].'  '.$response['DateSeance']."</p>";
+              echo '<p>'.$response['nom'].' prévue le '.$response['DateSeance'].'</p>';
             }
             echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-            echo "<a class='space' href='visualisation_calendrier_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
-            echo "</fieldset>";
-
+            echo "<a class='space' href='visualisation_calendrier_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";;
 
 
           }
