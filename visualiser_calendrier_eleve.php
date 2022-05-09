@@ -19,7 +19,7 @@
 
         if( empty($_POST['menuchoixeleve'])){
           echo "<div class='retour'>";
-          echo"<p>Attention : Veuillez à bien selectionnerun élève .</p>";
+          echo"<p>Attention : Veuillez à bien selectionner un élève .</p>";
           echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
           echo "<a class='space' href='visualisation_calendrier_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
         }
