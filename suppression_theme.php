@@ -15,13 +15,18 @@
       date_default_timezone_set('europe/paris');
       $aujourdhui = date("Y-m-d");
 
+      //on sélectionne les thèmes qui ne sont pas encore supprimés
+
       $result = mysqli_query($connect,"SELECT * FROM theme WHERE supprime = 0");
+
       if (!$result){
         echo "<br>erreur".mysqli_error($connect);
         exit;
         }
 
       $resultCount=mysqli_num_rows($result);
+
+      // si il n'y a pas de thèmes à supprimer on affiche un message d'erreur
 
       if($resultCount == 0){
         echo "<div class='retour'>";
@@ -30,6 +35,7 @@
         echo "<a class='space' href='ajout_theme.html'><input class='formbutton'type='button' value='Ajout thème'/></a></div>";
       }
       else{
+        //sinon on propose de selectionner un de thème pour le supprimer cf envoyer à l'autre formulaire 
         echo "<fieldset >";
         echo "<legend><p>Supprimer un thème</p></legend>";
         echo "<form method='post' action='supprimer_theme.php'>";

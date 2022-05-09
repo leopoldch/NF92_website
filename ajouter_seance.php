@@ -25,19 +25,23 @@ if(empty($_POST['date_inscription']) or empty($_POST['menuchoixtheme']) or empty
   exit();
 }
 
+// on stocke dans des variables les informations du formulaire HTML
 $selected_date=$_POST['date_inscription'];
 $idtheme=$_POST['menuchoixtheme'];
 $effectif=$_POST['effectif'];
 
+//vérification contre l'injection SQL
 $selected_date = mysqli_real_escape_string($connect, $selected_date);
 $idtheme = mysqli_real_escape_string($connect, $idtheme);
 $effectif = mysqli_real_escape_string($connect, $effectif);
 
+//vérification contre l'éxécution de script
 $selected_date = htmlspecialchars($selected_date);
 $idtheme = htmlspecialchars($idtheme);
 $effectif = htmlspecialchars($effectif);
 
 
+// Creer une séance sans pouvoir ajouter d'élèves n'a pas de sens !
 if($effectif < 1){
   echo "<div class='retour'>";
   echo"<p>Attention : Vous ne pouvez pas rentrer un effectif inférieur à 1.</p>";
@@ -47,7 +51,7 @@ if($effectif < 1){
 }
 
 
-
+//vérification sur la date, creer une séance dans le passé n'a pas de sens !
 if($selected_date < $aujourdhui){
   echo "<div class='retour'>";
   echo"<p>Attention : Vous ne pouvez pas rentrer une date inférieure à aujourd'hui.</p>";
@@ -56,13 +60,19 @@ if($selected_date < $aujourdhui){
   exit();
 }
 
+
+//On vérifie si la séance n'existe pas déjà
 $result1 = mysqli_query($connect, "SELECT * FROM seances WHERE idtheme ='$idtheme' AND DateSeance='$selected_date'");
 if (!$result1){
   echo "<br>erreur".mysqli_error($connect);
   exit;
   }
+
+
+//si la séance existe déjà alors on affiche un message d'erreur
 if (mysqli_num_rows($result1) != 0 ) {
 
+  //récupération du nom de la séance qui existe déjà
   $nomtheme = mysqli_query($connect, "SELECT nom FROM theme WHERE idtheme ='$idtheme' AND supprime = 0");
   $nom = mysqli_fetch_array($nomtheme);
   $nom= $nom['nom'];
@@ -72,6 +82,8 @@ if (mysqli_num_rows($result1) != 0 ) {
   echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
   echo "<a class='space' href='ajout_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
 }
+
+//sinon on ajoute directement les données dans la BDD
 else{
       $query = "INSERT INTO seances VALUES (NULL,"."'$selected_date'".","."'$effectif'".","."'$idtheme'".","."'0'".")";
       $result = mysqli_query($connect, $query);

@@ -16,7 +16,7 @@ date_default_timezone_set('europe/paris');
 $aujourdhui = date("Y-m-d");
 
 
-
+//vérification des champs envoyés depuis le formulaire HTML
 if(empty($_POST['menuchoixseance'])){
   echo "<div class='retour'>";
   echo"<p>Veuillez à bien selectionner une séance </p>";
@@ -24,6 +24,7 @@ if(empty($_POST['menuchoixseance'])){
   echo "<a class='space' href='valider_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
 }
 else{
+  //stockage dans une variable les données + vérification injection SQL et éxecution de scripts
   $idseance = $_POST['menuchoixseance'];
   $idseance = mysqli_real_escape_string($connect, $idseance);
   $idseance = htmlspecialchars($idseance);
@@ -31,13 +32,16 @@ else{
   $nombre_participants = mysqli_fetch_array($request1);
   $nombre_participants= $nombre_participants['nb_inscrits'];
 
+  //requete pour selectionner les élves inscrits à la séance selectionnée
 
   $request = mysqli_query($connect,"SELECT * FROM inscription INNER JOIN eleves WHERE eleves.ideleve = inscription.ideleve AND idseance=$idseance");
+
   if (!$request){
     echo "<br>erreur".mysqli_error($connect);
     exit;
     }
 
+  //si aucun élève inscrit alors message d'erreur
   if(mysqli_num_rows($request) == 0){
     echo "<div class='retour'>";
     echo "<p>Attention : Il n'y a pas d'élèves inscrits à cette séance </p>";
@@ -45,7 +49,7 @@ else{
     echo "<a class='space' href='inscription_eleve.php'><input class='buttonclick'type='button' value='Inscriptions'/></a></div>";
     exit;
   }
-
+ //sinon on affiche tous les élèves et les informations néscessaire
   echo "<fieldset style='width:auto; height:auto;'>";
   echo "<legend><p> Notation </p></legend>";
   echo "<form method='POST' action='noter_eleve.php'>";
@@ -60,7 +64,7 @@ else{
           $note= $response['note'];
 
 
-
+          // on différencie les cas où l'élève a déjà était noté et où il n'a pas encore été noté + champ de saisie de la note 
           if($note == -1){
             $val++;
             echo " pas encore de note enregistrée. Veuillez renseigner le nombre de fautes : ";

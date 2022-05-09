@@ -16,6 +16,7 @@
 
 
 
+        //vérification des champs
 
         if(empty($_POST['menuchoixseance']) or empty($_POST['menuchoixeleve'])){
           echo "<div class='retour'>";
@@ -24,6 +25,9 @@
           echo "<a class='space' href='desinscription_seance_selection.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
         }
         else{
+
+          //récupération des données et vérification injection SQL et utilisation de scripts
+
           $ideleve = $_POST['menuchoixeleve'];
           $ideleve = mysqli_real_escape_string($connect, $ideleve);
           $ideleve = htmlspecialchars($ideleve);
@@ -31,6 +35,8 @@
           $idseance = mysqli_real_escape_string($connect, $idseance);
           $idseance = htmlspecialchars($idseance);
 
+
+          //requete pour savoir qi l'élève est bien inscrit ou s'il n'est pas déjà inscrit
 
           $verification_inscription = mysqli_query($connect,"SELECT * FROM inscription
             INNER JOIN seances
@@ -40,11 +46,16 @@
             WHERE DateSeance > $date
             AND ideleve = $ideleve
             AND seances.idseance = $idseance");
+
             if (!$verification_inscription){
               echo "<br>erreur".mysqli_error($connect);
               exit;
               }
+
           $nombreinscription = mysqli_num_rows($verification_inscription);
+
+
+          // l'élève n'est pas isncrit --> pas besoin de désinscrire
 
           if($nombreinscription == 0){
             echo "<div class='retour'>";
@@ -53,6 +64,9 @@
             echo "<a class='space' href='desinscription_seance.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
             exit;
           }
+
+          //sinon on supprime l'inscription de la table inscriptions
+          
           else{
           $request = mysqli_query($connect,"DELETE FROM inscription WHERE ideleve = $ideleve AND idseance = $idseance ");
           if (!$request){

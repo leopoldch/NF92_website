@@ -14,21 +14,35 @@
         date_default_timezone_set('Europe/Paris');
         $date = date("Ymd");
 
+        // requete pour connaitre le nombre de séance encore disponibles
 
         $result = mysqli_query($connect,"SELECT * FROM seances
           WHERE DateSeance > $date
           AND nb_inscrits < EffMax");
+
+
         if (!$result){
           echo "<br>erreur".mysqli_error($connect);
           exit;
           }
+
+
         $responseCount1=mysqli_num_rows($result);
+
+        //on récupère les élèves
         $result2 = mysqli_query($connect,"SELECT * FROM eleves");
+
+
         if (!$result2){
           echo "<br>erreur".mysqli_error($connect);
           exit;
           }
+
+
         $responseCount2=mysqli_num_rows($result2);
+
+
+        // si pas de séance ou pas d'élève opération impossible --> message d'erreur
 
         if($responseCount1 == 0 or $responseCount2 == 0){
           echo "<div class='retour'>";
@@ -38,11 +52,15 @@
         }
 
         else{
+
+          //sinon on propose la sélection
+
           echo "<fieldset>";
           echo "<legend><p>Inscription</p></legend>";
           echo "<form method='POST' action='inscrire_eleve.php'>";
           echo "<label for='menuchoixeleve'> Veuillez selectionner des élèves pour les inscrire </label><br>";
           echo "<select name='menuchoixeleve' id='menuchoixeleve' multiple size='4' style='width:auto; text-align: center'>";
+
           /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
           while($response  = mysqli_fetch_array($result2)){
 
@@ -52,6 +70,8 @@
           echo "</select><br><br>";
           echo "<br><br>";
 
+          //requête pour afficher les séances encore dispo, dans le futur (pas inscrire dans le passé) et là où les thèmes ne sont pas supprimés
+
           $request = mysqli_query($connect,"SELECT *
           FROM seances
           INNER JOIN theme
@@ -59,6 +79,7 @@
           AND seances.DateSeance > $date
           AND seances.nb_inscrits < seances.EffMax
           AND theme.supprime <> 1;");
+          
           if (!$request){
             echo "<br>erreur".mysqli_error($connect);
             exit;

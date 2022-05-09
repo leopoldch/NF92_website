@@ -15,13 +15,15 @@
           $nom=$_POST["lname"];
           $bdate=$_POST["bdate"];
           $genre=$_POST["genre"];
-          //récu^pération des données qui proviennent du formulaire html
+          //récupération des données qui proviennent du formulaire html
 
-
+          // prévention contre l'injection sql
           $nom = trim(mysqli_real_escape_string($connect, $nom));
           $bdate = mysqli_real_escape_string($connect, $bdate);
           $genre = mysqli_real_escape_string($connect, $genre);
           $prenom = trim(mysqli_real_escape_string($connect, $prenom));
+
+          //prévention contre l'exécution de script chez d'autres utilisateurs - pas de scripts en BDD
           $nom = htmlspecialchars($nom);
           $bdate = htmlspecialchars($bdate);
           $genre = htmlspecialchars($genre);
@@ -31,28 +33,6 @@
           $subject = $prenom;
           // <>\/+"*%&()=?`^'[]!${}_:;,
           $pattern = '/[][(){}<>\/+"*%&=?`^\!$_:;,-]/';
-
-            // Si la chaîne contient des caractères spéciaux
-            if (preg_match($pattern, $subject, $matches)){
-              echo "<div class='retour'>";
-              echo "<p> Attention : Les caractères spéciaux ne sont pas acceptés.</p><br>";
-              echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil'/></a>";
-              echo "<a class='sapce' href='ajout_eleve.html'><input class='buttonclick'type='button' value='Retour'/></a></div>";
-            exit;
-          }
-
-          $subject = $nom;
-          // <>\/+"*%&()=?`^'[]!${}_:;,
-          $pattern = '/[][(){}<>\/+"*%&=?`^\'!$_:;,-]/';
-
-            // Si la chaîne contient des caractères spéciaux
-            if (preg_match($pattern, $subject, $matches)){
-              echo "<div class='retour'>";
-              echo "<p> Attention : Les caractères spéciaux ne sont pas accepté.</p><br>";
-              echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil'/></a>";
-              echo "<a class='sapce' href='ajout_eleve.html'><input class='buttonclick'type='button' value='Retour'/></a></div>";
-            exit;
-          }
 
 
           date_default_timezone_set('Europe/Paris');
@@ -77,6 +57,7 @@
 
             if($response){
               if ($response['nom'] == $nom and $response['prenom'] == $prenom ){
+                // si il y a déjà un nom présent on génère un form html pour valider l'ajout
                 echo "<fieldset>";
                 echo "<legend><p>Valider élève</p></legend>";
                 echo "<p> Le nom de cet élève est déjà présent dans la base de données</p>";
@@ -97,13 +78,12 @@
                 //si l'utilisateur a bien rempli son nom et son prénom alors on envoie les informations vers la BDD
                 $query = "INSERT INTO eleves VALUES(NULL,"."'$nom'".","."'$prenom'".","."'$bdate'".","."'$date'".","."'$genre'".")";
                 $result = mysqli_query($connect, $query);
+                // code de debugage
                 if (!$result){
                   echo "<br>erreur".mysqli_error($connect);
                   exit;
                   }
-                // $query utilise comme parametre de mysqli_query
-                // le test ci-dessous est desormais impose pour chaque appel de :
-                // mysqli_query($connect, $query)
+
                 echo "<div class='retour'>";
                 echo "<p>Votre inscription a bien été prise en compte</p>";
                 echo "<a class='space' href='bienvenue.html'><input type='button' class='buttonclick' value='Accueil' /></a>";

@@ -12,33 +12,20 @@
 
         include('connexion.php');
 
+
+          //récupération des données envoyés par le formulaire HTML
           $theme_name =$_POST["theme_name"];
           $description=$_POST["description"];
+          $supprime=0;
 
+          //vérification contre l'injection sql + éxecution de scripts
           $theme_name = trim(mysqli_real_escape_string($connect, $theme_name));
           $description = mysqli_real_escape_string($connect, $description);
           $theme_name = htmlspecialchars($theme_name);
           $description = htmlspecialchars($description);
 
-          $subject = $theme_name;
-          // <>\/+"*%&()=?`^'[]!${}_:;,
-          $pattern = '/[][(){}<>\/+"*%&=?`^\!$_:;,-]/';
 
-
-          if (preg_match($pattern, $subject, $matches)){
-            echo "<div class='retour'>";
-            echo "<p> Attention : Les caractères spéciaux ne sont pas acceptés.</p><br>";
-            echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
-            echo "<a class='space' href='ajout_theme.html'><input class='buttonclick'type='button' value='Retour'/></a></div>";
-          exit;
-        }
-
-
-
-          $supprime=0;
-          /*on récupère les données du formulaire HTML et on affecte par défaut la valeur 0 à supprime
-          pour siginifer que par défaut l'élement n'est pas supprimé */
-
+        
           if (empty($theme_name)){
             echo "<div class='retour'>";
             echo "<p>Attention : Veuillez rentrer le theme de votre séance.</p>";

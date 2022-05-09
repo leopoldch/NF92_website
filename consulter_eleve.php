@@ -10,11 +10,13 @@
 
         <?php
 
+
+
         include('connexion.php');
         date_default_timezone_set('europe/paris');
         $date = date("Ymd");
 
-
+        //vérification des champs envoyés par le formulaire
         if(empty($_POST['ideleve']) ){
           echo "<div class='retour'>";
           echo"<p>Attention : Veuillez à bien sélectionner un élève.</p><br> ";
@@ -22,17 +24,24 @@
           echo "<a class='space' href='consultation_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";
           exit;
         }
+
         else{
+
+          //Affichage de toutes les informations sur un élève qu'on a en base de donnée
+
           echo "<div class='retour' style='width:auto;height:auto;'>";
           $ideleve = $_POST['ideleve'];
           $ideleve = mysqli_real_escape_string($connect, $ideleve);
           $ideleve = htmlspecialchars($ideleve);
 
+          //récupération de toutes les infos personelles de l'élève
           $request = mysqli_query($connect, "SELECT * FROM eleves WHERE ideleve=$ideleve");
+
           if (!$request){
             echo "<br>erreur".mysqli_error($connect);
             exit;
             }
+
           $infos = mysqli_fetch_array($request);
           if($infos['genre']==1){
               echo "<p style='text-decoration: underline;'> Mme. ".$infos['nom'].' '.$infos['prenom']." née le ".$infos['dateNaiss']." inscrite le ".$infos['dateInscription']."</p><br>";
@@ -40,6 +49,9 @@
           else{
               echo "<p style='text-decoration: underline;'> M. ".$infos['nom'].' '.$infos['prenom']." né le ".$infos['dateNaiss']." inscrit le ".$infos['dateInscription']."</p><br>";
           }
+
+          //requête pour connaitre les séances auxquelles est inscrit l'élève dans le passé !
+
           $request_seance = mysqli_query($connect, "SELECT * FROM inscription
             INNER JOIN seances
             ON inscription.idseance = seances.idseance
@@ -47,10 +59,14 @@
             ON theme.idtheme = seances.idtheme
             WHERE inscription.ideleve = $ideleve
             AND DateSeance < $date");
-            if (!$request_seance){
+
+          if (!$request_seance){
               echo "<br>erreur".mysqli_error($connect);
               exit;
               }
+
+          // s'il n'est inscrit à aucune séance on affiche un message le signifiant
+
           if(mysqli_num_rows($request_seance) == 0){
             echo "<p> Aucune séance suivie dans le passé</p>";
           }
@@ -58,6 +74,7 @@
             if(mysqli_num_rows($request_seance) == 1){
               echo "<p>Séance suivie par l'élève :</p>";
             }
+            // sinon on affiche toutes les séances auxquelles il est inscrit
             else{
               echo "<p>Séances suivies par l'élève :</p>";
             }
@@ -74,6 +91,8 @@
           }
 
           echo "<br>";
+
+          //requête pour connaitre les séances auxquelles est inscrit l'élève dans le futur !
 
           $request_seance2 = mysqli_query($connect, "SELECT * FROM inscription
             INNER JOIN seances

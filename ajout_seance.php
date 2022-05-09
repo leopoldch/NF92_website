@@ -15,14 +15,15 @@ include('connexion.php');
 date_default_timezone_set('europe/paris');
 $aujourdhui = date("Y-m-d");
 
+
+// requête vers la BDD pour afficher tout les thèmes actifs dans la BDD
 $result = mysqli_query($connect,"SELECT * FROM theme WHERE supprime=0 ORDER BY nom ASC");
 if (!$result){
   echo "<br>erreur".mysqli_error($connect);
   exit;
   }
 
-/*La ligne du dessus représente la requete qui permet à php de récupérer les données demandés (ici en l'occurence la liste des
-noms qui sont présent dans notre tableau) et de les trier par ordre alphabétique.*/
+
 //On place sous forme de tableau les données récupérées dans la requête
 $resultCount=mysqli_num_rows($result);
 /*On vérifie qu'il y ait des thèmes selectionnables, sinon l'opération est impossible*/

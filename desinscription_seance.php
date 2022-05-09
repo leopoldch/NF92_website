@@ -14,18 +14,24 @@
         date_default_timezone_set('Europe/Paris');
         $date = date("Ymd");
 
+        //requete pour récupérer toutes les inscriptions, il faut vérifier qu'il existe des personnes inscrits pour en désisncrire
+
         $result = mysqli_query($connect,"SELECT * FROM inscription");
         if (!$result){
           echo "<br>erreur".mysqli_error($connect);
           exit;
           }
         $responseCount1=mysqli_num_rows($result);
+
+        //requete pour récupérer toutes les élèves, il faut vérifier qu'il existe des élèves pour en désisncrire
+
         $result2 = mysqli_query($connect,"SELECT * FROM eleves");
         if (!$result2){
           echo "<br>erreur".mysqli_error($connect);
           exit;
           }
         $responseCount2=mysqli_num_rows($result2);
+
 
         if($responseCount1 == 0 or $responseCount2 == 0){
           echo "<div class='retour'>";
@@ -34,6 +40,7 @@
           echo "<a class='space' href='isncription_eleve.php'><input class='buttonclick'type='button' value='Inscriptions'/></a></div>";
         }
 
+        // S'il y a bien des inscriptions et des élèves alors on va proposer la selection à l'utiisateur
         else{
           echo "<form method='POST' action='desinscrire_seance.php'>";
           echo "<fieldset>";
@@ -49,11 +56,14 @@
           echo "</select><br><br>";
           echo "<br><br>";
 
+          //affichage de la date de la séance pour pouvoir les différencier
+          
           $request = mysqli_query($connect,"SELECT *
           FROM seances
           INNER JOIN theme
           WHERE seances.idtheme = theme.idtheme
           AND seances.DateSeance > $date");
+
           if (!$request){
             echo "<br>erreur".mysqli_error($connect);
             exit;
