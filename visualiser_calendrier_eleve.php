@@ -27,10 +27,12 @@
           $ideleve = $_POST['menuchoixeleve'];
           $ideleve = mysqli_real_escape_string($connect, $ideleve);
 
-          $request_inscription = mysqli_query($connect, "SELECT * FROM `inscription`
-                                                          INNER JOIN seances ON seances.idseance = inscription.idseance
-                                                          INNER JOIN theme ON seances.idtheme = theme.idtheme
-                                                          WHERE inscription.ideleve = $ideleve");
+          $request_inscription = mysqli_query($connect, "SELECT * FROM inscription
+            INNER JOIN seances
+            ON inscription.idseance = seances.idseance
+            INNER JOIN theme
+            ON theme.idtheme = seances.idtheme
+            WHERE inscription.ideleve = $ideleve");
           if(!$request_inscription){
             echo "<br>erreur".mysqli_error($connect);
             exit;
