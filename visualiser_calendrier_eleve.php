@@ -60,7 +60,7 @@
             $donnee = '';
             while($response = mysqli_fetch_array($request_inscription)){
 
-              $donnee = $donnee.' AND theme.idtheme != '.$response['idtheme'];
+              $donnee = $donnee.' AND theme.idtheme <> '.$response['idtheme'];
             }
 
             $seances = mysqli_query($connect, "SELECT * FROM `inscription`

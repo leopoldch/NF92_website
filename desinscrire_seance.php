@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class='all_pages'>
+  <h1 class="title">Désinscrire un élève</h1>
 
         <?php
 
         include('connexion.php');
         date_default_timezone_set('Europe/Paris');
-        $date = date("Y-m-d");
+        $date = date("Ymd");
 
 
 

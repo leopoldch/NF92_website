@@ -58,7 +58,7 @@
           WHERE seances.idtheme = theme.idtheme
           AND seances.DateSeance > $date
           AND seances.nb_inscrits < seances.EffMax
-          AND theme.supprime != 1;");
+          AND theme.supprime <> 1;");
           if (!$request){
             echo "<br>erreur".mysqli_error($connect);
             exit;
