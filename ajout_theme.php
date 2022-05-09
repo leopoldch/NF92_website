@@ -15,7 +15,7 @@
           $theme_name =$_POST["theme_name"];
           $description=$_POST["description"];
 
-          $theme_name = mysqli_real_escape_string($connect, $theme_name);
+          $theme_name = trim(mysqli_real_escape_string($connect, $theme_name));
           $description = mysqli_real_escape_string($connect, $description);
 
           $subject = $theme_name;

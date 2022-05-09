@@ -52,9 +52,8 @@ if (mysqli_num_rows($result1) != 0 ) {
   $nom = mysqli_fetch_array($nomtheme);
   $nom= $nom['nom'];
 
-  echo "<p style='margin:auto'>La séance prévue le ".$selected_date."sur les ".$nom." existe déjà, que voulez vous faire ?</p><br>";
   echo "<fieldset>";
-  echo "<legend><p>Validation ajout</p></legend>";
+  echo "<legend><p>La séance prévue le ".$selected_date." sur les ".$nom." existe déjà, que voulez vous faire ?</p></legend>";
   echo "<form method='POST' action='verification_seance.php'>";
   echo "<input type='hidden' name='date' value ='".$selected_date."'>";
   echo "<input type='hidden' name='idtheme' value ='".$idtheme."'>";

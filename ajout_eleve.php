@@ -18,10 +18,10 @@
           //récu^pération des données qui proviennent du formulaire html
 
 
-          $nom = mysqli_real_escape_string($connect, $nom);
+          $nom = trim(mysqli_real_escape_string($connect, $nom));
           $bdate = mysqli_real_escape_string($connect, $bdate);
           $genre = mysqli_real_escape_string($connect, $genre);
-          $prenom = mysqli_real_escape_string($connect, $prenom);
+          $prenom = trim(mysqli_real_escape_string($connect, $prenom));
 
 
           $subject = $prenom;
@@ -31,7 +31,7 @@
             // Si la chaîne contient des caractères spéciaux
             if (preg_match($pattern, $subject, $matches)){
               echo "<div class='retour'>";
-              echo "<p> Attention : Les caractères spéciaux ne sont pas accepté.</p><br>";
+              echo "<p> Attention : Les caractères spéciaux ne sont pas acceptés.</p><br>";
               echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil'/></a>";
               echo "<a class='sapce' href='ajout_eleve.html'><input class='buttonclick'type='button' value='Retour'/></a></div>";
             exit;
