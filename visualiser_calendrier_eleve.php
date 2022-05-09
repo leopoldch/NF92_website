@@ -26,6 +26,7 @@
         else{
           $ideleve = $_POST['menuchoixeleve'];
           $ideleve = mysqli_real_escape_string($connect, $ideleve);
+          $ideleve = htmlspecialchars($ideleve);
 
           $request_inscription = mysqli_query($connect, "SELECT * FROM inscription
             INNER JOIN seances

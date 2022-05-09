@@ -24,6 +24,12 @@
           $genre = mysqli_real_escape_string($connect, $genre);
           $valider = mysqli_real_escape_string($connect, $valider);
 
+          $nom = htmlspecialchars($nom);
+          $prenom = htmlspecialchars($prenom);
+          $bdate = htmlspecialchars($bdate);
+          $genre = htmlspecialchars($genre);
+          $valider = htmlspecialchars($valider);
+
           date_default_timezone_set('Europe/Paris');
           $date = date("Y-m-d");
 

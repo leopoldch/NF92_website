@@ -25,6 +25,8 @@
               else{
                   $idtheme = $_POST['theme_supp'];
                   $idtheme = mysqli_real_escape_string($connect, $idtheme);
+                  $idtheme = htmlspecialchars($idtheme);
+
                   $query = "UPDATE theme SET supprime='1' WHERE idtheme='$idtheme';";
                   if (!$query){
                     echo "<br>erreur".mysqli_error($connect);

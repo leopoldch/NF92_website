@@ -22,6 +22,10 @@
           $bdate = mysqli_real_escape_string($connect, $bdate);
           $genre = mysqli_real_escape_string($connect, $genre);
           $prenom = trim(mysqli_real_escape_string($connect, $prenom));
+          $nom = htmlspecialchars($nom);
+          $bdate = htmlspecialchars($bdate);
+          $genre = htmlspecialchars($genre);
+          $prenom = htmlspecialchars($prenom);
 
 
           $subject = $prenom;

@@ -26,8 +26,10 @@
         else{
           $ideleve = $_POST['menuchoixeleve'];
           $ideleve = mysqli_real_escape_string($connect, $ideleve);
+          $ideleve = htmlspecialchars($ideleve);
           $idseance = $_POST['menuchoixseance'];
           $idseance = mysqli_real_escape_string($connect, $idseance);
+          $idseance = htmlspecialchars($idseance);
 
 
           $verification_inscription = mysqli_query($connect,"SELECT * FROM inscription

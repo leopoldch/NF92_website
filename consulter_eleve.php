@@ -26,6 +26,7 @@
           echo "<div class='retour' style='width:auto;height:auto;'>";
           $ideleve = $_POST['ideleve'];
           $ideleve = mysqli_real_escape_string($connect, $ideleve);
+          $ideleve = htmlspecialchars($ideleve);
 
           $request = mysqli_query($connect, "SELECT * FROM eleves WHERE ideleve=$ideleve");
           if (!$request){

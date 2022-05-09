@@ -33,6 +33,11 @@ $selected_date = mysqli_real_escape_string($connect, $selected_date);
 $idtheme = mysqli_real_escape_string($connect, $idtheme);
 $effectif = mysqli_real_escape_string($connect, $effectif);
 
+$selected_date = htmlspecialchars($selected_date);
+$idtheme = htmlspecialchars($idtheme);
+$effectif = htmlspecialchars($effectif);
+
+
 if($effectif < 1){
   echo "<div class='retour'>";
   echo"<p>Attention : Vous ne pouvez pas rentrer un effectif inférieur à 1.</p>";

@@ -17,6 +17,8 @@
 
           $theme_name = trim(mysqli_real_escape_string($connect, $theme_name));
           $description = mysqli_real_escape_string($connect, $description);
+          $theme_name = htmlspecialchars($theme_name);
+          $description = htmlspecialchars($description);
 
           $subject = $theme_name;
           // <>\/+"*%&()=?`^'[]!${}_:;,

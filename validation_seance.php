@@ -26,6 +26,7 @@ if(empty($_POST['menuchoixseance'])){
 else{
   $idseance = $_POST['menuchoixseance'];
   $idseance = mysqli_real_escape_string($connect, $idseance);
+  $idseance = htmlspecialchars($idseance);
   $request1 = mysqli_query($connect,"SELECT * FROM seances WHERE idseance=$idseance");
   $nombre_participants = mysqli_fetch_array($request1);
   $nombre_participants= $nombre_participants['nb_inscrits'];
