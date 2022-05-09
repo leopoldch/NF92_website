@@ -20,7 +20,7 @@
 
           $subject = $theme_name;
           // <>\/+"*%&()=?`^'[]!${}_:;,
-          $pattern = '/[][(){}<>\/+"*%&=?`^\'!$_:;,-]/';
+          $pattern = '/[][(){}<>\/+"*%&=?`^\!$_:;,-]/';
 
 
           if (preg_match($pattern, $subject, $matches)){

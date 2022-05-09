@@ -26,7 +26,7 @@
 
           $subject = $prenom;
           // <>\/+"*%&()=?`^'[]!${}_:;,
-          $pattern = '/[][(){}<>\/+"*%&=?`^\'!$_:;,-]/';
+          $pattern = '/[][(){}<>\/+"*%&=?`^\!$_:;,-]/';
 
             // Si la chaîne contient des caractères spéciaux
             if (preg_match($pattern, $subject, $matches)){
