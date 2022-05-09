@@ -53,7 +53,7 @@
             echo "<div class='retour'>";
             echo "L'élève est inscrit aux séances suivantes : ";
             while($response = mysqli_fetch_array($request_inscription)){
-              echo '<p>'.$response['nom'].' prévue le '.$response['DateSeance'].'</p>';
+              echo "<p style='font-size:medium;'>".$response['nom'].' prévue le '.$response['DateSeance'].'</p>';
             }
             echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
             echo "<a class='space' href='visualisation_calendrier_eleve.php'><input class='buttonclick'type='button' value='Retour'/></a></div>";;
