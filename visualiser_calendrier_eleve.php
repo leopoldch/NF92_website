@@ -12,7 +12,7 @@
 
         include('connexion.php');
         date_default_timezone_set('Europe/Paris');
-        $date = date("Ymd");
+        $date = date("Y-m-d");
 
 
 
@@ -37,7 +37,7 @@
             INNER JOIN theme
             ON theme.idtheme = seances.idtheme
             WHERE inscription.ideleve = $ideleve
-            AND seances.DateSeance > $date");
+            AND seances.DateSeance > '$date'");
 
           if(!$request_inscription){
             echo "<br>erreur".mysqli_error($connect);

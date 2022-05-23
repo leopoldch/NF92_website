@@ -14,11 +14,11 @@ include('connexion.php');
 
 // récupération de la date du jour mise dans $aujourdhui
 date_default_timezone_set('europe/paris');
-$aujourdhui = date("Y-m-d");
+$date = date("Y-m-d");
 
 //récupération des séances : date de la séance / nom du thème ...
 
-$result = mysqli_query($connect,"SELECT * FROM seances INNER JOIN theme WHERE seances.idtheme=theme.idtheme;");
+$result = mysqli_query($connect,"SELECT * FROM seances INNER JOIN theme WHERE seances.idtheme=theme.idtheme AND seances.DateSeance <= '$date';");
 if (!$result){
   echo "<br>erreur".mysqli_error($connect);
   exit;
@@ -41,7 +41,7 @@ else{
   echo "<form method='post' action='validation_seance.php'>";
   echo "<label for='menuchoixseance'> Veuillez selectionner une séance </label>";
   echo "<select name='menuchoixseance' id='menuchoixseance' size='4' style='width:35%; text-align: center'>";
-  
+
   /*Tant qu'on a des choses qui rentrent dans notre tableau alors on va afficher les noms qu'on récupère dans une balise <select> en html*/
   while($response = mysqli_fetch_array($result)) {
     echo "<option value=".$response['idseance'].">".$response['DateSeance'].' / '.$response['nom']."</option>";

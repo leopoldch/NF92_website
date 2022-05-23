@@ -77,8 +77,7 @@
           INNER JOIN theme
           WHERE seances.idtheme = theme.idtheme
           AND seances.DateSeance > '$date'
-          AND seances.nb_inscrits < seances.EffMax
-          AND theme.supprime <> 1;");
+          AND seances.nb_inscrits < seances.EffMax;");
 
           if (!$request){
             echo "<br>erreur".mysqli_error($connect);

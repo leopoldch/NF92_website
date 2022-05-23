@@ -13,7 +13,7 @@
 include('connexion.php');
 // récupération de la date du jour mise dans $aujourdhui
 date_default_timezone_set('europe/paris');
-$aujourdhui = date("Y-m-d");
+$date = date("Y-m-d");
 
 
 //vérification des champs envoyés depuis le formulaire HTML
@@ -64,7 +64,7 @@ else{
           $note= $response['note'];
 
 
-          // on différencie les cas où l'élève a déjà était noté et où il n'a pas encore été noté + champ de saisie de la note 
+          // on différencie les cas où l'élève a déjà était noté et où il n'a pas encore été noté + champ de saisie de la note
           if($note == -1){
             $val++;
             echo " pas encore de note enregistrée. Veuillez renseigner le nombre de fautes : ";
