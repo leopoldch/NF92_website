@@ -14,7 +14,7 @@
 
         include('connexion.php');
         date_default_timezone_set('europe/paris');
-        $date = date("Ymd");
+        $date = date("Y-m-d");
 
         //vérification des champs envoyés par le formulaire
         if(empty($_POST['ideleve']) ){
@@ -58,7 +58,7 @@
             INNER JOIN theme
             ON theme.idtheme = seances.idtheme
             WHERE inscription.ideleve = $ideleve
-            AND DateSeance < $date");
+            AND DateSeance < '$date'");
 
           if (!$request_seance){
               echo "<br>erreur".mysqli_error($connect);
@@ -100,7 +100,7 @@
             INNER JOIN theme
             ON theme.idtheme = seances.idtheme
             WHERE inscription.ideleve = $ideleve
-            AND DateSeance > $date");
+            AND DateSeance > '$date'");
             if (!$request_seance2){
               echo "<br>erreur".mysqli_error($connect);
               exit;

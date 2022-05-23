@@ -12,7 +12,7 @@
 
         include('connexion.php');
         date_default_timezone_set('Europe/Paris');
-        $date = date("Ymd");
+        $date = date("Y-m-d");
 
         //requete pour récupérer toutes les inscriptions, il faut vérifier qu'il existe des personnes inscrits pour en désisncrire
 
@@ -57,12 +57,12 @@
           echo "<br><br>";
 
           //affichage de la date de la séance pour pouvoir les différencier
-          
+
           $request = mysqli_query($connect,"SELECT *
           FROM seances
           INNER JOIN theme
           WHERE seances.idtheme = theme.idtheme
-          AND seances.DateSeance > $date");
+          AND seances.DateSeance > '$date'");
 
           if (!$request){
             echo "<br>erreur".mysqli_error($connect);

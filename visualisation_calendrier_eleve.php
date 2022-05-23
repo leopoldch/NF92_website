@@ -12,7 +12,7 @@
 
         include('connexion.php');
         date_default_timezone_set('Europe/Paris');
-        $date = date("Ymd");
+        $date = date("Y-m-d");
 
 
         //selection de élèves présetns en BDD

@@ -12,7 +12,7 @@
 
         include('connexion.php');
         date_default_timezone_set('Europe/Paris');
-        $date = date("Ymd");
+        $date = date("Y-m-d");
 
 
 
@@ -43,7 +43,7 @@
             ON inscription.idseance = seances.idseance
             INNER JOIN theme
             ON seances.idtheme = theme.idtheme
-            WHERE DateSeance > $date
+            WHERE DateSeance > '$date'
             AND ideleve = $ideleve
             AND seances.idseance = $idseance");
 
@@ -66,7 +66,7 @@
           }
 
           //sinon on supprime l'inscription de la table inscriptions
-          
+
           else{
           $request = mysqli_query($connect,"DELETE FROM inscription WHERE ideleve = $ideleve AND idseance = $idseance ");
           if (!$request){

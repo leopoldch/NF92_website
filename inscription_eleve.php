@@ -12,12 +12,12 @@
 
         include('connexion.php');
         date_default_timezone_set('Europe/Paris');
-        $date = date("Ymd");
+        $date = date("Y-m-d");
 
         // requete pour connaitre le nombre de séance encore disponibles
 
         $result = mysqli_query($connect,"SELECT * FROM seances
-          WHERE DateSeance > $date
+          WHERE DateSeance > '$date'
           AND nb_inscrits < EffMax");
 
 
@@ -76,10 +76,10 @@
           FROM seances
           INNER JOIN theme
           WHERE seances.idtheme = theme.idtheme
-          AND seances.DateSeance > $date
+          AND seances.DateSeance > '$date'
           AND seances.nb_inscrits < seances.EffMax
           AND theme.supprime <> 1;");
-          
+
           if (!$request){
             echo "<br>erreur".mysqli_error($connect);
             exit;
