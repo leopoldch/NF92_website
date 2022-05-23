@@ -31,8 +31,8 @@
 
           echo "<div class='retour' style='width:auto;height:auto;'>";
           $ideleve = $_POST['ideleve'];
+
           $ideleve = mysqli_real_escape_string($connect, $ideleve);
-          $ideleve = htmlspecialchars($ideleve);
 
           //récupération de toutes les infos personelles de l'élève
           $request = mysqli_query($connect, "SELECT * FROM eleves WHERE ideleve=$ideleve");

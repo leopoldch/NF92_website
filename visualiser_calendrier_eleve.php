@@ -28,7 +28,7 @@
           //stockage des données dans des variables et vérification injection SQL et éxécution de scripts
           $ideleve = $_POST['menuchoixeleve'];
           $ideleve = mysqli_real_escape_string($connect, $ideleve);
-          $ideleve = htmlspecialchars($ideleve);
+
 
           // on sélectionne les séances auxquelles l'élève est inscrit et qui sont dans le futur
           $request_inscription = mysqli_query($connect, "SELECT * FROM inscription
@@ -57,7 +57,7 @@
 
           }
           else{
-            //sinon on affiche les seances auxquelles est inscrit l'élèves 
+            //sinon on affiche les seances auxquelles est inscrit l'élèves
             echo "<div class='retour'>";
             echo "L'élève est inscrit aux séances suivantes : ";
             while($response = mysqli_fetch_array($request_inscription)){

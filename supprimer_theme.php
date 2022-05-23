@@ -26,7 +26,7 @@
                 //stockage de la donnée dans une variable + vérification injection sql et exécution de scripts
                   $idtheme = $_POST['theme_supp'];
                   $idtheme = mysqli_real_escape_string($connect, $idtheme);
-                  $idtheme = htmlspecialchars($idtheme);
+
 
                   //on execute la requete pour supprimer virtuellement le thème
                   $query = "UPDATE theme SET supprime='1' WHERE idtheme='$idtheme';";
@@ -35,7 +35,7 @@
                     echo "<br>erreur".mysqli_error($connect);
                     exit;
                     }
-                    
+
                   $result = mysqli_query($connect, $query);
                   echo "<div class='retour'";
                   echo "<p> Le thème a bien était supprimé</p>";

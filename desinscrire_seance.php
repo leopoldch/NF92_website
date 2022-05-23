@@ -30,10 +30,10 @@
 
           $ideleve = $_POST['menuchoixeleve'];
           $ideleve = mysqli_real_escape_string($connect, $ideleve);
-          $ideleve = htmlspecialchars($ideleve);
+
           $idseance = $_POST['menuchoixseance'];
           $idseance = mysqli_real_escape_string($connect, $idseance);
-          $idseance = htmlspecialchars($idseance);
+  
 
 
           //requete pour savoir qi l'élève est bien inscrit ou s'il n'est pas déjà inscrit

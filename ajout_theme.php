@@ -21,11 +21,12 @@
           //vérification contre l'injection sql + éxecution de scripts
           $theme_name = trim(mysqli_real_escape_string($connect, $theme_name));
           $description = mysqli_real_escape_string($connect, $description);
+          
           $theme_name = htmlspecialchars($theme_name);
           $description = htmlspecialchars($description);
 
 
-        
+
           if (empty($theme_name)){
             echo "<div class='retour'>";
             echo "<p>Attention : Veuillez rentrer le theme de votre séance.</p>";
