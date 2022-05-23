@@ -38,7 +38,7 @@ $nombre_participants= $tab['nb_inscrits'];
 $val = 0; // la variable val va nous permettre de savoir combien de fois il va falloir fetch array ! On ne sait pas combien de gens sont inscrits
 echo "<fieldset style='margin-left:0%'>";
 echo "<legend><h1>Récapitulatif de la saisie :</h1></legend>";
-while($val<=($nombre_participants-1)){
+while($val<($nombre_participants-1)){
   $val++;
   $name = "ideleve".$val;
   $ideleve = $_POST[$name];
@@ -73,7 +73,7 @@ while($val<=($nombre_participants-1)){
         echo "<br>erreur".mysqli_error($connect);
         exit;
         }
-      echo "<p>".$nom." ".$prenom." : la note '".$newnote."/40' a bien été enregistrée</p><br>"; //affiche la note rentrée par l'utilisateur 
+      echo "<p>".$nom." ".$prenom." : la note '".$newnote."/40' a bien été enregistrée</p><br>"; //affiche la note rentrée par l'utilisateur
     }
   }
 }
