@@ -74,7 +74,7 @@
             exit;
             }
 
-          $desincription_seance = mysqli_query($connect, "UPDATE seances SET `nb_inscrits` = nb_inscrits -1 WHERE idseance = $idseance ")
+          $desincription_seance = mysqli_query($connect, "UPDATE seances SET `nb_inscrits` = nb_inscrits -1 WHERE idseance = $idseance ");
           if (!$desincription_seance){
             echo "<br>erreur".mysqli_error($connect);
             exit;
