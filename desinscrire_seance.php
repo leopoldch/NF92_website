@@ -33,7 +33,7 @@
 
           $idseance = $_POST['menuchoixseance'];
           $idseance = mysqli_real_escape_string($connect, $idseance);
-  
+
 
 
           //requete pour savoir qi l'élève est bien inscrit ou s'il n'est pas déjà inscrit
@@ -73,6 +73,14 @@
             echo "<br>erreur".mysqli_error($connect);
             exit;
             }
+
+          $desincription_seance = mysqli_query($connect, "UPDATE seances SET `nb_inscrits` = nb_inscrits -1 WHERE idseance = $idseance ")
+          if (!$desincription_seance){
+            echo "<br>erreur".mysqli_error($connect);
+            exit;
+            }
+
+
           echo "<div class='retour'>";
           echo "<p>L'élève a bien été désincrit.</p><br>";
           echo "<a class='space' href='bienvenue.html'><input class='buttonclick' type='button' value='Accueil' /></a>";
