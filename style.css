@@ -84,7 +84,6 @@ nav ul li{ /* selection des elements de la liste  dans la balise ul qui est dans
 
 
 nav ul::after{ /* ::after crée un pseudo-élément qui sera le dernier enfant de l'élément sélectionné */
-    content: "";
     display: table;
     clear: both;
 }
@@ -136,7 +135,7 @@ nav > ul li:hover .sous{ /* le selecteur nav > ul li:hover .sous sert à cibler 
 .sous a:hover{ /* Change l'état des liens (la case) quand on passe la souris au dessus */
     background-color: RGBa(200,200,200,0.1); /* change sa couleur */
 }
-.deroulant > a::after{ /* Selectionne les liens qui composent les classes 'deroulant' */ 
+.deroulant > a::after{ /* Selectionne les liens qui composent les classes 'deroulant'
                         permet de rajouter un symbole après toutes les catégories de notre menu */
     content:" ▼";
     font-size: 12px;
