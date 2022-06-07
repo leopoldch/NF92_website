@@ -62,39 +62,48 @@ footer{
   padding-right: 5%;
 }
 /* code de l'affichage du menu déroulant */
-nav{
-    width: 100%;
+
+nav{ /* mise en page de la balise navigation */
+
+    width: 100%; /* prend 100 % de la page   */
     margin: 0 auto;
     background-color: grey;
     position: sticky;
     top: 0px;
     border-radius: 10px;
 }
-nav ul{
-    list-style-type: none;
+nav ul{ /* selection de la balise ul dans la balise nav */
+
+    list-style-type: none; /* Enlever la mise en forme de la liste */
 }
-nav ul li{
+
+nav ul li{ /* selection des elements de la liste  dans la balise ul qui est dans la balise nav */
     width: 100%;
     position: relative;
 }
-nav ul::after{
+
+
+nav ul::after{ /* ::after crée un pseudo-élément qui sera le dernier enfant de l'élément sélectionné */
     content: "";
     display: table;
     clear: both;
 }
-nav a{
+nav a{ /* mise en page des liens */
     display: block;
     text-decoration: none;
     color: black;
     border-bottom: 2px solid transparent;
     padding: 12px 0px;
 }
-nav a:hover{
+nav a:hover{ /* :hover permet de changer d'etat quand la souris
+                passe au dessus ici ça va changer la couleur des liens pour les afficher en orange  */
     color: orange;
     border-bottom: 2px solid gold;
 }
 .sous{
-    display: none;
+    /* classe des colones des listes */
+
+    display: none;  /* cache les sous menus */
     box-shadow: 0px 1px 2px #CCC;
     background-color: #A2A2A2;
     position: absolute;
@@ -104,27 +113,38 @@ nav a:hover{
     padding-left: 0;
     text-align: left;
 }
-nav > ul li:hover .sous{
-    display: block;
+nav > ul li:hover .sous{ /* le selecteur nav > ul li:hover .sous sert à cibler un sous menu .sous lorsqu’un
+                        utilisateur passe sa souris sur un éléments li de la liste représentant le menu principal.
+                        Selectionne tous les ul li contenu dans nav*/
+
+    display: block; /* display block quand un utilisateur passe sa souris sur une des categories / affiche les sous menus */
 }
-.sous li{
+
+/* En mettant .sous puis li on herite et on réutilise les styles déjà créé pour ne pas avoir à tout refaire */
+
+.sous li{ /* On veut que nos éléments s'affichent les uns en dessous des autres */
     float: none;
-    width: 98%;
-    text-align: left;
+    width: 98%;/* Ils occupent 98% de l'espace disponible */
+    text-align: left; /* et le texte soit aligné à gauche */
 }
+
 .sous a{
-    padding: 10px;
-    border-bottom: none;
+    padding: 10px; /* on décolle les liens */
+    border-bottom: none; /* on attache les liens en bas */
 }
-.sous a:hover{
-    border-bottom: none;
-    background-color: RGBa(200,200,200,0.1);
+
+.sous a:hover{ /* Change l'état des liens (la case) quand on passe la souris au dessus */
+    background-color: RGBa(200,200,200,0.1); /* change sa couleur */
 }
-.deroulant > a::after{
+.deroulant > a::after{ /* Selectionne les liens qui composent les classes 'deroulant' */ 
+                        permet de rajouter un symbole après toutes les catégories de notre menu */
     content:" ▼";
     font-size: 12px;
 }
 /* fin du code de l'affichage du menu déroulant */
+
+
+
 
 
 /* code pour la mise en page de toutes les pages générées en php */
